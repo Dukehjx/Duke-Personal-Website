@@ -8,13 +8,18 @@ export const AnimatedThemeToggler = ({ className }) => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
 
+  const handleClick = () => {
+    console.log('Theme toggler clicked, current theme:', theme);
+    toggleTheme();
+  };
+
   return (
     <motion.button
-      onClick={toggleTheme}
+      onClick={handleClick}
       className={cn(
         "relative flex h-10 w-10 items-center justify-center rounded-full",
-        "bg-white/30 backdrop-blur-sm border border-white/20",
-        "hover:bg-white/50 transition-colors duration-200",
+        "bg-white/30 dark:bg-black/30 backdrop-blur-sm border border-white/20 dark:border-gray-700/20",
+        "hover:bg-white/50 dark:hover:bg-black/50 transition-colors duration-200",
         "focus:outline-none focus:ring-2 focus:ring-blue-500/50",
         className
       )}

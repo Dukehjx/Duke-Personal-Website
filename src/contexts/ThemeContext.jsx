@@ -1,50 +1,39 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+// src/contexts/ThemeContext.jsx
+import React, { createContext, useContext, useLayoutEffect, useMemo, useState } from "react";
 
 const ThemeContext = createContext();
-
 export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-  return context;
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error("useTheme must be used within a ThemeProvider");
+  return ctx;
 };
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(() => {
-    // Check localStorage first, then system preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
+function getInitialTheme() {
+  if (typeof window === "undefined") return "light";
+  const saved = localStorage.getItem("theme");
+  if (saved === "light" || saved === "dark") return saved;
+  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
 
-  useEffect(() => {
-    const root = window.document.documentElement;
-    
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    
-    localStorage.setItem('theme', theme);
+function applyTheme(theme) {
+  const root = document.documentElement;
+  root.classList.toggle("dark", theme === "dark");
+  // Ensure UA widgets & scrollbars follow
+  root.style.colorScheme = theme === "dark" ? "dark" : "light";
+  localStorage.setItem("theme", theme);
+}
+
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  // Apply immediately before paint / layout
+  useLayoutEffect(() => {
+    applyTheme(theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+  const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
-  const value = {
-    theme,
-    toggleTheme,
-    setTheme
-  };
+  const value = useMemo(() => ({ theme, setTheme, toggleTheme }), [theme]);
 
-  return (
-    <ThemeContext.Provider value={value}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };

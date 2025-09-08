@@ -34,7 +34,7 @@ export const Dock = React.forwardRef(({
       {...props}
       className={cn(
         "mx-auto flex h-[58px] w-max gap-2 rounded-2xl border p-2 backdrop-blur-md",
-        "bg-white/10 border-white/20",
+        "bg-white/10 border-white/20 dark:bg-black/30 dark:border-gray-700/30",
         {
           "items-start": direction === "top",
           "items-center": direction === "middle",
@@ -90,7 +90,7 @@ export const DockIcon = ({
       whileHover={{ scale: disableMagnification ? 1 : 1.1 }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-        "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700",
+        "bg-gray-200 dark:bg-gray-900 hover:bg-gray-300 dark:hover:bg-gray-800",
         "transition-colors duration-200",
         className
       )}

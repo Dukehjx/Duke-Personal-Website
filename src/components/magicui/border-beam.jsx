@@ -32,12 +32,12 @@ export function BorderBeam({
           rotate: reverse ? initialOffset - 360 : initialOffset + 360,
         }}
         transition={{
-          duration,
-          delay,
-          repeat: Infinity,
-          ease: "linear",
-          ...transition,
-        }}
+  duration,
+  delay,
+  repeat: Infinity,
+  ease: "linear",
+  ...(transition || {}),
+}}
         style={{
           background: `conic-gradient(from 0deg, transparent, ${colorFrom}, ${colorTo}, transparent)`,
           borderRadius: "inherit",

@@ -38,7 +38,7 @@ const HomePage = ({ onNavigate }) => {
                   className={`${
                     item.id === 'home' 
                       ? 'bg-blue-500/50 text-white' 
-                      : 'bg-white/30 hover:bg-white/50 text-gray-700 hover:text-gray-900'
+                      : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   }`}
                   onClick={() => handleNavClick(item.id)}
                 >
@@ -54,12 +54,12 @@ const HomePage = ({ onNavigate }) => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col items-center justify-center min-h-screen px-4 pt-20">
-        <div className="text-center mb-12">
+      <div className="flex flex-col items-center justify-center min-h-screen px-8 pt-20">
+        <div className="text-center mb-12 w-[90%] max-w-[1800px] mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
             Welcome to My World
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
             Explore my journey through technology, music, hobbies, academics, and life experiences.
           </p>
         </div>

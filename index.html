@@ -1,7 +1,22 @@
 <!doctype html>
 <html lang="en">
+<!-- index.html -->
   <head>
     <meta charset="UTF-8" />
+    <!-- ADD THIS: -->
+    <script>
+      (function(){
+        try {
+          var t = localStorage.getItem('theme');
+          if (t !== 'light' && t !== 'dark') {
+            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+          }
+          document.documentElement.classList.toggle('dark', t === 'dark');
+          document.documentElement.style.colorScheme = (t === 'dark') ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
+    <!-- rest of head -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Duke's Personal Website</title>
