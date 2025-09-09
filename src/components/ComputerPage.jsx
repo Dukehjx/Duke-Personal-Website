@@ -21,7 +21,10 @@ import {
   Wand2,
   Brain,
   Zap,
-  Sparkles
+  Sparkles,
+  Shield,
+  Search,
+  Sword
 } from "lucide-react";
 
 const ComputerPage = ({ onNavigate }) => {
@@ -122,7 +125,7 @@ const ComputerPage = ({ onNavigate }) => {
             </p>
           </div>
 
-                     {/* Full Stack Dev Tech Stack Marquee */}
+           {/* Full Stack Dev Tech Stack Marquee */}
            <div className="mb-16">
            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-left mb-12">
                Full Stack Dev Tech Stack
@@ -263,12 +266,12 @@ const ComputerPage = ({ onNavigate }) => {
                       <img 
                         src="https://openai.com/favicon.ico" 
                         alt="GPT"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Qwen_logo.svg/300px-Qwen_logo.svg.png?20250327025131" 
                         alt="Qwen"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
                       />
                     </div>
                   </div>
@@ -295,7 +298,7 @@ const ComputerPage = ({ onNavigate }) => {
                       <img 
                         src="https://n8n.io/favicon.ico" 
                         alt="n8n"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
                       />
                     </div>
                   </div>
@@ -322,23 +325,23 @@ const ComputerPage = ({ onNavigate }) => {
                       <img 
                         src="https://cursor.sh/favicon.ico" 
                         alt="Cursor"
-                        className="w-5 h-5 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/copilot-color.png" 
                         alt="Copilot"
-                        className="w-5 h-5 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://www.svgrepo.com/show/341819/firebase.svg" 
                         alt="Firebase"
-                        className="w-5 h-5"
+                        className="w-10 h-10"
                       />
                     </div>
                   </div>
                 }
                 Icon={Wand2}
-                description="Enhanced coding experience with Cursor, Copilot, Firebase Studio, and Claude for intelligent code assistance."
+                description="Intensive and enhanced coding experience with Cursor, Copilot, Firebase Studio, and Claude for intelligent code assistance."
                 cta="Code Smarter"
               />
 
@@ -359,22 +362,22 @@ const ComputerPage = ({ onNavigate }) => {
                       <img 
                         src="https://pytorch.org/favicon.ico" 
                         alt="PyTorch"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://colab.research.google.com/img/colab_favicon_256px.png" 
                         alt="Google Colab"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://ollama.ai/public/ollama.png" 
                         alt="Ollama"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" 
                         alt="HuggingFace"
-                        className="w-6 h-6"
+                        className="w-10 h-10"
                       />
                     </div>
                   </div>
@@ -401,13 +404,33 @@ const ComputerPage = ({ onNavigate }) => {
                       <img 
                         src="https://openai.com/favicon.ico" 
                         alt="OpenAI"
-                        className="w-6 h-6 rounded"
+                        className="w-10 h-10 rounded"
+                      />
+                      <img 
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Qwen_logo.svg/300px-Qwen_logo.svg.png?20250327025131" 
+                        alt="Qwen"
+                        className="w-10 h-10 rounded"
+                      />
+                      <img 
+                        src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png" 
+                        alt="Gemini"
+                        className="w-10 h-10 rounded"
+                      />
+                      <img 
+                        src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/claude-color.png" 
+                        alt="Claude"
+                        className="w-10 h-10 rounded"
+                      />
+                      <img 
+                        src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/deepseek-color.png" 
+                        alt="DeepSeek"
+                        className="w-10 h-10 rounded"
                       />
                     </div>
                   </div>
                 }
                 Icon={Zap}
-                description="Leveraging OpenAI SDK and various AI APIs to integrate powerful language models into applications."
+                description="Leveraging OpenAI SDK and various AI APIs, such as OpenAI, Qwen, Gemini, Claude and DeepSeek to integrate powerful language models into applications."
                 cta="View APIs"
               />
 
@@ -428,22 +451,22 @@ const ComputerPage = ({ onNavigate }) => {
                       <img 
                         src="https://openai.com/favicon.ico" 
                         alt="ChatGPT"
-                        className="w-5 h-5 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" 
                         alt="Gemini"
-                        className="w-5 h-5"
+                        className="w-10 h-10"
                       />
                       <img 
                         src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/grok.png" 
                         alt="Grok"
-                        className="w-5 h-5 rounded"
+                        className="w-10 h-10 rounded"
                       />
                       <img 
                         src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/deepseek-color.png" 
                         alt="DeepSeek"
-                        className="w-5 h-5 rounded"
+                        className="w-10 h-10 rounded"
                       />
                     </div>
                   </div>
@@ -451,6 +474,153 @@ const ComputerPage = ({ onNavigate }) => {
                 Icon={Sparkles}
                 description="Prompt Engineering, ChatGPT, Gemini, Grok, DeepSeek usage, and MCP tools for comprehensive AI ecosystem exploration."
                 cta="Discover More"
+              />
+            </BentoGrid>
+          </div>
+
+          {/* Cybersecurity Section */}
+          <div className="mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-left mb-12">
+              Cybersecurity
+            </h2>
+            
+            <BentoGrid className="grid w-full auto-rows-[20rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {/* Red Team Platform */}
+              <BentoCard
+                name="Red Team Platform"
+                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                background={
+                  <div className="absolute inset-0">
+                    <ShineBorder
+                      className="w-full h-full"
+                      shineColor={["#DC2626", "#EF4444", "#F87171"]}
+                      duration={12}
+                      borderWidth={2}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-rose-50/50" />
+                    <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
+                      {/* Kali Linux */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/768px-Kali-dragon-icon.svg.png?20211125065834" alt="Kali" className="w-8 h-8" />
+                      </div>
+                      {/* Metasploit */}
+                      <div>
+                        <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/metasploit-h33wivgvlvgtk3wmoejxq.png/metasploit-rkuireddk3p5vdgf5mil5.png?_a=DATAg1AAZAA0" alt="metasploit" className="w-8 h-8" />
+                      </div>
+                      {/* Nmap */}
+                      <div>
+                        <img src="https://nmap.org/images/sitelogo-nmap.svg" alt="nmap" className="w-8 h-8" />
+                      </div>
+                      {/* Wireshark */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" alt="Wireshark" className="w-8 h-8" />
+                      </div>
+                      {/* Burp Suite */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/BurpSuite_Comunity_Edition.svg/825px-BurpSuite_Comunity_Edition.svg.png" alt="Burp Suite" className="w-8 h-8" />
+                      </div>
+                      {/* Nikto */}
+                      <div>
+                        <img src="https://www.kali.org/tools/nikto/images/nikto-logo.svg" alt="Nikto" className="w-8 h-8" />
+                      </div>
+                    </div>
+                  </div>
+                }
+                Icon={Shield}
+                description="Comprehensive red team toolkit including Kali Linux, Metasploit, Nmap, Wireshark, Burp Suite, OpenVAS, Aircrack-ng, Kismet, Recon-ng, Netcat, Gobuster, and Nikto for penetration testing and security assessments."
+                cta="Explore Red Team"
+              />
+
+              {/* Forensics & Cryptography */}
+              <BentoCard
+                name="Forensics & Cryptography"
+                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                background={
+                  <div className="absolute inset-0">
+                    <ShineBorder
+                      className="w-full h-full"
+                      shineColor={["#2563EB", "#3B82F6", "#60A5FA"]}
+                      duration={14}
+                      borderWidth={2}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50" />
+                    <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
+                      {/* GnuPG */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/GnuPG-Logo.svg/105px-GnuPG-Logo.svg.png?20070325143120" alt="GnuPG" className="w-8 h-8" />
+                      </div>
+                      {/* Autopsy */}
+                      <div>
+                        <img src="https://avatars.githubusercontent.com/u/856501?v=4" alt="Autopsy" className="w-8 h-8" />
+                      </div>
+                      {/* Volatility */}
+                      <div>
+                        <img src="https://miro.medium.com/1*Ini2Q3kb1xACFMILHrattg.jpeg" alt="Volatility" className="w-8 h-8" />
+                      </div>
+                      {/* 010 Editor */}
+                      <div>
+                        <img src="https://w1.pngwing.com/pngs/839/178/png-transparent-text-editor-yellow-hex-editor-hexadecimal-editing-computer-software-source-code-editor-binary-file-plain-text-thumbnail.png" alt="010 Editor" className="w-8 h-8" />
+                      </div>
+                      {/* Notepad++ */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Notepad%2B%2B_Logo.svg/768px-Notepad%2B%2B_Logo.svg.png" alt="Notepad++" className="w-8 h-8" />
+                      </div>
+                      {/* ExifTool */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/ExifTool_logo.svg/1200px-ExifTool_logo.svg.png?20250306210924" alt="ExifTool" className="w-8 h-8" />
+                      </div>
+                    </div>
+                  </div>
+                }
+                Icon={Search}
+                description="Advanced digital forensics and cryptography tools including OpenSSL, GnuPG, PyCryptodome, Cryptool, steganography tools (steghide, zsteg, stegsolve), forensic analyzers (Autopsy, Volatility, FTK Imager), and specialized editors."
+                cta="Analyze Evidence"
+              />
+
+              {/* Offensive Security */}
+              <BentoCard
+                name="Offensive Security"
+                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                background={
+                  <div className="absolute inset-0">
+                    <ShineBorder
+                      className="w-full h-full"
+                      shineColor={["#9333EA", "#A855F7", "#C084FC"]}
+                      duration={16}
+                      borderWidth={2}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50" />
+                    <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
+                      {/* OWASP ZAP */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/OWASP_ZAP_logo.svg/877px-OWASP_ZAP_logo.svg.png?20250207171655" alt="ZAP" className="w-8 h-8" />
+                      </div>
+                      {/* sqlmap */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Sqlmap_logo.png?20180709082002" alt="sqlmap" className="w-8 h-8" />
+                      </div>
+                      {/* Ghidra */}
+                      <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ghidra_logo.svg/768px-Ghidra_logo.svg.png?20220727174502" alt="Ghidra" className="w-8 h-8" />
+                      </div>
+                      {/* John the Ripper */}
+                      <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnWJDGaaaPKKzzNZaX_yaz4g9sVqH5d_vk5w&s" alt="John the Ripper" className="w-8 h-8" />
+                      </div>
+                      {/* Hashcat */}
+                      <div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTJzkDKpUyJ0aNjvFw4yH0DZGxfTqymkNilA&s" alt="Hashcat" className="w-8 h-8" />
+                      </div>
+                      {/* GoBuster */}
+                      <div>
+                        <img src="https://www.kali.org/tools/gobuster/images/gobuster-logo.svg" alt="Gobuster" className="w-8 h-8" />
+                      </div>
+                    </div>
+                  </div>
+                }
+                Icon={Sword}
+                description="Comprehensive offensive security arsenal including web application testing (Burp Suite, OWASP ZAP, sqlmap, XSStrike), binary exploitation (GDB, pwndbg, pwntools, Ghidra), password cracking (John the Ripper, Hashcat), and network enumeration tools."
+                cta="Launch Attack"
               />
             </BentoGrid>
           </div>
