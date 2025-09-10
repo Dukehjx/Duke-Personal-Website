@@ -642,7 +642,7 @@ const ComputerPage = ({ onNavigate }) => {
                     {/* Trophy */}
                     <div className="text-4xl">🏆</div>
                   </div>
-                  <div className="absolute bottom-4 left-4 text-amber-600/40 font-bold text-5xl z-10">
+                  <div className="absolute bottom-4 left-4 text-amber-600/40 font-bold text-4xl z-10">
                     2025
                   </div>
                 </div>
