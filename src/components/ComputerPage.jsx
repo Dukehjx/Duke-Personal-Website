@@ -622,6 +622,84 @@ const ComputerPage = ({ onNavigate }) => {
                 description="Comprehensive offensive security arsenal including web application testing (Burp Suite, OWASP ZAP, sqlmap, XSStrike), binary exploitation (GDB, pwndbg, pwntools, Ghidra), password cracking (John the Ripper, Hashcat), and network enumeration tools."
                 cta="Launch Attack"
               />
+
+              {/* International Cybersecurity Olympiad 2025 - Custom Layout */}
+              <div className="relative col-span-1 md:col-span-2 lg:col-span-3 group overflow-hidden rounded-2xl bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+                {/* Background */}
+                <div className="absolute inset-0">
+                  <ShineBorder
+                    className="w-full h-full"
+                    shineColor={["#CD7F32", "#D4A574", "#F4E4BC"]}
+                    duration={20}
+                    borderWidth={3}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80" />
+                  <div className="absolute top-4 right-4 flex flex-wrap gap-2 opacity-70 z-20">
+                    {/* Thailand Flag */}
+                    <div className="text-4xl">🇹🇭</div>
+                    {/* Medal */}
+                    <div className="text-4xl">🥉</div>
+                    {/* Trophy */}
+                    <div className="text-4xl">🏆</div>
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-amber-600/40 font-bold text-5xl z-10">
+                    2025
+                  </div>
+                </div>
+
+                {/* Content Layout */}
+                <div className="relative z-10 h-full flex flex-col lg:flex-row-reverse">
+                  {/* Left side - Text content */}
+                  <div className="lg:flex-[1.5] flex flex-col justify-between p-6 lg:pl-8">
+                    <div className="pointer-events-none transform-gpu flex flex-col gap-1 transition-all duration-300 group-hover:-translate-y-2">
+                      <Shield className="h-12 w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300" />
+                      <h3 className="text-xl font-semibold text-neutral-700 dark:text-neutral-300">
+                        International Cybersecurity Olympiad 2025
+                      </h3>
+                      <p className="text-neutral-400">
+                        🏆 Bronze Medal Winner at the International Cybersecurity Olympiad 2025, representing the Thai National Team. 
+                        I am the only team member who secured a place in this prestigious international competition, showcasing advanced 
+                        skills in penetration testing, digital forensics, cryptography, and incident response on a global stage.
+                      </p>
+                    </div>
+
+                    <div className="mt-4">
+                      <button className="pointer-events-auto bg-neutral-800 dark:bg-neutral-100 text-white dark:text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors">
+                        View Achievement
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Right side - Photo Marquee */}
+                  <div className="lg:flex-[2.5] flex items-center justify-center p-4 lg:pr-8 pt-0 lg:pt-4">
+                    <div className="w-full h-full flex justify-center items-center min-h-[200px] max-w-[700px]">
+                      <Marquee className="[--duration:20s]" pauseOnHover>
+                        {[
+                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00536.jpg", alt: "International Cybersecurity Olympiad 2025 - Award Ceremony" },
+                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00537.jpg", alt: "International Cybersecurity Olympiad 2025 - Team Photo" },
+                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00541.jpg", alt: "International Cybersecurity Olympiad 2025 - Competition Moment" },
+                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00552.jpg", alt: "International Cybersecurity Olympiad 2025 - Bronze Medal Achievement" }
+                        ].map((photo, index) => (
+                          <div key={index} className="mx-3">
+                            <div className="relative w-56 h-40 sm:w-64 sm:h-48 lg:w-72 lg:h-52 overflow-hidden rounded-xl shadow-xl">
+                              <img 
+                                src={photo.src} 
+                                alt={photo.alt}
+                                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 rounded-xl ring-1 ring-black/5 pointer-events-none"></div>
+                            </div>
+                          </div>
+                        ))}
+                      </Marquee>
+                    </div>
+                  </div>
+                </div>
+
+
+                {/* Hover overlay */}
+                <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
+              </div>
             </BentoGrid>
           </div>
 
