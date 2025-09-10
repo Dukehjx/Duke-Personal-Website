@@ -659,7 +659,7 @@ const ComputerPage = ({ onNavigate }) => {
                       <p className="text-neutral-400">
                         🏆 Bronze Medal Winner at the International Cybersecurity Olympiad 2025, representing the Thai National Team. 
                         I am the only team member who secured a place in this prestigious international competition, showcasing advanced 
-                        skills in penetration testing, digital forensics, cryptography, and incident response on a global stage.
+                        skills in both blue and red team CTF and Cybersecurity skills, and incident response on a global stage.
                       </p>
                     </div>
 
