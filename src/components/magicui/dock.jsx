@@ -51,9 +51,9 @@ export const Dock = React.forwardRef(({
 Dock.displayName = "Dock";
 
 export const DockIcon = ({
-  size = 40,
-  magnification = 60,
-  distance = 140,
+  size = 32, // Smaller default size for mobile
+  magnification = 48, // Reduced magnification for mobile
+  distance = 100, // Reduced distance for mobile
   mouseX,
   className,
   children,
