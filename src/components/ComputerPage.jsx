@@ -899,7 +899,7 @@ const ComputerPage = ({ onNavigate }) => {
                   <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
-                        src="/src/assets/projects/neuroaegis.png" 
+                        src="/projects/neuroaegis.png" 
                         alt="NeuroAegis Project Screenshot"
                         className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
@@ -945,7 +945,7 @@ const ComputerPage = ({ onNavigate }) => {
                   <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
-                        src="/src/assets/projects/shanghaiwalk.png" 
+                        src="/projects/shanghaiwalk.png" 
                         alt="ShanghaiWalk Project Screenshot"
                         className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
@@ -991,7 +991,7 @@ const ComputerPage = ({ onNavigate }) => {
                   <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
-                        src="/src/assets/projects/ap-researcher.png" 
+                        src="/projects/ap-researcher.png" 
                         alt="AP Researcher Project Screenshot"
                         className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
@@ -1037,7 +1037,7 @@ const ComputerPage = ({ onNavigate }) => {
                   <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
-                        src="/src/assets/projects/soimenu.png" 
+                        src="/projects/soimenu.png" 
                         alt="SoiMenu Project Screenshot"
                         className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
