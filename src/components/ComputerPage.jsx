@@ -25,7 +25,8 @@ import {
   Sparkles,
   Shield,
   Search,
-  Sword
+  Sword,
+  Mail
 } from "lucide-react";
 
 const ComputerPage = ({ onNavigate }) => {
@@ -884,91 +885,257 @@ const ComputerPage = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Content Sections */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {/* Programming Languages */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 md:p-6 border border-white/20">
-              <div className="flex items-center mb-3 sm:mb-4">
-                <Code size={20} className="text-green-600 mr-2 sm:mr-3 sm:w-6 sm:h-6" />
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                  Programming Languages
-                </h3>
-              </div>
-              <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                Languages I work with and enjoy coding in.
-              </p>
-              <div className="space-y-1.5 sm:space-y-2">
-                <div className="text-sm text-gray-700">• JavaScript/TypeScript</div>
-                <div className="text-sm text-gray-700">• Python</div>
-                <div className="text-sm text-gray-700">• React/Next.js</div>
-                <div className="text-sm text-gray-700">• Node.js</div>
-              </div>
-            </div>
+          {/* Project Showcase Section */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
+              Project Showcase
+            </h2>
 
-            {/* Development Tools */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 md:p-6 border border-white/20">
-              <div className="flex items-center mb-3 sm:mb-4">
-                <Terminal size={20} className="text-purple-600 mr-2 sm:mr-3 sm:w-6 sm:h-6" />
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                  Development Tools
-                </h3>
-              </div>
-              <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                Tools and environments that power my development workflow.
-              </p>
-              <div className="space-y-1.5 sm:space-y-2">
-                <div className="text-sm text-gray-700">• VS Code</div>
-                <div className="text-sm text-gray-700">• Git & GitHub</div>
-                <div className="text-sm text-gray-700">• Docker</div>
-                <div className="text-sm text-gray-700">• Terminal/CLI</div>
-              </div>
-            </div>
-
-            {/* Technologies */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 md:p-6 border border-white/20">
-              <div className="flex items-center mb-3 sm:mb-4">
-                <Cpu size={20} className="text-orange-600 mr-2 sm:mr-3 sm:w-6 sm:h-6" />
-                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
-                  Technologies
-                </h3>
-              </div>
-              <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                Modern technologies and frameworks I love working with.
-              </p>
-              <div className="space-y-1.5 sm:space-y-2">
-                <div className="text-sm text-gray-700">• Vite & Webpack</div>
-                <div className="text-sm text-gray-700">• Tailwind CSS</div>
-                <div className="text-sm text-gray-700">• Framer Motion</div>
-                <div className="text-sm text-gray-700">• REST APIs</div>
-              </div>
-            </div>
-
-            {/* Projects Section */}
-            <div className="sm:col-span-2 lg:col-span-3">
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 md:p-6 border border-white/20">
-                <div className="flex items-center mb-3 sm:mb-4">
-                  <Database size={20} className="text-blue-600 mr-2 sm:mr-3 sm:w-6 sm:h-6" />
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900">
-                    Current Projects
-                  </h3>
+            <div className="space-y-12 sm:space-y-16 md:space-y-20">
+              {/* NeuroAegis */}
+              <div className="group">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
+                  {/* Image Box on Left */}
+                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/src/assets/projects/neuroaegis.png" 
+                        alt="NeuroAegis Project Screenshot"
+                        className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Description on Right (Outside Box) */}
+                  <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        NeuroAegis
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                        AI-powered platform for Dementia and Alzheimer's Disease Detection and Rehabilitation.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm sm:text-base rounded-full font-medium">AI/NLP</span>
+                      <span className="px-4 py-2 bg-green-100 text-green-800 text-sm sm:text-base rounded-full font-medium">Cognitive Health</span>
+                      <span className="px-4 py-2 bg-purple-100 text-purple-800 text-sm sm:text-base rounded-full font-medium">Real-time</span>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a 
+                        href="https://www.neuroaegis.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white text-base font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                  Here are some projects I'm currently working on or have recently completed.
+              </div>
+
+              {/* ShanghaiWalk */}
+              <div className="group">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
+                  {/* Image Box on Left */}
+                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/src/assets/projects/shanghaiwalk.png" 
+                        alt="ShanghaiWalk Project Screenshot"
+                        className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Description on Right (Outside Box) */}
+                  <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        ShanghaiWalk
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                        A comprehensive cultural exploration platform showcasing Shanghainese culture, traditions, language, and history.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-red-100 text-red-800 text-sm sm:text-base rounded-full font-medium">Cultural</span>
+                      <span className="px-4 py-2 bg-yellow-100 text-yellow-800 text-sm sm:text-base rounded-full font-medium">Language</span>
+                      <span className="px-4 py-2 bg-indigo-100 text-indigo-800 text-sm sm:text-base rounded-full font-medium">Interactive</span>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a 
+                        href="https://shanghaiwalk.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-green-600 text-white text-base font-medium rounded-lg hover:bg-green-700 transition-colors duration-200"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* AP Researcher */}
+              <div className="group">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
+                  {/* Image Box on Left */}
+                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/src/assets/projects/ap-researcher.png" 
+                        alt="AP Researcher Project Screenshot"
+                        className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Description on Right (Outside Box) */}
+                  <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        AP Researcher
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                        A comprehensive platform designed for AP students and educators to publish their academic writings.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm sm:text-base rounded-full font-medium">Education</span>
+                      <span className="px-4 py-2 bg-purple-100 text-purple-800 text-sm sm:text-base rounded-full font-medium">Research</span>
+                      <span className="px-4 py-2 bg-pink-100 text-pink-800 text-sm sm:text-base rounded-full font-medium">Academic</span>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a 
+                        href="https://ap-researcher.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white text-base font-medium rounded-lg hover:bg-purple-700 transition-colors duration-200"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* SoiMenu */}
+              <div className="group">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
+                  {/* Image Box on Left */}
+                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/src/assets/projects/soimenu.png" 
+                        alt="SoiMenu Project Screenshot"
+                        className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Description on Right (Outside Box) */}
+                  <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        SoiMenu
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                        A modern online food menu platform for customers to order without language barriers. Display the dishes with clarity and detailed information.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-orange-100 text-orange-800 text-sm sm:text-base rounded-full font-medium">E-commerce</span>
+                      <span className="px-4 py-2 bg-red-100 text-red-800 text-sm sm:text-base rounded-full font-medium">Multilingual</span>
+                      <span className="px-4 py-2 bg-green-100 text-green-800 text-sm sm:text-base rounded-full font-medium">Community</span>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a 
+                        href="https://online-ordering-website.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-orange-600 text-white text-base font-medium rounded-lg hover:bg-orange-700 transition-colors duration-200"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-16 sm:mt-20 md:mt-24 border-t border-gray-200/50">
+            <div className="pt-8 sm:pt-12 pb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                {/* Left side - Social Links */}
+                <div className="flex items-center gap-3">
+                  <a 
+                    href="https://github.com/Dukehjx" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 group"
+                  >
+                    <svg 
+                      className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span className="font-medium">GitHub</span>
+                  </a>
+                  
+                  <a 
+                    href="https://x.com/DukeHu0111" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-lg transition-colors duration-200 group"
+                  >
+                    <svg 
+                      className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
+                      fill="currentColor" 
+                      viewBox="0 0 24 24" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                    </svg>
+                    <span className="font-medium">Twitter</span>
+                  </a>
+                </div>
+
+                {/* Right side - Get in Touch Button */}
+                <div className="flex items-center gap-3">
+                  <a 
+                    href="mailto:hjxduke080111@gmail.com" 
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 group"
+                  >
+                    <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
+                    <span className="font-medium">Get in Touch</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Copyright */}
+              <div className="mt-8 pt-6 border-t border-gray-200/30 text-center">
+                <p className="text-sm text-gray-500">
+                  © 2025 Duke Hu. Built with React & Tailwind CSS.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm sm:text-base">Personal Website</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">
-                      Built with React 19, Vite, and Tailwind CSS v4. Features modern UI components and smooth animations.
-                    </p>
-                  </div>
-                  <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
-                    <h4 className="font-medium text-gray-900 mb-2 text-sm sm:text-base">Coming Soon...</h4>
-                    <p className="text-xs sm:text-sm text-gray-600">
-                      More exciting projects are in development. Stay tuned!
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
