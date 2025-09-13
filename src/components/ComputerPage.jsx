@@ -5,6 +5,7 @@ import { BorderBeam } from "./magicui/border-beam";
 import { ShineBorder } from "./magicui/shine-border";
 import { BentoGrid, BentoCard } from "./magicui/bento-grid";
 import Marquee from "./magicui/marquee";
+import { IconCloud } from "./magicui/icon-cloud";
 import { 
   Home, 
   Computer, 
@@ -79,6 +80,105 @@ const ComputerPage = ({ onNavigate }) => {
     { name: "GitHub Desktop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
     { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" }
   ];
+
+  const Icons = {
+    cpp: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#00549d" fillRule="evenodd" d="M22.903 1.566a3.693 3.693 0 0 1 2.194 0l18.967 8.329c.896.394 1.436 1.287 1.436 2.378v23.454c0 1.091-.54 1.984-1.436 2.378l-18.967 8.329a3.693 3.693 0 0 1-2.194 0L3.936 37.105C3.04 36.711 2.5 35.818 2.5 34.727V11.273c0-1.091.54-1.984 1.436-2.378L22.903 1.566z"/>
+        <path fill="#0086d4" d="M24 5.5L40.5 12.5v23L24 42.5 7.5 35.5v-23L24 5.5z"/>
+        <path fill="#ffffff" d="M24 33.5c5.247 0 9.5-4.253 9.5-9.5s-4.253-9.5-9.5-9.5-9.5 4.253-9.5 9.5 4.253 9.5 9.5 9.5zm0-15c3.038 0 5.5 2.462 5.5 5.5s-2.462 5.5-5.5 5.5-5.5-2.462-5.5-5.5 2.462-5.5 5.5-5.5z"/>
+        <path fill="#ffffff" d="M30.5 21.5h2v2h-2v2h-2v-2h-2v-2h2v-2h2v2zm4.5 0h2v2h-2v2h-2v-2h-2v-2h2v-2h2v2z"/>
+      </svg>
+    ),
+    java: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#f44336" d="M23.65 24.898a.678.678 0 0 1-.665-.832c.176-.906.584-1.74 1.18-2.415.596-.675 1.341-1.186 2.158-1.48l.033-.013c.707-.237 1.442-.338 2.181-.301.739.037 1.466.21 2.142.511.676.301 1.295.729 1.828 1.265.533.536.974 1.169 1.302 1.87.328.701.539 1.46.625 2.242.086.782.047 1.574-.115 2.338-.162.764-.447 1.49-.843 2.142-.396.652-.898 1.222-1.483 1.685-.585.463-1.244.815-1.948 1.038-.704.223-1.444.316-2.185.275-.741-.041-1.471-.21-2.156-.498-.685-.288-1.317-.7-1.868-1.218-.551-.518-1.016-1.133-1.374-1.818-.358-.685-.606-1.43-.733-2.202-.127-.772-.133-1.562-.019-2.337.114-.775.346-1.525.693-2.213.347-.688.803-1.305 1.348-1.822.545-.517 1.171-.928 1.849-1.214.678-.286 1.398-.446 2.127-.472.729-.026 1.456.089 2.146.34.69.251 1.333.634 1.898 1.133.565.499 1.044 1.105 1.414 1.79.37.685.626 1.438.756 2.222.13.784.133 1.588.009 2.375-.124.787-.368 1.547-.721 2.244-.353.697-.81 1.315-1.349 1.825-.539.51-1.153.906-1.814 1.168-.661.262-1.357.388-2.055.372-.698-.016-1.386-.178-2.029-.478-.643-.3-1.232-.735-1.738-1.284-.506-.549-.922-1.201-1.227-1.925-.305-.724-.495-1.508-.561-2.313-.066-.805-.007-1.62.174-2.403.181-.783.472-1.527.86-2.196.388-.669.867-1.254 1.416-1.728.549-.474 1.16-.832 1.807-1.058.647-.226 1.32-.319 1.994-.274.674.045 1.335.204 1.951.47.616.266 1.179.635 1.662 1.09.483.455.878.99 1.168 1.579.29.589.471 1.222.534 1.871.063.649.007 1.304-.165 1.933-.172.629-.449 1.222-.817 1.751-.368.529-.822.986-1.342 1.351-.52.365-1.097.635-1.706.797-.609.162-1.244.214-1.877.154-.633-.06-1.254-.235-1.83-.516-.576-.281-1.099-.667-1.544-1.14-.445-.473-.805-1.025-1.063-1.631-.258-.606-.411-1.254-.451-1.914-.04-.66.027-1.323.198-1.958.171-.635.444-1.232.806-1.764.362-.532.809-.99 1.32-1.351.511-.361 1.077-.621 1.673-.768.596-.147 1.213-.181 1.822-.1.609.081 1.198.273 1.738.567.54.294 1.022.686 1.424 1.158.402.472.717 1.016.93 1.608.213.592.32 1.221.317 1.853-.003.632-.116 1.258-.334 1.846-.218.588-.537 1.128-.942 1.595-.405.467-.887.854-1.425 1.143-.538.289-1.122.476-1.723.552-.601.076-1.211.04-1.802-.106-.591-.146-1.153-.396-1.66-.738-.507-.342-.952-.772-1.314-1.27-.362-.498-.636-1.057-.809-1.649-.173-.592-.243-1.208-.206-1.822.037-.614.18-1.217.423-1.778.243-.561.582-1.072.999-1.509.417-.437.904-.795 1.438-1.057.534-.262 1.107-.425 1.693-.481.586-.056 1.175-.003 1.739.157.564.16 1.094.419 1.564.765.47.346.873.773 1.189 1.262.316.489.541 1.031.664 1.601.123.57.143 1.159.059 1.737-.084.578-.272 1.136-.555 1.649-.283.513-.655.972-1.099 1.356-.444.384-.95.686-1.495.891-.545.205-1.121.31-1.702.31-.581 0-1.157-.105-1.702-.31-.545-.205-1.051-.507-1.495-.891-.444-.384-.816-.843-1.099-1.356-.283-.513-.471-1.071-.555-1.649-.084-.578-.064-1.167.059-1.737.123-.57.348-1.112.664-1.601.316-.489.719-.916 1.189-1.262.47-.346 1-.605 1.564-.765.564-.16 1.153-.213 1.739-.157.586.056 1.159.219 1.693.481.534.262 1.021.62 1.438 1.057.417.437.756.948.999 1.509.243.561.386 1.164.423 1.778.037.614-.033 1.23-.206 1.822-.173.592-.447 1.151-.809 1.649-.362.498-.807.928-1.314 1.27-.507.342-1.069.592-1.66.738-.591.146-1.201.182-1.802.106-.601-.076-1.185-.263-1.723-.552-.538-.289-1.02-.676-1.425-1.143-.405-.467-.724-1.007-.942-1.595-.218-.588-.331-1.214-.334-1.846-.003-.632.104-1.261.317-1.853.213-.592.528-1.136.93-1.608.402-.472.884-.864 1.424-1.158.54-.294 1.129-.486 1.738-.567.609-.081 1.226-.047 1.822.1.596.147 1.162.407 1.673.768.511.361.958.819 1.32 1.351.362.532.635 1.129.806 1.764.171.635.238 1.298.198 1.958-.04.66-.193 1.308-.451 1.914-.258.606-.618 1.158-1.063 1.631-.445.473-.968.859-1.544 1.14-.576.281-1.197.456-1.83.516-.633.06-1.268.008-1.877-.154-.609-.162-1.186-.432-1.706-.797-.52-.365-.974-.822-1.342-1.351-.368-.529-.645-1.122-.817-1.751-.172-.629-.228-1.284-.165-1.933.063-.649.244-1.282.534-1.871.29-.589.685-1.124 1.168-1.579.483-.455 1.046-.824 1.662-1.09.616-.266 1.277-.425 1.951-.47.674-.045 1.347.048 1.994.274.647.226 1.258.584 1.807 1.058.549.474 1.028 1.059 1.416 1.728.388.669.679 1.413.86 2.196.181.783.24 1.598.174 2.403-.066.805-.256 1.589-.561 2.313-.305.724-.721 1.376-1.227 1.925-.506.549-1.095.984-1.738 1.284-.643.3-1.331.462-2.029.478-.698.016-1.394-.11-2.055-.372-.661-.262-1.275-.658-1.814-1.168-.539-.51-.996-1.128-1.349-1.825-.353-.697-.597-1.457-.721-2.244-.124-.787-.121-1.591.009-2.375.13-.784.386-1.537.756-2.222.37-.685.849-1.291 1.414-1.79.565-.499 1.208-.882 1.898-1.133.69-.251 1.417-.366 2.146-.34.729.026 1.449.186 2.127.472.678.286 1.304.697 1.849 1.214.545.517 1.001 1.134 1.348 1.822.347.688.579 1.438.693 2.213.114.775.108 1.565-.019 2.337-.127.772-.375 1.517-.733 2.202-.358.685-.823 1.3-1.374 1.818-.551.518-1.183.93-1.868 1.218-.685.288-1.415.457-2.156.498-.741.041-1.481-.052-2.185-.275-.704-.223-1.363-.575-1.948-1.038-.585-.463-1.087-1.033-1.483-1.685-.396-.652-.681-1.378-.843-2.142-.162-.764-.201-1.556-.115-2.338.086-.782.297-1.541.625-2.242.328-.701.769-1.334 1.302-1.87.533-.536 1.152-.964 1.828-1.265.676-.301 1.403-.474 2.142-.511.739-.037 1.474.064 2.181.301l.033.013c.817.294 1.562.805 2.158 1.48.596.675 1.004 1.509 1.18 2.415a.678.678 0 0 1-.665.832z"/>
+        <path fill="#ff9800" d="M17.538 32.947c.4.533.938.975 1.553 1.277.615.302 1.289.459 1.972.459.683 0 1.357-.157 1.972-.459.615-.302 1.153-.744 1.553-1.277.4-.533.669-1.149.777-1.804.108-.655.052-1.327-.163-1.966-.215-.639-.581-1.225-1.069-1.715-.488-.49-1.075-.862-1.715-1.087-.64-.225-1.316-.301-1.978-.223-.662.078-1.295.321-1.852.71-.557.389-1.025.911-1.368 1.527-.343.616-.553 1.307-.613 2.022-.06.715.049 1.434.316 2.104.267.67.667 1.271 1.169 1.758.502.487 1.095.851 1.735 1.064.64.213 1.315.271 1.976.169.661-.102 1.293-.357 1.849-.747.556-.39 1.023-.916 1.366-1.537.343-.621.553-1.318.613-2.04.06-.722-.049-1.448-.316-2.124-.267-.676-.667-1.283-1.169-1.775-.502-.492-1.095-.861-1.735-1.078-.64-.217-1.315-.279-1.976-.181-.661.098-1.293.348-1.849.732-.556.384-1.023.903-1.366 1.518-.343.615-.553 1.305-.613 2.02-.06.715.049 1.434.316 2.104.267.67.667 1.271 1.169 1.758z"/>
+      </svg>
+    ),
+    python: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <linearGradient id="python-a" x1="26.613" x2="21.827" y1="4.393" y2="37.849" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#5A9FD4"/>
+          <stop offset="1" stopColor="#306998"/>
+        </linearGradient>
+        <linearGradient id="python-b" x1="21.827" x2="26.613" y1="10.584" y2="43.849" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#FFD43B"/>
+          <stop offset="1" stopColor="#FFE873"/>
+        </linearGradient>
+        <path fill="url(#python-a)" d="M24.047 5c-1.555.063-2.633.142-3.936.367-3.848.67-4.549 2.077-4.549 4.67V14h9v2H15.22c-2.65 0-4.972 1.592-5.696 4.625-.834 3.49-.872 5.676 0 9.398.652 2.777 2.204 4.625 4.854 4.625h3.134v-4.162c0-3.007 2.603-5.674 5.696-5.674h8.903c2.477 0 4.456-2.044 4.456-4.544V11.067c0-2.415-2.04-4.234-4.456-4.67C29.498 5.91 27.635 4.941 24.047 5zm-4.572 2.833c.924 0 1.676.757 1.676 1.688 0 .93-.752 1.688-1.676 1.688-.924 0-1.676-.757-1.676-1.688 0-.93.752-1.688 1.676-1.688z"/>
+        <path fill="url(#python-b)" d="M23.078 43c1.555-.063 2.633-.142 3.936-.367 3.848-.67 4.549-2.077 4.549-4.67V34h-9v-2h9.343c2.65 0 4.972-1.592 5.696-4.625.834-3.49.872-5.676 0-9.398C36.95 15.2 35.398 13.352 32.748 13.352h-3.134v4.162c0 3.007-2.603 5.674-5.696 5.674h-8.903c-2.477 0-4.456 2.044-4.456 4.544v8.622c0 2.415 2.04 4.234 4.456 4.67C16.628 42.09 18.491 43.059 22.078 43zm4.572-2.833c-.924 0-1.676-.757-1.676-1.688 0-.93.752-1.688 1.676-1.688.924 0 1.676.757 1.676 1.688 0 .93-.752 1.688-1.676 1.688z"/>
+      </svg>
+    ),
+    googleDocs: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#2196f3" d="M37 45H11c-1.657 0-3-1.343-3-3V6c0-1.657 1.343-3 3-3h19l10 10v29c0 1.657-1.343 3-3 3z"/>
+        <path fill="#bbdefb" d="M40 13L30 3v10h10z"/>
+        <path fill="#1976d2" d="M30 13h10l-10-10v10z"/>
+        <path fill="#ffffff" d="M14 23h20v2H14zm0 4h20v2H14zm0 4h15v2H14zm0 4h15v2H14z"/>
+      </svg>
+    ),
+    googleSheets: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#4caf50" d="M37 45H11c-1.657 0-3-1.343-3-3V6c0-1.657 1.343-3 3-3h19l10 10v29c0 1.657-1.343 3-3 3z"/>
+        <path fill="#c8e6c9" d="M40 13L30 3v10h10z"/>
+        <path fill="#2e7d32" d="M30 13h10l-10-10v10z"/>
+        <path fill="#ffffff" d="M15 23v12h18V23H15zm2 2h4v2h-4v-2zm6 0h4v2h-4v-2zm6 0h4v2h-4v-2zm-12 4h4v2h-4v-2zm6 0h4v2h-4v-2zm6 0h4v2h-4v-2zm-12 4h4v2h-4v-2zm6 0h4v2h-4v-2zm6 0h4v2h-4v-2z"/>
+      </svg>
+    ),
+    googleSlides: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#ff9800" d="M37 45H11c-1.657 0-3-1.343-3-3V6c0-1.657 1.343-3 3-3h19l10 10v29c0 1.657-1.343 3-3 3z"/>
+        <path fill="#ffe0b2" d="M40 13L30 3v10h10z"/>
+        <path fill="#f57c00" d="M30 13h10l-10-10v10z"/>
+        <path fill="#ffffff" d="M15 23v12h18V23H15zm2 2h14v3H17v-3zm0 5h10v2H17v-2zm0 3h10v2H17v-2z"/>
+      </svg>
+    ),
+    msWord: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#1976d2" d="M14 44L8 40V8l6-4h20l6 4v32l-6 4H14z"/>
+        <path fill="#1e88e5" d="M14 44L8 40V8l6-4v40z"/>
+        <path fill="#1565c0" d="M34 4l6 4v32l-6 4V4z"/>
+        <path fill="#42a5f5" d="M8 8h32v32H8V8z"/>
+        <path fill="#ffffff" d="M16 20l2 8 2-8h2l2 8 2-8h2l-3 12h-2l-2-8-2 8h-2L16 20z"/>
+      </svg>
+    ),
+    msPowerPoint: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#d84315" d="M14 44L8 40V8l6-4h20l6 4v32l-6 4H14z"/>
+        <path fill="#ff5722" d="M14 44L8 40V8l6-4v40z"/>
+        <path fill="#bf360c" d="M34 4l6 4v32l-6 4V4z"/>
+        <path fill="#ff7043" d="M8 8h32v32H8V8z"/>
+        <path fill="#ffffff" d="M18 20v12h2v-4h3c2.2 0 4-1.8 4-4s-1.8-4-4-4h-5zm2 2h3c1.1 0 2 .9 2 2s-.9 2-2 2h-3v-4z"/>
+      </svg>
+    ),
+    msExcel: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#2e7d32" d="M14 44L8 40V8l6-4h20l6 4v32l-6 4H14z"/>
+        <path fill="#4caf50" d="M14 44L8 40V8l6-4v40z"/>
+        <path fill="#1b5e20" d="M34 4l6 4v32l-6 4V4z"/>
+        <path fill="#66bb6a" d="M8 8h32v32H8V8z"/>
+        <path fill="#ffffff" d="M20 20l4 4-4 4h2.5l2.5-2.5 2.5 2.5H30l-4-4 4-4h-2.5L25 22.5 22.5 20H20z"/>
+      </svg>
+    ),
+    csv: () => (
+      <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#43a047" d="M37 45H11c-1.657 0-3-1.343-3-3V6c0-1.657 1.343-3 3-3h19l10 10v29c0 1.657-1.343 3-3 3z"/>
+        <path fill="#c8e6c9" d="M40 13L30 3v10h10z"/>
+        <path fill="#2e7d32" d="M30 13h10l-10-10v10z"/>
+        <path fill="#ffffff" d="M13 23h22v2H13zm0 4h22v2H13zm0 4h22v2H13zm0 4h22v2H13z"/>
+        <circle fill="#2e7d32" cx="17" cy="25" r="1"/>
+        <circle fill="#2e7d32" cx="21" cy="25" r="1"/>
+        <circle fill="#2e7d32" cx="25" cy="25" r="1"/>
+        <circle fill="#2e7d32" cx="17" cy="29" r="1"/>
+        <circle fill="#2e7d32" cx="21" cy="29" r="1"/>
+        <circle fill="#2e7d32" cx="25" cy="29" r="1"/>
+        <circle fill="#2e7d32" cx="17" cy="33" r="1"/>
+        <circle fill="#2e7d32" cx="21" cy="33" r="1"/>
+        <circle fill="#2e7d32" cx="25" cy="33" r="1"/>
+      </svg>
+    ),
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
@@ -699,6 +799,89 @@ const ComputerPage = ({ onNavigate }) => {
                 <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
               </div>
             </BentoGrid>
+          </div>
+
+          {/* Other Computer Skills Section */}
+          <div className="mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
+              Other Computer Skills
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+              {/* Icon Cloud */}
+              <div className="flex justify-center lg:justify-end self-center">
+                <div className="relative w-full max-w-md h-[360px] sm:h-[420px] md:h-[460px]">
+                  <IconCloud
+                    images={[
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/74px-Google_Sheets_logo_%282014-2020%29.svg.png?20201024100414",
+                      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Google_Slides_logo_%282014-2020%29.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/768px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png?20210821050502",
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/768px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png?20210821050414",
+                      "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Micorsoft_Excel_2016-2019_CSV_Icon.svg/131px-Micorsoft_Excel_2016-2019_CSV_Icon.svg.png?20200619072143",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/74px-Google_Sheets_logo_%282014-2020%29.svg.png?20201024100414",
+                      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Google_Slides_logo_%282014-2020%29.svg",
+                    ]}
+                  />
+                </div>
+              </div>
+
+              {/* Description */}
+              <div className="flex flex-col justify-center self-start space-y-5 sm:space-y-4">
+                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20">
+                  <div className="flex items-center mb-3">
+                    <Cpu size={20} className="text-green-600 mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                      Programming Languages
+                    </h3>
+                  </div>
+                  <div className="space-y-2 text-gray-700">
+                    <p className="flex items-center">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                      <strong>C++, Java, Python</strong>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20">
+                  <div className="flex items-center mb-3">
+                    <Database size={20} className="text-blue-600 mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                      Office & Productivity
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
+                    <div>
+                      <p className="font-medium mb-1">Google Workspace</p>
+                    </div>
+                    <div>
+                      <p className="font-medium mb-1">Microsoft Office</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20">
+                  <div className="flex items-center mb-3">
+                    <Cpu size={20} className="text-purple-600 mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                      Embedded Systems
+                    </h3>
+                  </div>
+                  <p className="text-gray-700 leading-relaxed">
+                    Currently studying <strong>embedded systems programming</strong> with a focus on 
+                    <strong> 8051 microcontroller (MCU)</strong> architecture.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Content Sections */}
