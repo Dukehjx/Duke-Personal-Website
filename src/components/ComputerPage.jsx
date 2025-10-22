@@ -1,6 +1,5 @@
 import React from "react";
 import { Dock, DockIcon } from "./magicui/dock";
-import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 import { BorderBeam } from "./magicui/border-beam";
 import { ShineBorder } from "./magicui/shine-border";
 import { BentoGrid, BentoCard } from "./magicui/bento-grid";

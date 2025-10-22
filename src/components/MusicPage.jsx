@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dock, DockIcon } from "./magicui/dock";
-import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 import {
   Home,
   Computer,
