@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import HomePage from "./components/HomePage";
 import ComputerPage from "./components/ComputerPage";
+import MusicPage from "./components/MusicPage";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -17,7 +18,7 @@ function App() {
       case "computer":
         return <ComputerPage onNavigate={handleNavigation} />;
       case "music":
-        return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">Music & I - Coming Soon</h1></div>;
+        return <MusicPage onNavigate={handleNavigation} />;
       case "hobbies":
         return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">Hobbies & I - Coming Soon</h1></div>;
       case "academics":
