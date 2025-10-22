@@ -1,12 +1,12 @@
 import React from 'react';
 import { Dock, DockIcon } from "./magicui/dock";
 import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
-import { 
-  Home, 
-  Computer, 
-  Music, 
-  Heart, 
-  GraduationCap, 
+import {
+  Home,
+  Computer,
+  Music,
+  Heart,
+  GraduationCap,
   User,
   Mail
 } from "lucide-react";
@@ -71,7 +71,7 @@ const MusicPage = ({ onNavigate }) => {
               );
             })}
           </Dock>
-          
+
           <AnimatedThemeToggler className="bg-white/20 backdrop-blur-lg border-white/30" />
         </div>
       </div>
@@ -82,7 +82,7 @@ const MusicPage = ({ onNavigate }) => {
         <div className="text-center space-y-4">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
             Music & Performance
-          </h1>
+              </h1>
           <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
             A collection of memorable moments from various music shows and performances I've attended
           </p>
@@ -258,7 +258,7 @@ const MusicPage = ({ onNavigate }) => {
                     <p className="text-slate-700 dark:text-slate-300 font-semibold">
                       dkh111.
                     </p>
-                  </div>
+                      </div>
                 </div>
               </div>
             </a>

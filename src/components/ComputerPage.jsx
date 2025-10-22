@@ -503,16 +503,6 @@ const ComputerPage = ({ onNavigate }) => {
                     <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50 " />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
-                        src="https://openai.com/favicon.ico" 
-                        alt="OpenAI"
-                        className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded"
-                      />
-                      <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Qwen_logo.svg/300px-Qwen_logo.svg.png?20250327025131" 
-                        alt="Qwen"
-                        className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded"
-                      />
-                      <img 
                         src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png" 
                         alt="Gemini"
                         className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded"
@@ -564,11 +554,6 @@ const ComputerPage = ({ onNavigate }) => {
                         alt="Grok"
                         className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded"
                       />
-                      <img 
-                        src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/deepseek-color.png" 
-                        alt="DeepSeek"
-                        className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded"
-                      />
                     </div>
                   </div>
                 }
@@ -608,10 +593,6 @@ const ComputerPage = ({ onNavigate }) => {
                       <div>
                         <img src="https://assets.streamlinehq.com/image/private/w_300,h_300,ar_1/f_auto/v1/icons/logos/metasploit-h33wivgvlvgtk3wmoejxq.png/metasploit-rkuireddk3p5vdgf5mil5.png?_a=DATAg1AAZAA0" alt="metasploit" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                       </div>
-                      {/* Nmap */}
-                      <div>
-                        <img src="https://nmap.org/images/sitelogo-nmap.svg" alt="nmap" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                      </div>
                       {/* Wireshark */}
                       <div>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" alt="Wireshark" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
@@ -619,10 +600,6 @@ const ComputerPage = ({ onNavigate }) => {
                       {/* Burp Suite */}
                       <div>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/BurpSuite_Comunity_Edition.svg/825px-BurpSuite_Comunity_Edition.svg.png" alt="Burp Suite" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
-                      </div>
-                      {/* Nikto */}
-                      <div>
-                        <img src="https://www.kali.org/tools/nikto/images/nikto-logo.svg" alt="Nikto" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" />
                       </div>
                     </div>
                   </div>
@@ -661,10 +638,6 @@ const ComputerPage = ({ onNavigate }) => {
                       {/* 010 Editor */}
                       <div>
                         <img src="https://w1.pngwing.com/pngs/839/178/png-transparent-text-editor-yellow-hex-editor-hexadecimal-editing-computer-software-source-code-editor-binary-file-plain-text-thumbnail.png" alt="010 Editor" className="w-8 h-8" />
-                      </div>
-                      {/* Notepad++ */}
-                      <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Notepad%2B%2B_Logo.svg/768px-Notepad%2B%2B_Logo.svg.png" alt="Notepad++" className="w-8 h-8" />
                       </div>
                       {/* ExifTool */}
                       <div>

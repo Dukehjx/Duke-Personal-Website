@@ -48,8 +48,6 @@ const HomePage = ({ onNavigate }) => {
             })}
           </Dock>
           
-          {/* Theme Toggler */}
-          <AnimatedThemeToggler />
         </div>
       </div>
 
