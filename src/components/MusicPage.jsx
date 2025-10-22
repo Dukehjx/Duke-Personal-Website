@@ -98,10 +98,10 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* 2x2 grid with small gaps */}
             <div className="grid grid-cols-2 gap-1 h-[400px] sm:h-[500px]">
-              <PhotoCard image="/src/assets/ICS Got Talent/Got Talent 1.PNG" name="Performance 1" />
-              <PhotoCard image="/src/assets/ICS Got Talent/Got Talent 2.PNG" name="Performance 2" />
-              <PhotoCard image="/src/assets/ICS Got Talent/Got Talent 3.PNG" name="Performance 3" />
-              <PhotoCard image="/src/assets/ICS Got Talent/Got Talent 4.PNG" name="Performance 4" />
+              <PhotoCard image="./src/assets/ICS Got Talent/Got Talent 1.PNG" name="Performance 1" />
+              <PhotoCard image="./src/assets/ICS Got Talent/Got Talent 2.PNG" name="Performance 2" />
+              <PhotoCard image="./src/assets/ICS Got Talent/Got Talent 3.PNG" name="Performance 3" />
+              <PhotoCard image="./src/assets/ICS Got Talent/Got Talent 4.PNG" name="Performance 4" />
             </div>
           </div>
 
@@ -115,10 +115,10 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* Portrait photo on left, two horizontal photos stacked on right */}
             <div className="grid grid-cols-2 gap-1 h-[400px] sm:h-[500px]">
-              <PhotoCard image="/src/assets/Banquet 2025/Banquet 1.jpeg" name="Banquet Moment 1" />
+              <PhotoCard image="./src/assets/Banquet 2025/Banquet 1.jpeg" name="Banquet Moment 1" />
               <div className="grid grid-rows-2 gap-1">
-                <PhotoCard image="/src/assets/Banquet 2025/Banquet 2.jpeg" name="Banquet Moment 2" />
-                <PhotoCard image="/src/assets/Banquet 2025/Banquet 3.jpeg" name="Banquet Moment 3" />
+                <PhotoCard image="./src/assets/Banquet 2025/Banquet 2.jpeg" name="Banquet Moment 2" />
+                <PhotoCard image="./src/assets/Banquet 2025/Banquet 3.jpeg" name="Banquet Moment 3" />
               </div>
             </div>
           </div>
@@ -137,8 +137,8 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* 2 horizontal photos stacked vertically */}
             <div className="grid grid-rows-2 gap-1 h-[400px] sm:h-[500px]">
-              <PhotoCard image="/src/assets/K-village Kids Show/Kids Show 1.PNG" name="Kids Show 1" />
-              <PhotoCard image="/src/assets/K-village Kids Show/Kids Show 2.jpg" name="Kids Show 2" />
+              <PhotoCard image="./src/assets/K-village Kids Show/Kids Show 1.PNG" name="Kids Show 1" />
+              <PhotoCard image="./src/assets/K-village Kids Show/Kids Show 2.jpg" name="Kids Show 2" />
             </div>
           </div>
 
@@ -152,7 +152,7 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* Single photo */}
             <div className="h-[400px] sm:h-[500px]">
-              <PhotoCard image="/src/assets/Med Art Show/Med Art 1.png" name="Med Art Performance" />
+              <PhotoCard image="./src/assets/Med Art Show/Med Art 1.png" name="Med Art Performance" />
             </div>
           </div>
         </div>
