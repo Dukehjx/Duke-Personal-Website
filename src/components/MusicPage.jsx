@@ -71,7 +71,6 @@ const MusicPage = ({ onNavigate }) => {
             })}
           </Dock>
 
-          <AnimatedThemeToggler className="bg-white/20 backdrop-blur-lg border-white/30" />
         </div>
       </div>
 
