@@ -20,12 +20,14 @@ function App() {
         return <ComputerPage onNavigate={handleNavigation} />;
       case "music":
         return <MusicPage onNavigate={handleNavigation} />;
-      case "hobbies":
-        return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">Hobbies & I - Coming Soon</h1></div>;
+      // Commented out for future development
+      // case "hobbies":
+      //   return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">Hobbies & I - Coming Soon</h1></div>;
       case "cv":
         return <CVPage onNavigate={handleNavigation} />;
-      case "life":
-        return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">My Life - Coming Soon</h1></div>;
+      // Commented out for future development
+      // case "life":
+      //   return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">My Life - Coming Soon</h1></div>;
       default:
         return <HomePage onNavigate={handleNavigation} />;
     }
