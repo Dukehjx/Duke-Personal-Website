@@ -5,7 +5,7 @@ import {
   Computer, 
   Music, 
   Heart, 
-  GraduationCap, 
+  FileText, 
   User 
 } from "lucide-react";
 
@@ -15,7 +15,7 @@ const HomePage = ({ onNavigate }) => {
     { icon: Computer, label: "Computer & I", id: "computer" },
     { icon: Music, label: "Music & I", id: "music" },
     { icon: Heart, label: "Hobbies & I", id: "hobbies" },
-    { icon: GraduationCap, label: "My Academics", id: "academics" },
+    { icon: FileText, label: "CV", id: "cv" },
     { icon: User, label: "My Life", id: "life" },
   ];
 
