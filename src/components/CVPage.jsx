@@ -1,6 +1,5 @@
 import React from "react";
 import { Dock, DockIcon } from "./magicui/dock";
-import { ShineBorder } from "./magicui/shine-border";
 import { 
   Home, 
   Computer, 
@@ -11,7 +10,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
   Award,
   Briefcase,
   GraduationCap,
@@ -223,14 +221,8 @@ const CVPage = ({ onNavigate }) => {
         <div className="w-full max-w-7xl mx-auto px-2 sm:px-4">
           {/* Header Section */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <div className="relative inline-block mb-6">
-              <ShineBorder
-                className="w-full h-full"
-                shineColor={["#3b82f6", "#8b5cf6", "#06b6d4"]}
-                duration={10}
-                borderWidth={2}
-              />
-              <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 md:p-10 border border-white/30">
+            <div className="relative inline-block mb-6 rounded-3xl overflow-hidden">
+              <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 md:p-10">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">
                   Junxi (Duke) Hu
                 </h1>
@@ -243,12 +235,6 @@ const CVPage = ({ onNavigate }) => {
                     <Mail size={18} className="text-blue-600" />
                     <a href="mailto:hjxduke080111@gmail.com" className="hover:text-blue-600 transition-colors">
                       hjxduke080111@gmail.com
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Globe size={18} className="text-blue-600" />
-                    <a href="https://duke-personal-website.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition-colors">
-                      Personal Website
                     </a>
                   </div>
                 </div>
@@ -265,14 +251,7 @@ const CVPage = ({ onNavigate }) => {
               </h2>
             </div>
             
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30">
-              <ShineBorder
-                className="w-full h-full"
-                shineColor={["#3b82f6", "#10b981", "#f59e0b"]}
-                duration={12}
-                borderWidth={2}
-              />
-              
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border-2 border-blue-300">
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-gray-200 pb-4">
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{education.school}</h3>
@@ -330,14 +309,7 @@ const CVPage = ({ onNavigate }) => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {leadership.map((item, index) => (
-                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-xl transition-shadow duration-300">
-                  <ShineBorder
-                    className="w-full h-full"
-                    shineColor={["#10b981", "#3b82f6", "#8b5cf6"]}
-                    duration={14 + index}
-                    borderWidth={1}
-                  />
-                  
+                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-green-300 hover:shadow-xl transition-shadow duration-300">
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
@@ -370,14 +342,7 @@ const CVPage = ({ onNavigate }) => {
             
             <div className="space-y-4">
               {academics.map((item, index) => (
-                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-white/30 hover:shadow-lg transition-shadow duration-300">
-                  <ShineBorder
-                    className="w-full h-full"
-                    shineColor={["#8b5cf6", "#ec4899", "#f59e0b"]}
-                    duration={16 + index}
-                    borderWidth={1}
-                  />
-                  
+                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 border-2 border-purple-300 hover:shadow-lg transition-shadow duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div className="flex-1">
                       <h3 className="text-lg sm:text-xl font-bold text-gray-900">{item.title}</h3>
@@ -402,14 +367,7 @@ const CVPage = ({ onNavigate }) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {interests.map((item, index) => (
-                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/30 hover:shadow-xl transition-shadow duration-300">
-                  <ShineBorder
-                    className="w-full h-full"
-                    shineColor={["#ec4899", "#f59e0b", "#10b981"]}
-                    duration={15 + index}
-                    borderWidth={1}
-                  />
-                  
+                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-pink-300 hover:shadow-xl transition-shadow duration-300">
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
@@ -440,14 +398,7 @@ const CVPage = ({ onNavigate }) => {
               </h2>
             </div>
             
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30">
-              <ShineBorder
-                className="w-full h-full"
-                shineColor={["#f59e0b", "#ef4444", "#ec4899"]}
-                duration={20}
-                borderWidth={2}
-              />
-              
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border-2 border-yellow-300">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {awards.map((award, index) => (
                   <div key={index} className="bg-gradient-to-br from-yellow-50/80 to-orange-50/80 rounded-xl p-4 border border-yellow-200/50 hover:shadow-md transition-shadow duration-300">
