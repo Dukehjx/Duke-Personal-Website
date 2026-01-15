@@ -1,7 +1,5 @@
 import React from "react";
 import { Dock, DockIcon } from "./magicui/dock";
-import { BorderBeam } from "./magicui/border-beam";
-import { ShineBorder } from "./magicui/shine-border";
 import { BentoGrid, BentoCard } from "./magicui/bento-grid";
 import Marquee from "./magicui/marquee";
 import { IconCloud } from "./magicui/icon-cloud";
@@ -232,113 +230,68 @@ const ComputerPage = ({ onNavigate }) => {
              </h2>
              
              <div className="space-y-6">
-               {/* First Row */}
-               <Marquee className="[--duration:30s]" pauseOnHover>
-                 {techStackRow1.map((tech, index) => (
-                   <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
-                     <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3">
-                       <BorderBeam
-                         duration={6}
-                         size={400}
-                         colorFrom="#3b82f6"
-                         colorTo="#8b5cf6"
-                         borderWidth={2}
-                       />
-                       <BorderBeam
-                         duration={6}
-                         delay={3}
-                         size={400}
-                         colorFrom="#06b6d4"
-                         colorTo="#3b82f6"
-                         borderWidth={1}
-                       />
-                       <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200 relative z-10">
-                         <img 
-                           src={tech.logo} 
-                           alt={tech.name}
-                           className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                           onError={(e) => {
-                             e.target.style.display = 'none';
-                           }}
-                         />
-                       </div>
-                     </div>
-                     <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
-                   </div>
-                 ))}
-               </Marquee>
+              {/* First Row */}
+              <Marquee className="[--duration:30s]" pauseOnHover>
+                {techStackRow1.map((tech, index) => (
+                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3 border-2 border-blue-200 bg-white">
+                      <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200">
+                        <img 
+                          src={tech.logo} 
+                          alt={tech.name}
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
+                  </div>
+                ))}
+              </Marquee>
 
-               {/* Second Row - Reverse direction */}
-               <Marquee className="[--duration:35s]" reverse pauseOnHover>
-                 {techStackRow2.map((tech, index) => (
-                   <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
-                     <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3">
-                       <BorderBeam
-                         duration={7}
-                         size={400}
-                         colorFrom="#10b981"
-                         colorTo="#f59e0b"
-                         borderWidth={2}
-                       />
-                       <BorderBeam
-                         duration={7}
-                         delay={3.5}
-                         size={400}
-                         colorFrom="#ef4444"
-                         colorTo="#10b981"
-                         borderWidth={1}
-                       />
-                       <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200 relative z-10">
-                         <img 
-                           src={tech.logo} 
-                           alt={tech.name}
-                           className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                           onError={(e) => {
-                             e.target.style.display = 'none';
-                           }}
-                         />
-                       </div>
-                     </div>
-                     <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
-                   </div>
-                 ))}
-               </Marquee>
+              {/* Second Row - Reverse direction */}
+              <Marquee className="[--duration:35s]" reverse pauseOnHover>
+                {techStackRow2.map((tech, index) => (
+                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3 border-2 border-green-200 bg-white">
+                      <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200">
+                        <img 
+                          src={tech.logo} 
+                          alt={tech.name}
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
+                  </div>
+                ))}
+              </Marquee>
 
-               {/* Third Row */}
-               <Marquee className="[--duration:40s]" pauseOnHover>
-                 {techStackRow3.map((tech, index) => (
-                   <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
-                     <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3">
-                       <BorderBeam
-                         duration={8}
-                         size={400}
-                         colorFrom="#8b5cf6"
-                         colorTo="#ec4899"
-                         borderWidth={2}
-                       />
-                       <BorderBeam
-                         duration={8}
-                         delay={4}
-                         size={400}
-                         colorFrom="#06b6d4"
-                         colorTo="#8b5cf6"
-                         borderWidth={1}
-                       />
-                       <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200 relative z-10">
-                         <img 
-                           src={tech.logo} 
-                           alt={tech.name}
-                           className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
-                           onError={(e) => {
-                             e.target.style.display = 'none';
-                           }}
-                         />
-                       </div>
-                     </div>
-                     <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
-                   </div>
-                 ))}
-               </Marquee>
+              {/* Third Row */}
+              <Marquee className="[--duration:40s]" pauseOnHover>
+                {techStackRow3.map((tech, index) => (
+                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
+                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3 border-2 border-purple-200 bg-white">
+                      <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200">
+                        <img 
+                          src={tech.logo} 
+                          alt={tech.name}
+                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
+                  </div>
+                ))}
+              </Marquee>
             </div>
           </div>
 
@@ -352,16 +305,10 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Agents Building */}
               <BentoCard
                 name="Agents Building"
-                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-blue-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#3b82f6", "#8b5cf6", "#06b6d4"]}
-                      duration={12}
-                      borderWidth={2}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 " />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70">
                       <img 
                         src="https://openai.com/favicon.ico" 
@@ -384,16 +331,10 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Workflow Building */}
               <BentoCard
                 name="Workflow Building"
-                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-green-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#10b981", "#f59e0b", "#ef4444"]}
-                      duration={14}
-                      borderWidth={2}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-orange-50/50 " />
+                    <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-orange-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 opacity-70">
                       <img 
                         src="https://n8n.io/favicon.ico" 
@@ -411,16 +352,10 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Vibe Coding */}
               <BentoCard
                 name="Vibe Coding"
-                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-purple-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#8b5cf6", "#ec4899", "#06b6d4"]}
-                      duration={10}
-                      borderWidth={2}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50 " />
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70">
                       <img 
                         src="https://cursor.sh/favicon.ico" 
@@ -448,16 +383,10 @@ const ComputerPage = ({ onNavigate }) => {
               {/* ML/DL */}
               <BentoCard
                 name="ML/DL"
-                className="relative col-span-1 sm:col-span-2 group"
+                className="relative col-span-1 sm:col-span-2 group border-2 border-orange-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#f59e0b", "#ef4444", "#10b981"]}
-                      duration={16}
-                      borderWidth={2}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50 " />
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
                         src="https://pytorch.org/favicon.ico" 
@@ -490,16 +419,10 @@ const ComputerPage = ({ onNavigate }) => {
               {/* API Usage */}
               <BentoCard
                 name="API Usage"
-                className="relative col-span-1 sm:col-span-1  group overflow-hidden rounded-2xl"
+                className="relative col-span-1 sm:col-span-1 group overflow-hidden rounded-2xl border-2 border-cyan-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#06b6d4", "#3b82f6", "#8b5cf6"]}
-                      duration={13}
-                      borderWidth={2}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50 " />
+                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
                         src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png" 
@@ -527,16 +450,10 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Others */}
               <BentoCard
                 name="Others"
-                className="relative col-span-1 sm:col-span-2 group"
+                className="relative col-span-1 sm:col-span-2 group border-2 border-pink-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#ec4899", "#8b5cf6", "#06b6d4"]}
-                      duration={18}
-                      borderWidth={2}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-purple-50/50 " />
+                    <div className="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-purple-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
                         src="https://openai.com/favicon.ico" 
@@ -573,15 +490,9 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Red Team Platform */}
               <BentoCard
                 name="Red Team Platform"
-                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-red-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#DC2626", "#EF4444", "#F87171"]}
-                      duration={12}
-                      borderWidth={2}
-                    />
                     <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-rose-50/50" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-wrap gap-1 opacity-70 max-w-[120px] sm:max-w-[140px] md:max-w-[160px]">
                       {/* Kali Linux */}
@@ -611,15 +522,9 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Forensics & Cryptography */}
               <BentoCard
                 name="Forensics & Cryptography"
-                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-blue-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#2563EB", "#3B82F6", "#60A5FA"]}
-                      duration={14}
-                      borderWidth={2}
-                    />
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50" />
                     <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
                       {/* GnuPG */}
@@ -652,15 +557,9 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Offensive Security */}
               <BentoCard
                 name="Offensive Security"
-                className="relative col-span-1 group overflow-hidden rounded-2xl"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-purple-300"
                 background={
                   <div className="absolute inset-0">
-                    <ShineBorder
-                      className="w-full h-full"
-                      shineColor={["#9333EA", "#A855F7", "#C084FC"]}
-                      duration={16}
-                      borderWidth={2}
-                    />
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50" />
                     <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
                       {/* OWASP ZAP */}
@@ -696,15 +595,9 @@ const ComputerPage = ({ onNavigate }) => {
               />
 
               {/* International Cybersecurity Olympiad 2025 - Custom Layout */}
-              <div className="relative col-span-1 sm:col-span-2 lg:col-span-3 group overflow-hidden rounded-2xl bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+              <div className="relative col-span-1 sm:col-span-2 lg:col-span-3 group overflow-hidden rounded-2xl bg-white border-2 border-amber-300 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-black dark:[border:2px_solid_rgb(252_211_77)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
                 {/* Background */}
                 <div className="absolute inset-0">
-                  <ShineBorder
-                    className="w-full h-full"
-                    shineColor={["#CD7F32", "#D4A574", "#F4E4BC"]}
-                    duration={20}
-                    borderWidth={3}
-                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80" />
                   <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 opacity-70 z-20">
                     {/* Thailand Flag */}
