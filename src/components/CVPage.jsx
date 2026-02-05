@@ -191,21 +191,30 @@ const CVPage = ({ onNavigate }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="relative min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-950 dark:via-teal-950 dark:to-cyan-950 overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(148_163_184/0.05)_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-200/20 dark:bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-200/20 dark:bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '1s' }} />
+      </div>
+
       {/* Top Navigation Bar */}
       <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-white/20 backdrop-blur-lg border-white/30">
+          <Dock className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-white/40 dark:border-slate-700/40 shadow-lg">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
                 <DockIcon
                   key={item.id}
-                  className={`${
+                  className={
                     item.id === 'cv'
-                    ? 'bg-blue-500/50 text-white'
-                    : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 hover:text-gray-900 dark:hover:text-white'
-                    }`}
+                    ? 'bg-emerald-500/50 text-white'
+                    : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
+                  }
                   onClick={() => handleNavClick(item.id)}
                 >
                   <IconComponent size={16} className="sm:w-5 sm:h-5" />
@@ -222,18 +231,20 @@ const CVPage = ({ onNavigate }) => {
           {/* Header Section */}
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <div className="relative inline-block mb-6 rounded-3xl overflow-hidden">
-              <div className="bg-white/80 backdrop-blur-sm p-6 sm:p-8 md:p-10">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3">
-                  Junxi (Duke) Hu
+              <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md p-6 sm:p-8 md:p-10 border border-white/40 dark:border-slate-700/40">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
+                  <span className="bg-gradient-to-r from-emerald-900 via-teal-800 to-cyan-900 dark:from-emerald-200 dark:via-teal-200 dark:to-cyan-200 bg-clip-text text-transparent">
+                    Junxi (Duke) Hu
+                  </span>
                 </h1>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base md:text-lg text-gray-600 flex-wrap">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 flex-wrap">
                   <div className="flex items-center gap-2">
-                    <Phone size={18} className="text-blue-600" />
+                    <Phone size={18} className="text-emerald-600 dark:text-emerald-400" />
                     <span>+66 0642157590</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Mail size={18} className="text-blue-600" />
-                    <a href="mailto:hjxduke080111@gmail.com" className="hover:text-blue-600 transition-colors">
+                    <Mail size={18} className="text-emerald-600 dark:text-emerald-400" />
+                    <a href="mailto:hjxduke080111@gmail.com" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                       hjxduke080111@gmail.com
                     </a>
                   </div>
@@ -245,34 +256,36 @@ const CVPage = ({ onNavigate }) => {
           {/* Education Background Section */}
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <GraduationCap size={32} className="text-blue-600" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                Education Background
+              <GraduationCap size={32} className="text-emerald-600 dark:text-emerald-400" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                <span className="bg-gradient-to-r from-slate-900 to-emerald-800 dark:from-white dark:to-emerald-200 bg-clip-text text-transparent">
+                  Education Background
+                </span>
               </h2>
             </div>
             
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border-2 border-blue-300">
+            <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-emerald-300/50 dark:border-emerald-700/50">
               <div className="space-y-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-gray-200 pb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{education.school}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{education.school}</h3>
                   <span className="text-base sm:text-lg text-gray-600 font-medium">{education.period}</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-blue-50/50 rounded-xl p-4">
+                  <div className="bg-emerald-50/50 dark:bg-emerald-900/20 rounded-xl p-4">
                     <p className="text-sm font-semibold text-gray-700 mb-2">GPA</p>
-                    <p className="text-lg font-bold text-gray-900">Unweighted: {education.gpa.unweighted}</p>
-                    <p className="text-lg font-bold text-gray-900">Weighted: {education.gpa.weighted}</p>
+                    <p className="text-lg font-bold text-slate-900 dark:text-white">Unweighted: {education.gpa.unweighted}</p>
+                    <p className="text-lg font-bold text-slate-900 dark:text-white">Weighted: {education.gpa.weighted}</p>
                   </div>
                   <div className="bg-green-50/50 rounded-xl p-4">
                     <p className="text-sm font-semibold text-gray-700 mb-2">Standardized Tests</p>
-                    <p className="text-base font-medium text-gray-900">SAT: {education.standardizedTests.sat}</p>
-                    <p className="text-base font-medium text-gray-900">Duolingo: {education.standardizedTests.duolingo}</p>
+                    <p className="text-base font-medium text-slate-900 dark:text-white">SAT: {education.standardizedTests.sat}</p>
+                    <p className="text-base font-medium text-slate-900 dark:text-white">Duolingo: {education.standardizedTests.duolingo}</p>
                   </div>
                 </div>
 
                 <div>
-                  <p className="text-lg font-semibold text-gray-900 mb-3">AP Courses</p>
+                  <p className="text-lg font-semibold text-slate-900 dark:text-white mb-3">AP Courses</p>
                   <div className="flex flex-wrap gap-2">
                     {education.apCourses.map((course, index) => (
                       <div key={index} className="inline-flex items-center gap-2 px-3 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
@@ -285,7 +298,7 @@ const CVPage = ({ onNavigate }) => {
                 </div>
 
                 <div>
-                  <p className="text-lg font-semibold text-gray-900 mb-3">Current AP Courses</p>
+                  <p className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Current AP Courses</p>
                   <div className="flex flex-wrap gap-2">
                     {education.currentAP.map((course, index) => (
                       <span key={index} className="px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
@@ -301,19 +314,21 @@ const CVPage = ({ onNavigate }) => {
           {/* Community & Leadership Section */}
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <Users size={32} className="text-green-600" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                Community & Leadership
+              <Users size={32} className="text-teal-600 dark:text-teal-400" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                <span className="bg-gradient-to-r from-slate-900 to-teal-800 dark:from-white dark:to-teal-200 bg-clip-text text-transparent">
+                  Community & Leadership
+                </span>
               </h2>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {leadership.map((item, index) => (
-                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-green-300 hover:shadow-xl transition-shadow duration-300">
+                <div key={index} className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border-2 border-teal-300/50 dark:border-teal-700/50 hover:shadow-xl transition-all duration-300">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-base text-blue-600 font-medium mb-1">{item.role}</p>
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
+                      <p className="text-base text-emerald-600 dark:text-emerald-400 font-medium mb-1">{item.role}</p>
                       <p className="text-sm text-gray-600">{item.period}</p>
                     </div>
                     
@@ -342,10 +357,10 @@ const CVPage = ({ onNavigate }) => {
             
             <div className="space-y-4">
               {academics.map((item, index) => (
-                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-xl p-6 border-2 border-purple-300 hover:shadow-lg transition-shadow duration-300">
+                <div key={index} className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl p-6 border-2 border-emerald-300/50 dark:border-emerald-700/50 hover:shadow-lg transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900">{item.title}</h3>
+                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
                       {item.role && <p className="text-base text-purple-600 font-medium">{item.role}</p>}
                     </div>
                     <span className="text-sm text-gray-600 font-medium">{item.period}</span>
@@ -367,10 +382,10 @@ const CVPage = ({ onNavigate }) => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {interests.map((item, index) => (
-                <div key={index} className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-pink-300 hover:shadow-xl transition-shadow duration-300">
+                <div key={index} className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border-2 border-cyan-300/50 dark:border-cyan-700/50 hover:shadow-xl transition-all duration-300">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{item.title}</h3>
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
                       <p className="text-base text-pink-600 font-medium mb-1">{item.role}</p>
                       <p className="text-sm text-gray-600">{item.period}</p>
                     </div>
@@ -392,22 +407,24 @@ const CVPage = ({ onNavigate }) => {
           {/* Awards & Honors Section */}
           <div className="mb-8 sm:mb-12 md:mb-16">
             <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <Trophy size={32} className="text-yellow-600" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                Awards & Honors
+              <Trophy size={32} className="text-amber-600 dark:text-amber-400" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+                <span className="bg-gradient-to-r from-slate-900 to-amber-800 dark:from-white dark:to-amber-200 bg-clip-text text-transparent">
+                  Awards & Honors
+                </span>
               </h2>
             </div>
             
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border-2 border-yellow-300">
+            <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-amber-300/50 dark:border-amber-700/50">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {awards.map((award, index) => (
                   <div key={index} className="bg-gradient-to-br from-yellow-50/80 to-orange-50/80 rounded-xl p-4 border border-yellow-200/50 hover:shadow-md transition-shadow duration-300">
                     <div className="flex items-start gap-3">
                       <Award size={20} className="text-yellow-600 mt-1 flex-shrink-0" />
                       <div className="flex-1">
-                        <h3 className="text-sm font-bold text-gray-900 mb-1 leading-tight">{award.name}</h3>
+                        <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1 leading-tight">{award.name}</h3>
                         <p className="text-xs text-gray-600 mb-1">{award.level}</p>
-                        <p className="text-xs text-blue-600 font-medium">{award.year}</p>
+                        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">{award.year}</p>
                       </div>
                     </div>
                   </div>
@@ -461,7 +478,7 @@ const CVPage = ({ onNavigate }) => {
                 <div className="flex items-center gap-3">
                   <a 
                     href="mailto:hjxduke080111@gmail.com" 
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg transition-colors duration-200 group"
                   >
                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                     <span className="font-medium">Get in Touch</span>

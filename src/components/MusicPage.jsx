@@ -36,33 +36,43 @@ const MusicPage = ({ onNavigate }) => {
     onNavigate(id);
   };
   const PhotoCard = ({ image, name, className = "" }) => (
-    <div className={`relative overflow-hidden cursor-pointer group ${className}`}>
+    <div className={`relative overflow-hidden cursor-pointer group rounded-lg ${className}`}>
       <img 
         src={image} 
         alt={name}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg" />
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 p-4 sm:p-6 lg:p-8">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-purple-950 dark:to-pink-950 overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(148_163_184/0.05)_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
+      
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-200/20 dark:bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '1s' }} />
+      </div>
+
       {/* Top Navigation Bar */}
       <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-white/20 backdrop-blur-lg border-white/30">
+          <Dock className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-white/40 dark:border-slate-700/40 shadow-lg">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
                 <DockIcon
                   key={item.id}
-                  className={`${
+                  className={
                     item.id === 'music' 
                       ? 'bg-purple-500/50 text-white' 
                       : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
-                  }`}
+                  }
                   onClick={() => handleNavClick(item.id)}
                 >
                   <IconComponent size={16} className="sm:w-5 sm:h-5" />
@@ -70,27 +80,36 @@ const MusicPage = ({ onNavigate }) => {
               );
             })}
           </Dock>
-
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto space-y-12 pt-16 sm:pt-20">
+      <div className="relative max-w-7xl mx-auto space-y-16 sm:space-y-20 pt-20 sm:pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         
         {/* Page Header */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Music & Performance
-              </h1>
-          <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+        <div className="text-center space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/40 dark:border-slate-700/40 mb-4">
+            <Music size={20} className="text-purple-600 dark:text-purple-400" />
+            <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Musical Journey</span>
+          </div>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-purple-900 via-pink-700 to-red-600 dark:from-purple-200 dark:via-pink-200 dark:to-red-200 bg-clip-text text-transparent">
+              Music & Performance
+            </span>
+          </h1>
+          
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
             A collection of memorable moments from various music shows and performances I've attended
           </p>
         </div>
 
         {/* Performances Section */}
-        <div className="space-y-8">
+        <div className="space-y-10 sm:space-y-12">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200 mb-4">
-              Performances
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-slate-900 to-purple-800 dark:from-white dark:to-purple-200 bg-clip-text text-transparent">
+                Performances
+              </span>
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
           </div>
@@ -169,10 +188,12 @@ const MusicPage = ({ onNavigate }) => {
         </div>
 
         {/* Social Media Section */}
-        <div className="space-y-8">
+        <div className="space-y-10 sm:space-y-12">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 dark:text-slate-200 mb-4">
-              Social Media
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-gradient-to-r from-slate-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent">
+                Social Media
+              </span>
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
           </div>
@@ -186,16 +207,17 @@ const MusicPage = ({ onNavigate }) => {
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="flex flex-col items-center space-y-4">
+              <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border border-white/40 dark:border-slate-700/40 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00A1D6]/5 to-[#FB7299]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative flex flex-col items-center space-y-4">
                   {/* Bilibili Icon */}
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#00A1D6] to-[#FB7299] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#00A1D6] to-[#FB7299] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                     <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/>
                     </svg>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-[#00A1D6] dark:group-hover:text-[#FB7299] transition-colors duration-200">
                       Bilibili
                     </h3>
                     <p className="text-[#00A1D6] dark:text-[#FB7299] font-semibold">
@@ -213,16 +235,17 @@ const MusicPage = ({ onNavigate }) => {
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="flex flex-col items-center space-y-4">
+              <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border border-white/40 dark:border-slate-700/40 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative flex flex-col items-center space-y-4">
                   {/* YouTube Icon */}
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                     <svg className="w-12 h-12 text-white" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
                       YouTube
                     </h3>
                     <p className="text-red-600 dark:text-red-400 font-semibold">
@@ -240,23 +263,24 @@ const MusicPage = ({ onNavigate }) => {
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="flex flex-col items-center space-y-4">
+              <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border border-white/40 dark:border-slate-700/40 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-gray-800/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative flex flex-col items-center space-y-4">
                   {/* Douyin/TikTok Icon */}
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-black to-gray-800 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
                     <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
                       <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" fill="#EE1D52"/>
                       <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" fill="#69C9D0"/>
                     </svg>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-200">
                       Douyin
                     </h3>
                     <p className="text-slate-700 dark:text-slate-300 font-semibold">
                       dkh111.
                     </p>
-                      </div>
+                  </div>
                 </div>
               </div>
             </a>

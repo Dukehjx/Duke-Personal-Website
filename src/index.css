@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
   font-weight: 400;
+  --font-mono: 'Space Mono', 'Courier New', monospace;
+  
+  /* Performance optimization for animations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 * {
@@ -18,6 +24,18 @@ body {
 
 html { color-scheme: light; }
 html.dark { color-scheme: dark; }
+
+/* Performance: Use will-change sparingly and only for animating elements */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+@media (prefers-reduced-motion: no-preference) {
+  .will-animate:not(:hover):not(:focus) {
+    will-change: auto;
+  }
+}
 
 @keyframes marquee {
   from {

@@ -94,3 +94,7 @@ temp/
 *.sln
 *.sw?
 
+# Claude AI and agent files
+AGENTS.md
+.claude/
+

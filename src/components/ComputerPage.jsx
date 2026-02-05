@@ -179,21 +179,24 @@ const ComputerPage = ({ onNavigate }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 relative overflow-hidden">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(148_163_184/0.05)_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
+      
       {/* Top Navigation Bar */}
       <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-white/20 backdrop-blur-lg border-white/30">
+          <Dock className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-white/40 dark:border-slate-700/40 shadow-lg">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
                 <DockIcon
                   key={item.id}
-                  className={`${
+                  className={
                     item.id === 'computer'
                     ? 'bg-blue-500/50 text-white'
-                    : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 hover:text-gray-900 dark:hover:text-white'
-                    }`}
+                    : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
+                  }
                   onClick={() => handleNavClick(item.id)}
                 >
                   <IconComponent size={16} className="sm:w-5 sm:h-5" />
@@ -201,52 +204,58 @@ const ComputerPage = ({ onNavigate }) => {
               );
             })}
           </Dock>
-          
-          {/* Theme Toggler */}
-          {/* <AnimatedThemeToggler /> */}
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="px-2 sm:px-4 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
+      <div className="relative px-2 sm:px-4 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
         <div className="w-full max-w-7xl mx-auto px-2 sm:px-4">
           {/* Page Header */}
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <div className="flex flex-col sm:flex-row items-center justify-center mb-4 sm:mb-6 gap-2 sm:gap-4">
-              <Computer size={32} className="text-blue-600 sm:w-10 sm:h-10 md:w-12 md:h-12" />
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                Computer & I
-              </h1>
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/40 dark:border-slate-700/40 mb-6">
+              <Computer size={20} className="text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Tech Journey</span>
             </div>
-            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-2 leading-relaxed">
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent">
+                Computer & I
+              </span>
+            </h1>
+            
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto px-2 leading-relaxed">
               My journey through the world of technology, programming, and digital innovation.
             </p>
           </div>
 
            {/* Full Stack Dev Tech Stack Marquee */}
-           <div className="mb-8 sm:mb-12 md:mb-16">
-           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
+           <div className="mb-12 sm:mb-16 md:mb-20">
+           <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
+             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent mb-3">
                Full Stack Dev Tech Stack
              </h2>
+             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto sm:mx-0" />
+           </div>
              
              <div className="space-y-6">
               {/* First Row */}
               <Marquee className="[--duration:30s]" pauseOnHover>
                 {techStackRow1.map((tech, index) => (
-                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
-                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3 border-2 border-blue-200 bg-white">
-                      <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200">
+                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4 group">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-blue-200/50 dark:border-blue-700/50 bg-white dark:bg-slate-800 shadow-md group-hover:shadow-xl group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300">
+                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-800 dark:to-blue-900/30 group-hover:scale-110 transition-transform duration-300">
                         <img 
                           src={tech.logo} 
                           alt={tech.name}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 object-contain"
+                          loading="lazy"
                           onError={(e) => {
                             e.target.style.display = 'none';
                           }}
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
+                    <span className="text-xs text-center font-semibold text-slate-700 dark:text-slate-300 max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">{tech.name}</span>
                   </div>
                 ))}
               </Marquee>
@@ -254,20 +263,21 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Second Row - Reverse direction */}
               <Marquee className="[--duration:35s]" reverse pauseOnHover>
                 {techStackRow2.map((tech, index) => (
-                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
-                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3 border-2 border-green-200 bg-white">
-                      <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200">
+                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4 group">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-green-200/50 dark:border-green-700/50 bg-white dark:bg-slate-800 shadow-md group-hover:shadow-xl group-hover:border-green-400 dark:group-hover:border-green-500 transition-all duration-300">
+                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-white to-green-50/30 dark:from-slate-800 dark:to-green-900/30 group-hover:scale-110 transition-transform duration-300">
                         <img 
                           src={tech.logo} 
                           alt={tech.name}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 object-contain"
+                          loading="lazy"
                           onError={(e) => {
                             e.target.style.display = 'none';
                           }}
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
+                    <span className="text-xs text-center font-semibold text-slate-700 dark:text-slate-300 max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-200">{tech.name}</span>
                   </div>
                 ))}
               </Marquee>
@@ -275,20 +285,21 @@ const ComputerPage = ({ onNavigate }) => {
               {/* Third Row */}
               <Marquee className="[--duration:40s]" pauseOnHover>
                 {techStackRow3.map((tech, index) => (
-                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4">
-                    <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 overflow-hidden rounded-lg mb-2 sm:mb-3 border-2 border-purple-200 bg-white">
-                      <div className="flex items-center justify-center h-full w-full bg-transparent hover:scale-110 transition-transform duration-200">
+                  <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4 group">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-purple-200/50 dark:border-purple-700/50 bg-white dark:bg-slate-800 shadow-md group-hover:shadow-xl group-hover:border-purple-400 dark:group-hover:border-purple-500 transition-all duration-300">
+                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-800 dark:to-purple-900/30 group-hover:scale-110 transition-transform duration-300">
                         <img 
                           src={tech.logo} 
                           alt={tech.name}
-                          className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10"
+                          className="w-7 h-7 sm:w-9 sm:h-9 md:w-11 md:h-11 object-contain"
+                          loading="lazy"
                           onError={(e) => {
                             e.target.style.display = 'none';
                           }}
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-center font-medium text-gray-700 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] leading-tight">{tech.name}</span>
+                    <span className="text-xs text-center font-semibold text-slate-700 dark:text-slate-300 max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">{tech.name}</span>
                   </div>
                 ))}
               </Marquee>
@@ -296,10 +307,13 @@ const ComputerPage = ({ onNavigate }) => {
           </div>
 
           {/* AI App & Research Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
-              AI App & Research
-            </h2>
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-purple-800 dark:from-white dark:to-purple-200 bg-clip-text text-transparent mb-3">
+                AI App & Research
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto sm:mx-0" />
+            </div>
             
             <BentoGrid className="grid w-full auto-rows-[14rem] sm:auto-rows-[16rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {/* Agents Building */}
@@ -481,10 +495,13 @@ const ComputerPage = ({ onNavigate }) => {
           </div>
 
           {/* Cybersecurity Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
-              Cybersecurity
-            </h2>
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-red-800 dark:from-white dark:to-red-200 bg-clip-text text-transparent mb-3">
+                Cybersecurity
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mx-auto sm:mx-0" />
+            </div>
             
             <BentoGrid className="grid w-full auto-rows-[18rem] sm:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {/* Red Team Platform */}
@@ -668,10 +685,13 @@ const ComputerPage = ({ onNavigate }) => {
           </div>
 
           {/* Other Computer Skills Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
-              Other Computer Skills
-            </h2>
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-green-800 dark:from-white dark:to-green-200 bg-clip-text text-transparent mb-3">
+                Other Computer Skills
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mx-auto sm:mx-0" />
+            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
               {/* Icon Cloud */}
@@ -751,10 +771,13 @@ const ComputerPage = ({ onNavigate }) => {
           </div>
 
           {/* Project Showcase Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 text-center sm:text-left mb-6 sm:mb-8 md:mb-12 px-2">
-              Project Showcase
-            </h2>
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-indigo-800 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent mb-3">
+                Project Showcase
+              </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto sm:mx-0" />
+            </div>
 
             <div className="space-y-12 sm:space-y-16 md:space-y-20">
               {/* NeuroAegis */}
