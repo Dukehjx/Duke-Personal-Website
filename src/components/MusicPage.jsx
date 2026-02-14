@@ -10,18 +10,6 @@ import {
   Mail
 } from "lucide-react";
 
-// Import performance images
-import gotTalent1 from '../assets/ICS Got Talent/Got Talent 1.jpg';
-import gotTalent2 from '../assets/ICS Got Talent/Got Talent 2.jpg';
-import gotTalent3 from '../assets/ICS Got Talent/Got Talent 3.jpg';
-import gotTalent4 from '../assets/ICS Got Talent/Got Talent 4.jpg';
-import banquet1 from '../assets/Banquet 2025/Banquet 1.jpeg';
-import banquet2 from '../assets/Banquet 2025/Banquet 2.jpeg';
-import banquet3 from '../assets/Banquet 2025/Banquet 3.jpeg';
-import kvillage1 from '../assets/K-village Kids Show/Kids Show 1.jpg';
-import kvillage2 from '../assets/K-village Kids Show/Kids Show 2.jpg';
-import medArt1 from '../assets/Med Art Show/Med Art 1.jpg';
-
 const MusicPage = ({ onNavigate }) => {
   const navigationItems = [
     { icon: Home, label: "Home", id: "home" },
@@ -127,10 +115,10 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* 2x2 grid with small gaps */}
             <div className="grid grid-cols-2 gap-1 h-[400px] sm:h-[500px]">
-              <PhotoCard image={gotTalent1} name="Performance 1" />
-              <PhotoCard image={gotTalent2} name="Performance 2" />
-              <PhotoCard image={gotTalent3} name="Performance 3" />
-              <PhotoCard image={gotTalent4} name="Performance 4" />
+              <PhotoCard image="/ICS Got Talent/Got Talent 1.jpg" name="Performance 1" />
+              <PhotoCard image="/ICS Got Talent/Got Talent 2.jpg" name="Performance 2" />
+              <PhotoCard image="/ICS Got Talent/Got Talent 3.jpg" name="Performance 3" />
+              <PhotoCard image="/ICS Got Talent/Got Talent 4.jpg" name="Performance 4" />
             </div>
           </div>
 
@@ -144,10 +132,10 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* Portrait photo on left, two horizontal photos stacked on right */}
             <div className="grid grid-cols-2 gap-1 h-[400px] sm:h-[500px]">
-              <PhotoCard image={banquet1} name="Banquet Moment 1" />
+              <PhotoCard image="/Banquet 2025/Banquet 1.jpeg" name="Banquet Moment 1" />
               <div className="grid grid-rows-2 gap-1">
-                <PhotoCard image={banquet2} name="Banquet Moment 2" />
-                <PhotoCard image={banquet3} name="Banquet Moment 3" />
+                <PhotoCard image="/Banquet 2025/Banquet 2.jpeg" name="Banquet Moment 2" />
+                <PhotoCard image="/Banquet 2025/Banquet 3.jpeg" name="Banquet Moment 3" />
               </div>
             </div>
           </div>
@@ -166,8 +154,8 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* 2 horizontal photos stacked vertically */}
             <div className="grid grid-rows-2 gap-1 h-[400px] sm:h-[500px]">
-              <PhotoCard image={kvillage1} name="Kids Show 1" />
-              <PhotoCard image={kvillage2} name="Kids Show 2" />
+              <PhotoCard image="/K-village Kids Show/Kids Show 1.jpg" name="Kids Show 1" />
+              <PhotoCard image="/K-village Kids Show/Kids Show 2.jpg" name="Kids Show 2" />
             </div>
           </div>
 
@@ -181,7 +169,7 @@ const MusicPage = ({ onNavigate }) => {
             </div>
             {/* Single photo */}
             <div className="h-[400px] sm:h-[500px]">
-              <PhotoCard image={medArt1} name="Med Art Performance" />
+              <PhotoCard image="/Med Art Show/Med Art 1.jpg" name="Med Art Performance" />
             </div>
           </div>
         </div>
