@@ -40,20 +40,66 @@ const MusicPage = () => {
   );
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50 dark:from-slate-950 dark:via-purple-950 dark:to-pink-950 overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(148_163_184/0.05)_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-purple-200/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-pink-200/20 dark:bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '1s' }} />
+    <div className="relative min-h-screen bg-gradient-to-br from-orange-50 via-pink-50 to-purple-100 overflow-hidden">
+      {/* Dynamic vibrant background */}
+      <div className="absolute inset-0">
+        {/* Bright gradient mesh background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-200" />
+        
+        {/* Floating vibrant orbs with musical energy */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-orange-400 to-pink-500 rounded-full mix-blend-multiply filter blur-[120px] opacity-40 animate-pulse" style={{ animationDuration: '6s' }} />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-40 animate-pulse" style={{ animationDuration: '8s', animationDelay: '2s' }} />
+        <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-gradient-to-br from-yellow-300 to-orange-400 rounded-full mix-blend-multiply filter blur-[90px] opacity-30 animate-pulse" style={{ animationDuration: '10s', animationDelay: '4s' }} />
+        <div className="absolute top-1/3 left-1/2 w-[350px] h-[350px] bg-gradient-to-br from-pink-300 to-purple-400 rounded-full mix-blend-multiply filter blur-[80px] opacity-35 animate-pulse" style={{ animationDuration: '7s', animationDelay: '1s' }} />
+        
+        {/* Musical note shapes floating */}
+        <div className="absolute top-20 left-10 w-16 h-16 text-orange-400/20 animate-bounce" style={{ animationDuration: '3s' }}>
+          <Music size={64} />
+        </div>
+        <div className="absolute bottom-32 right-20 w-20 h-20 text-purple-400/20 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+          <Music size={80} />
+        </div>
+        <div className="absolute top-1/2 left-1/4 w-12 h-12 text-pink-400/20 animate-bounce" style={{ animationDuration: '5s', animationDelay: '2s' }}>
+          <Music size={48} />
+        </div>
+        
+        {/* Sound wave effect */}
+        <div className="absolute inset-0 opacity-20">
+          {[...Array(5)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-orange-400 to-transparent"
+              style={{
+                top: `${20 + i * 15}%`,
+                animation: `soundWave ${2 + i * 0.5}s ease-in-out infinite`,
+                animationDelay: `${i * 0.3}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Sparkle particles for energy */}
+        <div className="absolute inset-0">
+          {[...Array(25)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                background: ['#f97316', '#ec4899', '#a855f7', '#eab308'][Math.floor(Math.random() * 4)],
+                animation: `sparkle ${2 + Math.random() * 3}s infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Top Navigation Bar */}
       <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-white/40 dark:border-slate-700/40 shadow-lg">
+          <Dock className="bg-white/80 backdrop-blur-2xl border-2 border-orange-200/50 shadow-xl shadow-pink-500/20">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
@@ -61,8 +107,8 @@ const MusicPage = () => {
                   key={item.id}
                   className={
                     item.id === 'music' 
-                      ? 'bg-purple-500/50 hover:bg-purple-600/60 text-white' 
-                      : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
+                      ? 'bg-gradient-to-br from-orange-400 via-pink-500 to-purple-500 hover:from-orange-500 hover:via-pink-600 hover:to-purple-600 text-white shadow-lg shadow-pink-500/40 font-bold' 
+                      : 'bg-white/60 hover:bg-white/80 text-gray-700 hover:text-gray-900 border border-orange-200/30 hover:border-orange-300/50'
                   }
                   onClick={() => handleNavClick(item.path)}
                 >
@@ -78,19 +124,26 @@ const MusicPage = () => {
         
         {/* Page Header */}
         <div className="text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/40 dark:border-slate-700/40 mb-4">
-            <Music size={20} className="text-purple-600 dark:text-purple-400" />
-            <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Musical Journey</span>
+          <div className="relative inline-block mb-6">
+            {/* Animated glow effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 rounded-full blur-xl opacity-60 animate-pulse" style={{ animationDuration: '3s' }} />
+            
+            <div className="relative inline-flex items-center gap-2 px-6 py-3 bg-white/90 backdrop-blur-md rounded-full border-2 border-orange-300/50 shadow-lg">
+              <Music size={24} className="text-orange-500 animate-bounce" style={{ animationDuration: '2s' }} />
+              <span className="text-base font-bold bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
+                Musical Journey
+              </span>
+            </div>
           </div>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-900 via-pink-700 to-red-600 dark:from-purple-200 dark:via-pink-200 dark:to-red-200 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 bg-clip-text text-transparent animate-pulse" style={{ animationDuration: '4s' }}>
               Music & Performance
             </span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            A collection of memorable moments from various music shows and performances I've attended
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed font-medium">
+            A vibrant collection of memorable moments from various music shows and performances
           </p>
         </div>
 
@@ -98,11 +151,11 @@ const MusicPage = () => {
         <div className="space-y-10 sm:space-y-12">
           <div className="text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-slate-900 to-purple-800 dark:from-white dark:to-purple-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-orange-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
                 Performances
               </span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 mx-auto rounded-full shadow-lg shadow-pink-500/50"></div>
           </div>
 
         {/* First Row: Got Talent + Banquet */}
@@ -111,10 +164,10 @@ const MusicPage = () => {
           {/* ICS Got Talent Section */}
           <div className="space-y-4">
             <div className="text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                 ICS Got Talent
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto lg:mx-0 rounded-full shadow-md shadow-purple-500/30"></div>
             </div>
             {/* 2x2 grid with small gaps */}
             <div className="grid grid-cols-2 gap-1 h-[400px] sm:h-[500px]">
@@ -128,10 +181,10 @@ const MusicPage = () => {
           {/* Banquet 2025 Section */}
           <div className="space-y-4">
             <div className="text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent mb-2">
                 Banquet 2025
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-pink-500 to-red-500 mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-red-500 mx-auto lg:mx-0 rounded-full shadow-md shadow-pink-500/30"></div>
             </div>
             {/* Portrait photo on left, two horizontal photos stacked on right */}
             <div className="grid grid-cols-2 gap-1 h-[400px] sm:h-[500px]">
@@ -150,10 +203,10 @@ const MusicPage = () => {
           {/* K-village Kids Show Section */}
           <div className="space-y-4">
             <div className="text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-2">
                 K-village Kids Show
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-500 mx-auto lg:mx-0 rounded-full shadow-md shadow-green-500/30"></div>
             </div>
             {/* 2 horizontal photos stacked vertically */}
             <div className="grid grid-rows-2 gap-1 h-[400px] sm:h-[500px]">
@@ -165,10 +218,10 @@ const MusicPage = () => {
           {/* Med Art Show Section */}
           <div className="space-y-4">
             <div className="text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200 mb-2">
+              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-orange-600 to-yellow-600 bg-clip-text text-transparent mb-2">
                 Med Art Show
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 mx-auto lg:mx-0 rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-orange-500 to-yellow-500 mx-auto lg:mx-0 rounded-full shadow-md shadow-orange-500/30"></div>
             </div>
             {/* Single photo */}
             <div className="h-[400px] sm:h-[500px]">
@@ -182,11 +235,11 @@ const MusicPage = () => {
         <div className="space-y-10 sm:space-y-12">
           <div className="text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-slate-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent">
                 Social Media
               </span>
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 mx-auto rounded-full shadow-lg shadow-cyan-500/50"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
@@ -198,8 +251,8 @@ const MusicPage = () => {
               rel="noopener noreferrer"
               className="group"
             >
-              <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border border-white/40 dark:border-slate-700/40 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#00A1D6]/5 to-[#FB7299]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative bg-white/90 backdrop-blur-md rounded-2xl p-6 border-2 border-white/60 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#00A1D6]/10 to-[#FB7299]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative flex flex-col items-center space-y-4">
                   {/* Bilibili Icon */}
                   <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#00A1D6] to-[#FB7299] flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
@@ -208,7 +261,7 @@ const MusicPage = () => {
                     </svg>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-[#00A1D6] dark:group-hover:text-[#FB7299] transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-[#00A1D6] transition-colors duration-200">
                       Bilibili
                     </h3>
                     <p className="text-[#00A1D6] dark:text-[#FB7299] font-semibold">
@@ -236,10 +289,10 @@ const MusicPage = () => {
                     </svg>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-red-600 transition-colors duration-200">
                       YouTube
                     </h3>
-                    <p className="text-red-600 dark:text-red-400 font-semibold">
+                    <p className="text-red-600 font-semibold">
                       Duke Hu
                     </p>
                   </div>
@@ -265,10 +318,10 @@ const MusicPage = () => {
                     </svg>
                   </div>
                   <div className="text-center">
-                    <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-200">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-gray-900 transition-colors duration-200">
                       Douyin
                     </h3>
-                    <p className="text-slate-700 dark:text-slate-300 font-semibold">
+                    <p className="text-gray-700 font-semibold">
                       dkh111.
                     </p>
                   </div>
@@ -280,7 +333,7 @@ const MusicPage = () => {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 sm:mt-20 md:mt-24 border-t border-gray-200/50 dark:border-gray-700/50">
+        <div className="mt-16 sm:mt-20 md:mt-24 border-t-2 border-orange-200/50">
           <div className="pt-8 sm:pt-12 pb-8">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
               {/* Left side - Social Links */}
@@ -289,7 +342,7 @@ const MusicPage = () => {
                   href="https://github.com/Dukehjx" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 group"
+                  className="inline-flex items-center gap-3 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 group shadow-md hover:shadow-lg"
                 >
                   <svg 
                     className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -306,7 +359,7 @@ const MusicPage = () => {
                   href="https://x.com/DukeHu0111" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black rounded-lg transition-colors duration-200 group"
+                  className="inline-flex items-center gap-3 px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-lg transition-colors duration-200 group shadow-md hover:shadow-lg"
                 >
                   <svg 
                     className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -316,14 +369,14 @@ const MusicPage = () => {
                   >
                     <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
                   </svg>
-                  <span className="font-medium">Twitter</span>
+                  <span className="font-medium">X</span>
                 </a>
 
                 <a 
                   href="https://www.linkedin.com/in/junxi-hu" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2 bg-[#0077B5] hover:bg-[#006399] text-white rounded-lg transition-colors duration-200 group"
+                  className="inline-flex items-center gap-3 px-4 py-2 bg-[#0077B5] hover:bg-[#006399] text-white rounded-lg transition-colors duration-200 group shadow-md hover:shadow-lg"
                 >
                   <svg 
                     className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -340,7 +393,7 @@ const MusicPage = () => {
                   href="https://www.facebook.com/duke.hu.2025/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-4 py-2 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-lg transition-colors duration-200 group"
+                  className="inline-flex items-center gap-3 px-4 py-2 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-lg transition-colors duration-200 group shadow-md hover:shadow-lg"
                 >
                   <svg 
                     className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -358,17 +411,17 @@ const MusicPage = () => {
               <div className="flex items-center gap-3">
                 <a 
                   href="mailto:hjxduke080111@gmail.com" 
-                  className="inline-flex items-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 group"
+                  className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-orange-500 via-pink-500 to-purple-500 hover:from-orange-600 hover:via-pink-600 hover:to-purple-600 text-white rounded-lg transition-all duration-200 group shadow-lg shadow-pink-500/30 hover:shadow-xl hover:shadow-pink-500/40"
                 >
                   <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
-                  <span className="font-medium">Get in Touch</span>
+                  <span className="font-bold">Get in Touch</span>
                 </a>
               </div>
             </div>
 
             {/* Copyright */}
-            <div className="mt-8 pt-6 border-t border-gray-200/30 dark:border-gray-700/30 text-center">
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="mt-8 pt-6 border-t border-orange-200/30 text-center">
+              <p className="text-sm text-gray-600 font-medium">
                 © 2025 Duke Hu. Built with React & Tailwind CSS.
               </p>
             </div>
