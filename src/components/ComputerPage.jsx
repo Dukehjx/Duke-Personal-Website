@@ -617,8 +617,6 @@ const ComputerPage = ({ onNavigate }) => {
                 <div className="absolute inset-0">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80" />
                   <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 opacity-70 z-20">
-                    {/* Thailand Flag */}
-                    <div className="text-2xl sm:text-3xl md:text-4xl">🇹🇭</div>
                     {/* Medal */}
                     <div className="text-2xl sm:text-3xl md:text-4xl">🥉</div>
                     {/* Trophy */}
@@ -639,7 +637,7 @@ const ComputerPage = ({ onNavigate }) => {
                         International Cybersecurity Olympiad 2025
                       </h3>
                       <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-                        🏆 Bronze Medal Winner at the International Cybersecurity Olympiad 2025, representing the Thai National Team
+                        🏆 Bronze Medal Winner at the International Cybersecurity Olympiad 2025
                       </p>
                     </div>
 
@@ -655,10 +653,10 @@ const ComputerPage = ({ onNavigate }) => {
                     <div className="w-full h-full flex justify-center items-center min-h-[150px] sm:min-h-[180px] md:min-h-[200px] max-w-[700px]">
                       <Marquee className="[--duration:25s]" pauseOnHover>
                         {[
-                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00536.jpg", alt: "International Cybersecurity Olympiad 2025 - Award Ceremony" },
-                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00537.jpg", alt: "International Cybersecurity Olympiad 2025 - Team Photo" },
-                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00541.jpg", alt: "International Cybersecurity Olympiad 2025 - Competition Moment" },
-                          { src: "https://ico2025.sg/wp-content/uploads/2025/06/DSC00552.jpg", alt: "International Cybersecurity Olympiad 2025 - Bronze Medal Achievement" }
+                          { src: "/ICO-2025/ICO2025-1.jpg", alt: "International Cybersecurity Olympiad 2025 - Award Ceremony" },
+                          { src: "/ICO-2025/ICO2025-2.jpg", alt: "International Cybersecurity Olympiad 2025 - Team Photo" },
+                          { src: "/ICO-2025/ICO2025-3.jpg", alt: "International Cybersecurity Olympiad 2025 - Competition Moment" },
+                          { src: "/ICO-2025/ICO2025-4.jpg", alt: "International Cybersecurity Olympiad 2025 - Bronze Medal Achievement" }
                         ].map((photo, index) => (
                           <div key={index} className="mx-2 sm:mx-3">
                             <div className="relative w-40 h-28 sm:w-48 sm:h-36 md:w-56 md:h-40 lg:w-64 lg:h-48 xl:w-72 xl:h-52 overflow-hidden rounded-xl shadow-xl">
