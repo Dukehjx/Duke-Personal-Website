@@ -78,7 +78,7 @@ const ComputerPage = () => {
     { name: "Cloudflare", logo: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/cloudflare.svg" },
     { name: "Ubuntu", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-plain.svg" },
     { name: "Postman", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
-    { name: "GitHub Desktop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
+    { name: "GitHub Desktop", logo: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Github-desktop-logo-symbol.svg" },
     { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" }
   ];
 
@@ -182,14 +182,90 @@ const ComputerPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-950 dark:via-blue-950 dark:to-indigo-950 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(148_163_184/0.05)_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
+    <div className="min-h-screen bg-[#0d0d0d] relative overflow-hidden">
+      {/* Advanced AI/Tech background */}
+      <div className="absolute inset-0">
+        {/* Deep tech gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0d0d0d]" />
+        
+        {/* Glowing orbs with rotating brand colors */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full mix-blend-screen filter blur-[130px]" style={{ animation: 'colorRotate1 40s ease-in-out infinite, pulse 10s ease-in-out infinite' }} />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full mix-blend-screen filter blur-[110px]" style={{ animation: 'colorRotate2 40s ease-in-out infinite, pulse 15s ease-in-out infinite', animationDelay: '0s, 2s' }} />
+        <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] rounded-full mix-blend-screen filter blur-[90px]" style={{ animation: 'colorRotate3 40s ease-in-out infinite, pulse 20s ease-in-out infinite', animationDelay: '0s, 4s' }} />
+        
+        {/* Neural network connections */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#D00252" stopOpacity="0.5" />
+              <stop offset="100%" stopColor="#174DE3" stopOpacity="0.5" />
+            </linearGradient>
+          </defs>
+          {[...Array(8)].map((_, i) => (
+            <line
+              key={i}
+              x1={`${Math.random() * 100}%`}
+              y1={`${Math.random() * 100}%`}
+              x2={`${Math.random() * 100}%`}
+              y2={`${Math.random() * 100}%`}
+              stroke="url(#lineGradient1)"
+              strokeWidth="1"
+              className="animate-pulse"
+              style={{ animationDuration: `${3 + Math.random() * 3}s`, animationDelay: `${Math.random() * 2}s` }}
+            />
+          ))}
+        </svg>
+        
+        {/* Floating geometric shapes - tech aesthetic */}
+        <div className="absolute top-20 left-10 w-20 h-20 border-2 border-[#D00252]/30 rotate-45 animate-spin" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-40 right-20 w-16 h-16 border-2 border-[#174DE3]/30 rounded-lg rotate-12 animate-pulse" style={{ animationDuration: '6s' }} />
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 border border-[#D7D7D7]/20 animate-spin" style={{ animationDuration: '15s' }} />
+        
+        {/* Matrix-style falling code effect (subtle) */}
+        <div className="absolute inset-0 opacity-5">
+          {[...Array(10)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-px h-20 bg-gradient-to-b from-transparent via-[#174DE3] to-transparent"
+              style={{
+                left: `${10 + i * 10}%`,
+                animation: `matrixFall ${5 + Math.random() * 5}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Data nodes/particles */}
+        <div className="absolute inset-0">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1.5 h-1.5 rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                background: ['#D00252', '#174DE3', '#D7D7D7'][Math.floor(Math.random() * 3)],
+                animation: `dataNode ${3 + Math.random() * 4}s infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* Scanline effect for futuristic feel */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-[#D00252] to-transparent animate-scanline" />
+        </div>
+      </div>
+
+      {/* Subtle noise texture overlay */}
+      <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
       
       {/* Top Navigation Bar */}
       <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-white/40 dark:border-slate-700/40 shadow-lg">
+          <Dock className="bg-[#1a1a1a]/90 backdrop-blur-2xl border border-[#D00252]/30 shadow-2xl shadow-[#D00252]/20">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
@@ -197,8 +273,8 @@ const ComputerPage = () => {
                   key={item.id}
                   className={
                     item.id === 'computer'
-                    ? 'bg-blue-500/50 hover:bg-blue-600/60 text-white'
-                    : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
+                    ? 'bg-gradient-to-br from-[#D00252] to-[#174DE3] hover:from-[#e00262] hover:to-[#275de8] text-white shadow-lg shadow-[#D00252]/40 font-bold'
+                    : 'bg-[#1a1a1a]/80 hover:bg-[#2a2a2a]/90 text-[#D7D7D7] hover:text-white border border-[#D7D7D7]/20 hover:border-[#D7D7D7]/40'
                   }
                   onClick={() => handleNavClick(item.path)}
                 >
@@ -215,29 +291,36 @@ const ComputerPage = () => {
         <div className="w-full max-w-7xl mx-auto px-2 sm:px-4">
           {/* Page Header */}
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md rounded-full border border-white/40 dark:border-slate-700/40 mb-6">
-              <Computer size={20} className="text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-200">Tech Journey</span>
+            <div className="relative inline-block mb-6">
+              {/* Animated glow effect */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#D00252] via-[#174DE3] to-[#D00252] rounded-full blur-xl opacity-60 animate-pulse" style={{ animationDuration: '3s' }} />
+              
+              <div className="relative inline-flex items-center gap-2 px-6 py-3 bg-[#1a1a1a]/90 backdrop-blur-md rounded-full border-2 border-[#D00252]/50 shadow-lg">
+                <Computer size={24} className="text-[#174DE3] animate-pulse" style={{ animationDuration: '2s' }} />
+                <span className="text-base font-bold bg-gradient-to-r from-[#D00252] via-[#174DE3] to-[#D00252] bg-clip-text text-transparent">
+                  Tech Journey
+                </span>
+              </div>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-900 dark:from-white dark:via-blue-200 dark:to-indigo-200 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#D7D7D7] via-[#174DE3] to-[#D00252] bg-clip-text text-transparent animate-pulse" style={{ animationDuration: '4s' }}>
                 Computer & I
               </span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto px-2 leading-relaxed">
-              My journey through the world of technology, programming, and digital innovation.
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#D7D7D7]/80 max-w-3xl mx-auto px-2 leading-relaxed font-medium">
+              My journey through the world of technology, AI, and digital innovation.
             </p>
           </div>
 
            {/* Full Stack Dev Tech Stack Marquee */}
            <div className="mb-12 sm:mb-16 md:mb-20">
            <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
-             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-blue-800 dark:from-white dark:to-blue-200 bg-clip-text text-transparent mb-3">
+             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D7D7D7] via-[#174DE3] to-[#D00252] bg-clip-text text-transparent mb-3">
                Full Stack Dev Tech Stack
              </h2>
-             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mx-auto sm:mx-0" />
+             <div className="w-28 h-1.5 bg-gradient-to-r from-[#D00252] to-[#174DE3] rounded-full mx-auto sm:mx-0 shadow-lg shadow-[#D00252]/30" />
            </div>
              
              <div className="space-y-6">
@@ -245,8 +328,8 @@ const ComputerPage = () => {
               <Marquee className="[--duration:30s]" pauseOnHover>
                 {techStackRow1.map((tech, index) => (
                   <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4 group">
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-blue-200/50 dark:border-blue-700/50 bg-white dark:bg-slate-800 shadow-md group-hover:shadow-xl group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300">
-                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-white to-blue-50/30 dark:from-slate-800 dark:to-blue-900/30 group-hover:scale-110 transition-transform duration-300">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-[#174DE3]/40 bg-[#1a1a1a]/80 backdrop-blur-sm shadow-lg group-hover:shadow-xl group-hover:shadow-[#174DE3]/30 group-hover:border-[#174DE3]/60 transition-all duration-300">
+                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-[#1a1a1a] to-[#174DE3]/20 group-hover:scale-110 transition-transform duration-300">
                         <img 
                           src={tech.logo} 
                           alt={tech.name}
@@ -258,7 +341,7 @@ const ComputerPage = () => {
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-center font-semibold text-slate-700 dark:text-slate-300 max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">{tech.name}</span>
+                    <span className="text-xs text-center font-semibold text-white max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-[#174DE3] transition-colors duration-200">{tech.name}</span>
                   </div>
                 ))}
               </Marquee>
@@ -267,8 +350,8 @@ const ComputerPage = () => {
               <Marquee className="[--duration:35s]" reverse pauseOnHover>
                 {techStackRow2.map((tech, index) => (
                   <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4 group">
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-green-200/50 dark:border-green-700/50 bg-white dark:bg-slate-800 shadow-md group-hover:shadow-xl group-hover:border-green-400 dark:group-hover:border-green-500 transition-all duration-300">
-                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-white to-green-50/30 dark:from-slate-800 dark:to-green-900/30 group-hover:scale-110 transition-transform duration-300">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-[#D00252]/40 bg-[#1a1a1a]/80 backdrop-blur-sm shadow-lg group-hover:shadow-xl group-hover:shadow-[#D00252]/30 group-hover:border-[#D00252]/60 transition-all duration-300">
+                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-[#1a1a1a] to-[#D00252]/20 group-hover:scale-110 transition-transform duration-300">
                         <img 
                           src={tech.logo} 
                           alt={tech.name}
@@ -280,7 +363,7 @@ const ComputerPage = () => {
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-center font-semibold text-slate-700 dark:text-slate-300 max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors duration-200">{tech.name}</span>
+                    <span className="text-xs text-center font-semibold text-white max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-[#D00252] transition-colors duration-200">{tech.name}</span>
                   </div>
                 ))}
               </Marquee>
@@ -289,8 +372,8 @@ const ComputerPage = () => {
               <Marquee className="[--duration:40s]" pauseOnHover>
                 {techStackRow3.map((tech, index) => (
                   <div key={index} className="flex flex-col items-center mx-2 sm:mx-3 md:mx-4 group">
-                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-purple-200/50 dark:border-purple-700/50 bg-white dark:bg-slate-800 shadow-md group-hover:shadow-xl group-hover:border-purple-400 dark:group-hover:border-purple-500 transition-all duration-300">
-                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-white to-purple-50/30 dark:from-slate-800 dark:to-purple-900/30 group-hover:scale-110 transition-transform duration-300">
+                    <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-18 md:h-18 overflow-hidden rounded-xl mb-2 sm:mb-3 border-2 border-[#D7D7D7]/30 bg-[#1a1a1a]/80 backdrop-blur-sm shadow-lg group-hover:shadow-xl group-hover:shadow-[#D7D7D7]/20 group-hover:border-[#D7D7D7]/50 transition-all duration-300">
+                      <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-[#1a1a1a] to-[#D7D7D7]/10 group-hover:scale-110 transition-transform duration-300">
                         <img 
                           src={tech.logo} 
                           alt={tech.name}
@@ -302,7 +385,7 @@ const ComputerPage = () => {
                         />
                       </div>
                     </div>
-                    <span className="text-xs text-center font-semibold text-slate-700 dark:text-slate-300 max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">{tech.name}</span>
+                    <span className="text-xs text-center font-semibold text-white max-w-[70px] sm:max-w-[80px] md:max-w-[90px] leading-tight group-hover:text-[#D7D7D7] transition-colors duration-200">{tech.name}</span>
                   </div>
                 ))}
               </Marquee>
@@ -312,20 +395,20 @@ const ComputerPage = () => {
           {/* AI App & Research Section */}
           <div className="mb-12 sm:mb-16 md:mb-20">
             <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-purple-800 dark:from-white dark:to-purple-200 bg-clip-text text-transparent mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D7D7D7] via-[#D00252] to-[#174DE3] bg-clip-text text-transparent mb-3">
                 AI App & Research
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto sm:mx-0" />
+              <div className="w-28 h-1.5 bg-gradient-to-r from-[#D00252] to-[#174DE3] rounded-full mx-auto sm:mx-0 shadow-lg shadow-[#D00252]/30" />
             </div>
             
             <BentoGrid className="grid w-full auto-rows-[14rem] sm:auto-rows-[16rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {/* Agents Building */}
               <BentoCard
                 name="Agents Building"
-                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-blue-300"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-[#174DE3]/50 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#174DE3]/70 hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#174DE3]/20 to-[#174DE3]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70">
                       <img 
                         src="https://openai.com/favicon.ico" 
@@ -348,10 +431,10 @@ const ComputerPage = () => {
               {/* Workflow Building */}
               <BentoCard
                 name="Workflow Building"
-                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-green-300"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-[#D7D7D7]/40 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#D7D7D7]/60 hover:shadow-xl hover:shadow-[#D7D7D7]/10 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-green-50/50 to-orange-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D7D7D7]/20 to-[#D7D7D7]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 opacity-70">
                       <img 
                         src="https://n8n.io/favicon.ico" 
@@ -369,10 +452,10 @@ const ComputerPage = () => {
               {/* Vibe Coding */}
               <BentoCard
                 name="Vibe Coding"
-                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-purple-300"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-[#D00252]/50 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#D00252]/70 hover:shadow-xl hover:shadow-[#D00252]/20 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D00252]/20 to-[#D00252]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70">
                       <img 
                         src="https://cursor.sh/favicon.ico" 
@@ -400,10 +483,10 @@ const ComputerPage = () => {
               {/* ML/DL */}
               <BentoCard
                 name="ML/DL"
-                className="relative col-span-1 sm:col-span-2 group border-2 border-orange-300"
+                className="relative col-span-1 sm:col-span-2 group border-2 border-[#D00252]/50 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#D00252]/70 hover:shadow-xl hover:shadow-[#D00252]/20 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-red-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D00252]/20 to-[#D00252]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
                         src="https://pytorch.org/favicon.ico" 
@@ -436,10 +519,10 @@ const ComputerPage = () => {
               {/* API Usage */}
               <BentoCard
                 name="API Usage"
-                className="relative col-span-1 sm:col-span-1 group overflow-hidden rounded-2xl border-2 border-cyan-300"
+                className="relative col-span-1 sm:col-span-1 group overflow-hidden rounded-2xl border-2 border-[#174DE3]/50 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#174DE3]/70 hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-cyan-50/50 to-blue-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#174DE3]/20 to-[#174DE3]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
                         src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png" 
@@ -467,10 +550,10 @@ const ComputerPage = () => {
               {/* Others */}
               <BentoCard
                 name="Others"
-                className="relative col-span-1 sm:col-span-2 group border-2 border-pink-300"
+                className="relative col-span-1 sm:col-span-2 group border-2 border-[#D7D7D7]/40 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#D7D7D7]/60 hover:shadow-xl hover:shadow-[#D7D7D7]/10 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-pink-50/50 to-purple-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D7D7D7]/20 to-[#D7D7D7]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex gap-1 sm:gap-1.5 md:gap-2 opacity-70 flex-wrap">
                       <img 
                         src="https://openai.com/favicon.ico" 
@@ -500,20 +583,20 @@ const ComputerPage = () => {
           {/* Cybersecurity Section */}
           <div className="mb-12 sm:mb-16 md:mb-20">
             <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-red-800 dark:from-white dark:to-red-200 bg-clip-text text-transparent mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D7D7D7] via-[#D00252] to-[#174DE3] bg-clip-text text-transparent mb-3">
                 Cybersecurity
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-orange-500 rounded-full mx-auto sm:mx-0" />
+              <div className="w-28 h-1.5 bg-gradient-to-r from-[#D00252] to-[#174DE3] rounded-full mx-auto sm:mx-0 shadow-lg shadow-[#D00252]/30" />
             </div>
             
             <BentoGrid className="grid w-full auto-rows-[18rem] sm:auto-rows-[20rem] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {/* Red Team Platform */}
               <BentoCard
                 name="Red Team Platform"
-                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-red-300"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-[#D00252]/60 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#D00252]/80 hover:shadow-xl hover:shadow-[#D00252]/30 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 to-rose-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D00252]/20 to-[#D00252]/10" />
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-wrap gap-1 opacity-70 max-w-[120px] sm:max-w-[140px] md:max-w-[160px]">
                       {/* Kali Linux */}
                       <div>
@@ -542,10 +625,10 @@ const ComputerPage = () => {
               {/* Forensics & Cryptography */}
               <BentoCard
                 name="Forensics & Cryptography"
-                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-blue-300"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-[#174DE3]/50 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#174DE3]/70 hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-cyan-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#174DE3]/20 to-[#174DE3]/10" />
                     <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
                       {/* GnuPG */}
                       <div>
@@ -577,10 +660,10 @@ const ComputerPage = () => {
               {/* Offensive Security */}
               <BentoCard
                 name="Offensive Security"
-                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-purple-300"
+                className="relative col-span-1 group overflow-hidden rounded-2xl border-2 border-[#D00252]/50 bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl hover:border-[#D00252]/70 hover:shadow-xl hover:shadow-[#D00252]/20 transition-all duration-300"
                 background={
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50/50 to-pink-50/50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#D00252]/20 to-[#D00252]/10" />
                     <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
                       {/* OWASP ZAP */}
                       <div>
@@ -615,17 +698,17 @@ const ComputerPage = () => {
               />
 
               {/* International Cybersecurity Olympiad 2025 - Custom Layout */}
-              <div className="relative col-span-1 sm:col-span-2 lg:col-span-3 group overflow-hidden rounded-2xl bg-white border-2 border-amber-300 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:bg-black dark:[border:2px_solid_rgb(252_211_77)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]">
+              <div className="relative col-span-1 sm:col-span-2 lg:col-span-3 group overflow-hidden rounded-2xl bg-gradient-to-br from-[#1a1a1a]/90 to-[#0a0a0a]/90 backdrop-blur-xl border-2 border-[#D00252]/50 hover:border-[#D00252]/70 shadow-xl hover:shadow-2xl hover:shadow-[#D00252]/30 transition-all duration-300">
                 {/* Background */}
                 <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 to-orange-50/80" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#D00252]/20 to-[#174DE3]/20" />
                   <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 opacity-70 z-20">
                     {/* Medal */}
                     <div className="text-2xl sm:text-3xl md:text-4xl">🥉</div>
                     {/* Trophy */}
                     <div className="text-2xl sm:text-3xl md:text-4xl">🏆</div>
                   </div>
-                  <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-4 md:left-4 text-amber-600/40 font-bold text-2xl sm:text-3xl md:text-4xl z-10">
+                  <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 md:bottom-4 md:left-4 text-[#D00252]/40 font-bold text-2xl sm:text-3xl md:text-4xl z-10">
                     2025
                   </div>
                 </div>
@@ -635,11 +718,11 @@ const ComputerPage = () => {
                   {/* Left side - Text content */}
                   <div className="lg:flex-[1.5] flex flex-col justify-between p-4 sm:p-5 md:p-6 lg:pl-8">
                     <div className="pointer-events-none transform-gpu flex flex-col gap-1 transition-all duration-300 group-hover:-translate-y-2">
-                      <Shield className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 origin-left transform-gpu text-neutral-700 transition-all duration-300 ease-in-out group-hover:scale-75 dark:text-neutral-300" />
-                      <h3 className="text-lg sm:text-xl font-semibold text-neutral-700 dark:text-neutral-300 leading-tight">
+                      <Shield className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 origin-left transform-gpu text-[#D7D7D7] transition-all duration-300 ease-in-out group-hover:scale-75" />
+                      <h3 className="text-lg sm:text-xl font-semibold text-[#D7D7D7] leading-tight">
                         International Cybersecurity Olympiad 2025
                       </h3>
-                      <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
+                      <p className="text-sm sm:text-base text-[#D7D7D7]/70 leading-relaxed">
                         🏆 Bronze Medal Winner at the International Cybersecurity Olympiad 2025
                       </p>
                     </div>
@@ -688,10 +771,10 @@ const ComputerPage = () => {
           {/* Other Computer Skills Section */}
           <div className="mb-12 sm:mb-16 md:mb-20">
             <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-green-800 dark:from-white dark:to-green-200 bg-clip-text text-transparent mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D7D7D7] via-[#174DE3] to-[#D00252] bg-clip-text text-transparent mb-3">
                 Other Computer Skills
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mx-auto sm:mx-0" />
+              <div className="w-28 h-1.5 bg-gradient-to-r from-[#174DE3] to-[#D00252] rounded-full mx-auto sm:mx-0 shadow-lg shadow-[#174DE3]/30" />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
@@ -706,16 +789,12 @@ const ComputerPage = () => {
                       "https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg",
                       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/74px-Google_Sheets_logo_%282014-2020%29.svg.png?20201024100414",
                       "https://upload.wikimedia.org/wikipedia/commons/1/1e/Google_Slides_logo_%282014-2020%29.svg",
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/768px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png?20210821050502",
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg/768px-Microsoft_Office_PowerPoint_%282019%E2%80%93present%29.svg.png?20210821050414",
-                      "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg",
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Micorsoft_Excel_2016-2019_CSV_Icon.svg/131px-Micorsoft_Excel_2016-2019_CSV_Icon.svg.png?20200619072143",
-                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
-                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
-                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
-                      "https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg",
-                      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Google_Sheets_logo_%282014-2020%29.svg/74px-Google_Sheets_logo_%282014-2020%29.svg.png?20201024100414",
-                      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Google_Slides_logo_%282014-2020%29.svg",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/e/e8/Microsoft_Office_Word_%282025%E2%80%93present%29.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg",
+                      "https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg",
+                      "https://cdn.simpleicons.org/assemblyscript/007AAC",
+                      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
                     ]}
                   />
                 </div>
@@ -723,29 +802,29 @@ const ComputerPage = () => {
 
               {/* Description */}
               <div className="flex flex-col justify-center self-start space-y-5 sm:space-y-4">
-                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20">
+                <div className="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-300">
                   <div className="flex items-center mb-3">
-                    <Cpu size={20} className="text-green-600 mr-2" />
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    <Cpu size={20} className="text-[#174DE3] mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#D7D7D7]">
                       Programming Languages
                     </h3>
                   </div>
-                  <div className="space-y-2 text-gray-700">
+                  <div className="space-y-2 text-[#D7D7D7]/80">
                     <p className="flex items-center">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                      <span className="w-2 h-2 bg-[#174DE3] rounded-full mr-2"></span>
                       <strong>C++, Java, Python</strong>
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20">
+                <div className="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border-2 border-[#D00252]/50 hover:border-[#D00252]/70 hover:shadow-xl hover:shadow-[#D00252]/20 transition-all duration-300">
                   <div className="flex items-center mb-3">
-                    <Database size={20} className="text-blue-600 mr-2" />
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    <Database size={20} className="text-[#D00252] mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#D7D7D7]">
                       Office & Productivity
                     </h3>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-gray-700">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#D7D7D7]/80">
                     <div>
                       <p className="font-medium mb-1">Google Workspace</p>
                     </div>
@@ -755,14 +834,14 @@ const ComputerPage = () => {
                   </div>
                 </div>
 
-                <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-white/20">
+                <div className="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border-2 border-[#D00252]/50 hover:border-[#D00252]/70 hover:shadow-xl hover:shadow-[#D00252]/20 transition-all duration-300">
                   <div className="flex items-center mb-3">
-                    <Cpu size={20} className="text-purple-600 mr-2" />
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                    <Cpu size={20} className="text-[#D00252] mr-2" />
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#D7D7D7]">
                       Embedded Systems
                     </h3>
                   </div>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-[#D7D7D7]/80 leading-relaxed">
                     Currently studying <strong>embedded systems programming</strong> with a focus on 
                     <strong> 8051 microcontroller (MCU)</strong> architecture.
                   </p>
@@ -774,10 +853,10 @@ const ComputerPage = () => {
           {/* Project Showcase Section */}
           <div className="mb-12 sm:mb-16 md:mb-20">
             <div className="text-center sm:text-left mb-8 sm:mb-10 md:mb-12 px-2">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 to-indigo-800 dark:from-white dark:to-indigo-200 bg-clip-text text-transparent mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#D7D7D7] via-[#174DE3] to-[#D00252] bg-clip-text text-transparent mb-3">
                 Project Showcase
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full mx-auto sm:mx-0" />
+              <div className="w-28 h-1.5 bg-gradient-to-r from-[#174DE3] to-[#D00252] rounded-full mx-auto sm:mx-0 shadow-lg shadow-[#174DE3]/30" />
             </div>
 
             <div className="space-y-12 sm:space-y-16 md:space-y-20">
@@ -785,7 +864,7 @@ const ComputerPage = () => {
               <div className="group">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
                   {/* Image Box on Left */}
-                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                  <div className="lg:col-span-2 relative bg-[#1a1a1a]/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 hover:shadow-2xl hover:shadow-[#174DE3]/20 transition-all duration-300">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
                         src="/projects/neuroaegis.png" 
@@ -799,18 +878,18 @@ const ComputerPage = () => {
                   {/* Description on Right (Outside Box) */}
                   <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D7D7D7] mb-4">
                         NeuroAegis
                       </h3>
-                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                      <p className="text-base sm:text-lg text-[#D7D7D7]/70 leading-relaxed mb-6">
                         AI-powered platform for Dementia and Alzheimer's Disease Detection and Rehabilitation.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-3 mb-6">
-                      <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm sm:text-base rounded-full font-medium">AI/NLP</span>
-                      <span className="px-4 py-2 bg-green-100 text-green-800 text-sm sm:text-base rounded-full font-medium">Cognitive Health</span>
-                      <span className="px-4 py-2 bg-purple-100 text-purple-800 text-sm sm:text-base rounded-full font-medium">Real-time</span>
+                      <span className="px-4 py-2 bg-[#174DE3]/20 text-[#174DE3] border border-[#174DE3]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">AI/NLP</span>
+                      <span className="px-4 py-2 bg-[#D00252]/20 text-[#D00252] border border-[#D00252]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Cognitive Health</span>
+                      <span className="px-4 py-2 bg-[#D7D7D7]/20 text-[#D7D7D7] border border-[#D7D7D7]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Real-time</span>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -818,7 +897,7 @@ const ComputerPage = () => {
                         href="https://www.neuroaegis.com/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white text-base font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#D00252] to-[#174DE3] text-white text-base font-medium rounded-lg hover:from-[#e00262] hover:to-[#275de8] shadow-lg shadow-[#D00252]/30 hover:shadow-xl hover:shadow-[#D00252]/40 transition-all duration-200"
                       >
                         Visit Website
                       </a>
@@ -831,7 +910,7 @@ const ComputerPage = () => {
               <div className="group">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
                   {/* Image Box on Left */}
-                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                  <div className="lg:col-span-2 relative bg-[#1a1a1a]/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 hover:shadow-2xl hover:shadow-[#174DE3]/20 transition-all duration-300">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
                         src="/projects/shanghaiwalk.png" 
@@ -845,18 +924,18 @@ const ComputerPage = () => {
                   {/* Description on Right (Outside Box) */}
                   <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D7D7D7] mb-4">
                         ShanghaiWalk
                       </h3>
-                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                      <p className="text-base sm:text-lg text-[#D7D7D7]/70 leading-relaxed mb-6">
                         A comprehensive cultural exploration platform showcasing Shanghainese culture, traditions, language, and history.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-3 mb-6">
-                      <span className="px-4 py-2 bg-red-100 text-red-800 text-sm sm:text-base rounded-full font-medium">Cultural</span>
-                      <span className="px-4 py-2 bg-yellow-100 text-yellow-800 text-sm sm:text-base rounded-full font-medium">Language</span>
-                      <span className="px-4 py-2 bg-indigo-100 text-indigo-800 text-sm sm:text-base rounded-full font-medium">Interactive</span>
+                      <span className="px-4 py-2 bg-[#D00252]/20 text-[#D00252] border border-[#D00252]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Cultural</span>
+                      <span className="px-4 py-2 bg-[#174DE3]/20 text-[#174DE3] border border-[#174DE3]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Language</span>
+                      <span className="px-4 py-2 bg-[#D7D7D7]/20 text-[#D7D7D7] border border-[#D7D7D7]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Interactive</span>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -877,7 +956,7 @@ const ComputerPage = () => {
               <div className="group">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
                   {/* Image Box on Left */}
-                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                  <div className="lg:col-span-2 relative bg-[#1a1a1a]/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 hover:shadow-2xl hover:shadow-[#174DE3]/20 transition-all duration-300">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
                         src="/projects/ap-researcher.png" 
@@ -891,18 +970,18 @@ const ComputerPage = () => {
                   {/* Description on Right (Outside Box) */}
                   <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D7D7D7] mb-4">
                         AP Researcher
                       </h3>
-                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                      <p className="text-base sm:text-lg text-[#D7D7D7]/70 leading-relaxed mb-6">
                         A comprehensive platform designed for AP students and educators to publish their academic writings.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-3 mb-6">
-                      <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm sm:text-base rounded-full font-medium">Education</span>
-                      <span className="px-4 py-2 bg-purple-100 text-purple-800 text-sm sm:text-base rounded-full font-medium">Research</span>
-                      <span className="px-4 py-2 bg-pink-100 text-pink-800 text-sm sm:text-base rounded-full font-medium">Academic</span>
+                      <span className="px-4 py-2 bg-[#174DE3]/20 text-[#174DE3] border border-[#174DE3]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Education</span>
+                      <span className="px-4 py-2 bg-[#D00252]/20 text-[#D00252] border border-[#D00252]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Research</span>
+                      <span className="px-4 py-2 bg-[#D7D7D7]/20 text-[#D7D7D7] border border-[#D7D7D7]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Academic</span>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -923,7 +1002,7 @@ const ComputerPage = () => {
               <div className="group">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
                   {/* Image Box on Left */}
-                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                  <div className="lg:col-span-2 relative bg-[#1a1a1a]/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 hover:shadow-2xl hover:shadow-[#174DE3]/20 transition-all duration-300">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
                         src="/projects/soimenu.png" 
@@ -937,18 +1016,18 @@ const ComputerPage = () => {
                   {/* Description on Right (Outside Box) */}
                   <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D7D7D7] mb-4">
                         SoiMenu
                       </h3>
-                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                      <p className="text-base sm:text-lg text-[#D7D7D7]/70 leading-relaxed mb-6">
                         A modern online food menu platform for customers to order without language barriers. Display the dishes with clarity and detailed information.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-3 mb-6">
-                      <span className="px-4 py-2 bg-orange-100 text-orange-800 text-sm sm:text-base rounded-full font-medium">E-commerce</span>
-                      <span className="px-4 py-2 bg-red-100 text-red-800 text-sm sm:text-base rounded-full font-medium">Multilingual</span>
-                      <span className="px-4 py-2 bg-green-100 text-green-800 text-sm sm:text-base rounded-full font-medium">Community</span>
+                      <span className="px-4 py-2 bg-[#D00252]/20 text-[#D00252] border border-[#D00252]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">E-commerce</span>
+                      <span className="px-4 py-2 bg-[#174DE3]/20 text-[#174DE3] border border-[#174DE3]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Multilingual</span>
+                      <span className="px-4 py-2 bg-[#D7D7D7]/20 text-[#D7D7D7] border border-[#D7D7D7]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Community</span>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -969,7 +1048,7 @@ const ComputerPage = () => {
               <div className="group">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
                   {/* Image Box on Left */}
-                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                  <div className="lg:col-span-2 relative bg-[#1a1a1a]/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 hover:shadow-2xl hover:shadow-[#174DE3]/20 transition-all duration-300">
                     <div className="relative overflow-hidden rounded-xl">
                       <img 
                         src="/projects/public-matters.png" 
@@ -983,18 +1062,18 @@ const ComputerPage = () => {
                   {/* Description on Right (Outside Box) */}
                   <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
                     <div>
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#D7D7D7] mb-4">
                         Public Matters
                       </h3>
-                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                      <p className="text-base sm:text-lg text-[#D7D7D7]/70 leading-relaxed mb-6">
                         A specialized platform designed to enhance transparency and accessibility in public governance.
                       </p>
                     </div>
                     
                     <div className="flex flex-wrap gap-3 mb-6">
-                      <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm sm:text-base rounded-full font-medium">Governance</span>
-                      <span className="px-4 py-2 bg-green-100 text-green-800 text-sm sm:text-base rounded-full font-medium">Transparency</span>
-                      <span className="px-4 py-2 bg-purple-100 text-purple-800 text-sm sm:text-base rounded-full font-medium">Public Access</span>
+                      <span className="px-4 py-2 bg-[#174DE3]/20 text-[#174DE3] border border-[#174DE3]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Governance</span>
+                      <span className="px-4 py-2 bg-[#D00252]/20 text-[#D00252] border border-[#D00252]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Transparency</span>
+                      <span className="px-4 py-2 bg-[#D7D7D7]/20 text-[#D7D7D7] border border-[#D7D7D7]/40 text-sm sm:text-base rounded-full font-medium backdrop-blur-xl">Public Access</span>
                     </div>
                     
                     <div className="flex flex-col sm:flex-row gap-4">
@@ -1002,7 +1081,7 @@ const ComputerPage = () => {
                         href="https://public-matters.vercel.app/" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white text-base font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-[#D00252] to-[#174DE3] text-white text-base font-medium rounded-lg hover:from-[#e00262] hover:to-[#275de8] shadow-lg shadow-[#D00252]/30 hover:shadow-xl hover:shadow-[#D00252]/40 transition-all duration-200"
                       >
                         Visit Website
                       </a>
@@ -1014,7 +1093,7 @@ const ComputerPage = () => {
           </div>
 
           {/* Footer */}
-          <div className="mt-16 sm:mt-20 md:mt-24 border-t border-gray-200/50 dark:border-gray-700/50">
+          <div className="mt-16 sm:mt-20 md:mt-24 border-t border-[#D00252]/30">
             <div className="pt-8 sm:pt-12 pb-8">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                 {/* Left side - Social Links */}
@@ -1023,7 +1102,7 @@ const ComputerPage = () => {
                     href="https://github.com/Dukehjx" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#1a1a1a]/90 hover:bg-[#2a2a2a]/90 text-[#D7D7D7] border-2 border-[#D7D7D7]/30 hover:border-[#D7D7D7]/50 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#D7D7D7]/10 transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -1040,7 +1119,7 @@ const ComputerPage = () => {
                     href="https://x.com/DukeHu0111" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-black hover:bg-gray-900 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#1a1a1a]/90 hover:bg-[#2a2a2a]/90 text-[#D7D7D7] border-2 border-[#D7D7D7]/30 hover:border-[#D7D7D7]/50 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#D7D7D7]/10 transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -1057,7 +1136,7 @@ const ComputerPage = () => {
                     href="https://www.linkedin.com/in/junxi-hu" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#0077B5] hover:bg-[#006399] text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#174DE3]/20 hover:bg-[#174DE3]/30 text-[#174DE3] border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -1074,7 +1153,7 @@ const ComputerPage = () => {
                     href="https://www.facebook.com/duke.hu.2025/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#1877F2] hover:bg-[#166FE5] text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#174DE3]/20 hover:bg-[#174DE3]/30 text-[#174DE3] border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -1092,7 +1171,7 @@ const ComputerPage = () => {
                 <div className="flex items-center gap-3">
                   <a 
                     href="mailto:hjxduke080111@gmail.com" 
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#D00252] to-[#174DE3] hover:from-[#e00262] hover:to-[#275de8] text-white rounded-lg shadow-lg shadow-[#D00252]/30 hover:shadow-xl hover:shadow-[#D00252]/40 transition-all duration-200 group"
                   >
                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                     <span className="font-medium">Get in Touch</span>
@@ -1101,8 +1180,8 @@ const ComputerPage = () => {
               </div>
 
               {/* Copyright */}
-              <div className="mt-8 pt-6 border-t border-gray-200/30 dark:border-gray-700/30 text-center">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="mt-8 pt-6 border-t border-[#D7D7D7]/20 text-center">
+                <p className="text-sm text-[#D7D7D7]/60">
                   © 2025 Duke Hu. Built with React & Tailwind CSS.
                 </p>
               </div>
