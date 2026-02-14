@@ -1136,7 +1136,7 @@ const ComputerPage = () => {
                     href="https://www.linkedin.com/in/junxi-hu" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#174DE3]/20 hover:bg-[#174DE3]/30 text-[#174DE3] border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#1a1a1a]/90 hover:bg-[#2a2a2a]/90 text-[#D7D7D7] border-2 border-[#D7D7D7]/30 hover:border-[#D7D7D7]/50 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#D7D7D7]/10 transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -1153,7 +1153,7 @@ const ComputerPage = () => {
                     href="https://www.facebook.com/duke.hu.2025/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#174DE3]/20 hover:bg-[#174DE3]/30 text-[#174DE3] border-2 border-[#174DE3]/50 hover:border-[#174DE3]/70 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#174DE3]/20 transition-all duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#1a1a1a]/90 hover:bg-[#2a2a2a]/90 text-[#D7D7D7] border-2 border-[#D7D7D7]/30 hover:border-[#D7D7D7]/50 rounded-lg backdrop-blur-xl hover:shadow-xl hover:shadow-[#D7D7D7]/10 transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
