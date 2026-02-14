@@ -197,7 +197,7 @@ const ComputerPage = () => {
                   key={item.id}
                   className={
                     item.id === 'computer'
-                    ? 'bg-blue-500/50 text-white'
+                    ? 'bg-blue-500/50 hover:bg-blue-600/60 text-white'
                     : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   }
                   onClick={() => handleNavClick(item.path)}
