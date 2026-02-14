@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Dock, DockIcon } from "./magicui/dock";
 import { BentoGrid, BentoCard } from "./magicui/bento-grid";
 import Marquee from "./magicui/marquee";
@@ -26,18 +27,20 @@ import {
   Mail
 } from "lucide-react";
 
-const ComputerPage = ({ onNavigate }) => {
+const ComputerPage = () => {
+  const navigate = useNavigate();
+  
   const navigationItems = [
-    { icon: Home, label: "Home", id: "home" },
-    { icon: Computer, label: "Computer & I", id: "computer" },
-    { icon: Music, label: "Music & I", id: "music" },
-    // { icon: Heart, label: "Hobbies & I", id: "hobbies" },
-    { icon: FileText, label: "CV", id: "cv" },
-    // { icon: User, label: "My Life", id: "life" },
+    { icon: Home, label: "Home", id: "home", path: "/" },
+    { icon: Computer, label: "Computer & I", id: "computer", path: "/computer" },
+    { icon: Music, label: "Music & I", id: "music", path: "/music" },
+    // { icon: Heart, label: "Hobbies & I", id: "hobbies", path: "/hobbies" },
+    { icon: FileText, label: "CV", id: "cv", path: "/cv" },
+    // { icon: User, label: "My Life", id: "life", path: "/life" },
   ];
 
-  const handleNavClick = (id) => {
-    onNavigate(id);
+  const handleNavClick = (path) => {
+    navigate(path);
   };
 
   const techStackRow1 = [
@@ -197,7 +200,7 @@ const ComputerPage = ({ onNavigate }) => {
                     ? 'bg-blue-500/50 text-white'
                     : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   }
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item.path)}
                 >
                   <IconComponent size={16} className="sm:w-5 sm:h-5" />
                 </DockIcon>
@@ -954,6 +957,52 @@ const ComputerPage = ({ onNavigate }) => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-6 py-3 bg-orange-600 text-white text-base font-medium rounded-lg hover:bg-orange-700 transition-colors duration-200"
+                      >
+                        Visit Website
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Public Matters */}
+              <div className="group">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 items-start">
+                  {/* Image Box on Left */}
+                  <div className="lg:col-span-2 relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/30 hover:bg-white/90 transition-all duration-300 hover:shadow-xl">
+                    <div className="relative overflow-hidden rounded-xl">
+                      <img 
+                        src="/projects/public-matters.png" 
+                        alt="Public Matters Project Screenshot"
+                        className="w-full h-60 sm:h-72 md:h-80 lg:h-96 object-cover group-hover:scale-105 transition-transform duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Description on Right (Outside Box) */}
+                  <div className="lg:col-span-1 space-y-6 flex flex-col justify-center">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                        Public Matters
+                      </h3>
+                      <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">
+                        A specialized platform designed to enhance transparency and accessibility in public governance.
+                      </p>
+                    </div>
+                    
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      <span className="px-4 py-2 bg-blue-100 text-blue-800 text-sm sm:text-base rounded-full font-medium">Governance</span>
+                      <span className="px-4 py-2 bg-green-100 text-green-800 text-sm sm:text-base rounded-full font-medium">Transparency</span>
+                      <span className="px-4 py-2 bg-purple-100 text-purple-800 text-sm sm:text-base rounded-full font-medium">Public Access</span>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <a 
+                        href="https://public-matters.vercel.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white text-base font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200"
                       >
                         Visit Website
                       </a>

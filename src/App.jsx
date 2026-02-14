@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import HomePage from "./components/HomePage";
 import ComputerPage from "./components/ComputerPage";
@@ -6,36 +6,18 @@ import MusicPage from "./components/MusicPage";
 import CVPage from "./components/CVPage";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
-
-  const handleNavigation = (pageId) => {
-    setCurrentPage(pageId);
-  };
-
-  const renderCurrentPage = () => {
-    switch (currentPage) {
-      case "home":
-        return <HomePage onNavigate={handleNavigation} />;
-      case "computer":
-        return <ComputerPage onNavigate={handleNavigation} />;
-      case "music":
-        return <MusicPage onNavigate={handleNavigation} />;
-      // Commented out for future development
-      // case "hobbies":
-      //   return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">Hobbies & I - Coming Soon</h1></div>;
-      case "cv":
-        return <CVPage onNavigate={handleNavigation} />;
-      // Commented out for future development
-      // case "life":
-      //   return <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 px-4"><h1 className="text-2xl sm:text-3xl md:text-4xl text-gray-900 dark:text-white text-center">My Life - Coming Soon</h1></div>;
-      default:
-        return <HomePage onNavigate={handleNavigation} />;
-    }
-  };
-
   return (
     <ThemeProvider>
-      {renderCurrentPage()}
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/computer" element={<ComputerPage />} />
+          <Route path="/music" element={<MusicPage />} />
+          <Route path="/cv" element={<CVPage />} />
+          {/* Redirect any unknown routes to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   );
 }

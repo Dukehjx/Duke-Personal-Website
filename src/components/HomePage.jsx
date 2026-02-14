@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Dock, DockIcon } from "./magicui/dock";
 import { 
   Home, 
@@ -13,14 +14,16 @@ import {
   Keyboard
 } from "lucide-react";
 
-const HomePage = ({ onNavigate }) => {
+const HomePage = () => {
+  const navigate = useNavigate();
+  
   const navigationItems = [
-    { icon: Home, label: "Home", id: "home" },
-    { icon: Computer, label: "Computer & I", id: "computer" },
-    { icon: Music, label: "Music & I", id: "music" },
-    // { icon: Heart, label: "Hobbies & I", id: "hobbies" },
-    { icon: FileText, label: "CV", id: "cv" },
-    // { icon: User, label: "My Life", id: "life" },
+    { icon: Home, label: "Home", id: "home", path: "/" },
+    { icon: Computer, label: "Computer & I", id: "computer", path: "/computer" },
+    { icon: Music, label: "Music & I", id: "music", path: "/music" },
+    // { icon: Heart, label: "Hobbies & I", id: "hobbies", path: "/hobbies" },
+    { icon: FileText, label: "CV", id: "cv", path: "/cv" },
+    // { icon: User, label: "My Life", id: "life", path: "/life" },
   ];
 
   const highlights = [
@@ -50,8 +53,8 @@ const HomePage = ({ onNavigate }) => {
     }
   ];
 
-  const handleNavClick = (id) => {
-    onNavigate(id);
+  const handleNavClick = (path) => {
+    navigate(path);
   };
 
   return (
@@ -77,7 +80,7 @@ const HomePage = ({ onNavigate }) => {
                       ? 'bg-blue-500/50 text-white' 
                       : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   }
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item.path)}
                 >
                   <IconComponent size={16} className="sm:w-5 sm:h-5" />
                 </DockIcon>
@@ -108,7 +111,7 @@ const HomePage = ({ onNavigate }) => {
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom duration-700 delay-700">
             <button
-              onClick={() => handleNavClick('computer')}
+              onClick={() => navigate('/computer')}
               className="group px-6 py-3 bg-gradient-to-r from-slate-800 to-gray-900 hover:from-slate-900 hover:to-black text-white rounded-xl font-medium shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
             >
               <span className="flex items-center gap-2">
@@ -117,7 +120,7 @@ const HomePage = ({ onNavigate }) => {
               </span>
             </button>
             <button
-              onClick={() => handleNavClick('cv')}
+              onClick={() => navigate('/cv')}
               className="px-6 py-3 bg-white/70 dark:bg-slate-800/70 hover:bg-white dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl font-medium border border-slate-200 dark:border-slate-700 backdrop-blur-sm shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5"
             >
               View Resume

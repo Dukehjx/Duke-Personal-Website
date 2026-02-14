@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import { Dock, DockIcon } from "./magicui/dock";
 import {
   Home,
@@ -10,18 +11,20 @@ import {
   Mail
 } from "lucide-react";
 
-const MusicPage = ({ onNavigate }) => {
+const MusicPage = () => {
+  const navigate = useNavigate();
+  
   const navigationItems = [
-    { icon: Home, label: "Home", id: "home" },
-    { icon: Computer, label: "Computer & I", id: "computer" },
-    { icon: Music, label: "Music & I", id: "music" },
-    // { icon: Heart, label: "Hobbies & I", id: "hobbies" },
-    { icon: FileText, label: "CV", id: "cv" },
-    // { icon: User, label: "My Life", id: "life" },
+    { icon: Home, label: "Home", id: "home", path: "/" },
+    { icon: Computer, label: "Computer & I", id: "computer", path: "/computer" },
+    { icon: Music, label: "Music & I", id: "music", path: "/music" },
+    // { icon: Heart, label: "Hobbies & I", id: "hobbies", path: "/hobbies" },
+    { icon: FileText, label: "CV", id: "cv", path: "/cv" },
+    // { icon: User, label: "My Life", id: "life", path: "/life" },
   ];
 
-  const handleNavClick = (id) => {
-    onNavigate(id);
+  const handleNavClick = (path) => {
+    navigate(path);
   };
   const PhotoCard = ({ image, name, className = "" }) => (
     <div className={`relative overflow-hidden cursor-pointer group rounded-lg ${className}`}>
@@ -61,7 +64,7 @@ const MusicPage = ({ onNavigate }) => {
                       ? 'bg-purple-500/50 text-white' 
                       : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   }
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={() => handleNavClick(item.path)}
                 >
                   <IconComponent size={16} className="sm:w-5 sm:h-5" />
                 </DockIcon>
