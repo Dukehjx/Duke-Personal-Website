@@ -39,7 +39,7 @@ const CVPage = () => {
 
   const education = {
     school: "International Community School Bangkok",
-    period: "G9 - Present",
+    period: "2022 - Present",
     gpa: { unweighted: "3.92", weighted: "4.34" },
     apCourses: [
       { name: "Microeconomics", score: "5", note: "Self-study" },
@@ -59,66 +59,72 @@ const CVPage = () => {
     currentAP: ["Chemistry", "Biology", "Physics 2", "English Lit", "Music Theory", "Psychology"],
     standardizedTests: {
       sat: "1550 (RW: 760, Math: 790)",
-      duolingo: "145"
+      duolingo: "N/A"
     }
+  };
+
+  const futureEducation = {
+    school: "Northwestern University",
+    period: "2026 - 2030",
+    degree: "B.S. Computer Science",
+    certificate: "Kellogg Certificate in Managerial Analytics (Expected)"
   };
 
   const leadership = [
     {
       title: "NeuroAegis",
       role: "Team Leader & Full-stack Website Developer",
-      period: "G11 - Present",
+      period: "2025 - Present",
       highlights: [
-        "Developed full-stack NeuroAegis website using Whisper AI & GPT-4o for dementia detection and rehabilitation",
-        "Led 4-member team; Integrated 7+ cognitive games, quiz assessments, and research hub",
-        "Implemented 13 language support, real-time feedback, and accessibility features",
-        "Raised ~$5K; reached 3K+ users; partnered with local nursing and elderly centers; open-sourced on GitHub"
+        "Developed full-stack NeuroAegis website using Whisper AI & GPT-5 for dementia detection and rehabilitation.",
+        "Led 4-member team; Integrated 7+ cognitive games, quiz assessments, and research hub; Implemented 13 language support, real-time feedback, and accessibility features.",
+        "Raised ~$5K; reached 3K+ users; partnered with local nursing and elderly centers; open-sourced on GitHub."
       ]
     },
     {
-      title: "Capstone Project - SoiMenu",
+      title: "Capstone Project",
       role: "Project Founder",
-      period: "G11 - Present",
+      period: "2025 - Present",
       highlights: [
-        "Surveyed local restaurants and customers to identify language and cultural barriers in menu ordering",
-        "Developed multilingual menu platform supporting 5 languages (TH/EN/ZH/KR/JP) with optimized UI for accessibility"
+        "Surveyed local restaurants and customers to identify language and cultural barriers in menu ordering.",
+        "Developed multilingual menu platform (SoiMenu) supporting 5 languages (TH/EN/ZH/KR/JP) with optimized UI for accessibility and clarity."
       ]
     },
     {
       title: "ShanghaiWalk",
       role: "Planner, Co-founder & Technology Manager",
-      period: "G11 - Present",
+      period: "2025 - Present",
       highlights: [
-        "Initiative preserving and promoting Shanghainese culture and language",
-        "Developed ShanghaiWalk website showcasing cultural history, team profiles, and event plans",
-        "Co-organized 'Opera Through Time: Sunrise' exhibition (300+ visitors); fostered community engagement (40+ WeChat members)"
+        "Initiative preserving and promoting Shanghainese culture and language.",
+        "Developed ShanghaiWalk website showcasing cultural history, team profiles, and event plans; Built event registration system; Produced 30+ AI art pieces for cultural merchandise."
       ]
     },
     {
       title: "Academic Tutoring & Education Platforms",
       role: "Founder & Leader",
-      period: "G11 - Present",
+      period: "2024 - Present",
       highlights: [
-        "Tutored 5 peers in Social Studies, Science, Math, English, and Computer Science",
-        "Created '90 Days to USACO Gold' online program; 5K+ views on Rednote and GitHub",
-        "Led development of AP Researcher website for AP Seminar/Research students"
+        "Created a '90 Days to USACO Gold' online program with tutorials, code examples, and algorithm guides; 5K+ views on Rednote and GitHub resource sharing.",
+        "Led development of AP Researcher website for AP Seminar/Research students",
+        "Independently developed Public Matters website for sharing public events and insights"
       ]
     },
     {
       title: "AI Club",
       role: "Founder & President",
-      period: "G11 - Present",
+      period: "2025 - Present",
       highlights: [
-        "Founded school's first AI club to teach students to apply tools (LLM's, Cursor, MCP's)",
-        "Recruited 30+ members, organized workshops; Instagram account (100+ followers) to share AI news"
+        "Founded school's first AI club to teach middle and high school students to apply tools (LLM's, ML/DL, MCP's)",
+        "Recruited 30+ members, organized workshops, mentored researches; Instagram account (100+ followers) to share AI news and student-authored content."
       ]
     },
     {
-      title: "Table Tennis Club",
-      role: "Member (G11), President (G12)",
-      period: "G11 - Present",
+      title: "ICS Carnival Point System Design",
+      role: "Committee leader",
+      period: "2025",
       highlights: [
-        "Hosted weekly practices (with 20-30 attendees) for 70+ middle school and high school students and parents"
+        "Led design of a probability-based points system for school carnival games to boost engagement and sales.",
+        "Created data-collection form and prize model using math and psychology principles; managed booth check-ins and prize exchanges for 100+ students"
       ]
     }
   ];
@@ -127,29 +133,29 @@ const CVPage = () => {
     {
       title: "Pioneer Academics",
       role: "Researcher & Advisory Board",
-      period: "G11 Summer",
-      description: "Independent research: 'Cross-Lingual Structural Priming in Chinese → English MT: Effects on Syntax and Translation Quality'; ~5000 words; working on publications"
+      period: "2025 Summer",
+      description: "Independent research paper: 'Cross-Lingual Structural Priming in Chinese → English MT: Effects on Syntax and Translation Quality'; ~5000 words; working on publications. Pioneer Student Council, co-hosted 5+ online sessions and workshops."
     },
     {
       title: "Hangzhou Goodscity Culture & Technology Co. Ltd",
       role: "Intern",
-      period: "G11 Summer",
-      description: "Built and deployed full-stack data automation and visualization (n8n, ClickHouse, Flask, Docker); automated ETL, created 7 dashboards"
+      period: "2025 Summer",
+      description: "Built and deployed full-stack data automation and visualization (n8n, ClickHouse, Flask, Docker); automated ETL, created 7 dashboards, used OpenAI for data enrichment, and optimized query performance to improve system responsiveness"
     },
     {
       title: "Carnegie Mellon University Summer Session",
-      period: "G10 Summer",
-      description: "15-112 Fundamentals of Programming (4 credits) • 82-183 AI for Humanities (3 credits)"
+      period: "2024 Summer",
+      description: "15-112 Fundamentals of Programming (4 college credits) • 82-183 AI for humanities (3 college credits)"
     },
     {
       title: "Johns Hopkins University Pre-college Program",
-      period: "G9 Summer",
-      description: "Intro to Laboratory Research Course (1 credit)"
+      period: "2023 Summer",
+      description: "AS.020.120 Intro to Laboratory Research Course (1 college credit)"
     },
     {
       title: "Stanford ULO Fall 2025 term",
-      period: "G12 - Present",
-      description: "Linear Algebra Course"
+      period: "2025 Fall",
+      description: "XM 511 Linear Algebra Course (3 college units, final grade: A)"
     }
   ];
 
@@ -157,57 +163,110 @@ const CVPage = () => {
     {
       title: "Duke Drum",
       role: "Individual",
-      period: "G10 - Present",
+      period: "2022 - Present",
       highlights: [
-        "Composed, transcribed, and adapted 100+ drum notes",
-        "Recorded and uploaded productions; 100k+ views across TikTok, Bilibili, and YouTube",
-        "Led Jellyfish Jam Band performing 25+ pieces for 700+ attendees"
+        "Composed, transcribed, and adapted 100+ drum notes; Recorded, edited, and uploaded productions on TikTok, Bilibili, and YouTube; Projected to release 100+ videos; 100k+ views.",
+        "Led Jellyfish Jam Band performing 25+ drum pieces across school and community events for 700+ attendees.",
+        "Arranged and performed original pieces for school banquet, mall art show, and kids' charity concert.",
+        "Directed and performed in ICS Got Talent (200+ audience); created tribute video for graduating seniors."
       ]
     },
     {
       title: "Entrepreneurial Ventures",
       role: "Founder & Leader",
-      period: "G9 - Present",
+      period: "2022 - Present",
       highlights: [
-        "Founded ventures in collectibles and merchandise resale",
-        "Generated $27K+ revenue & $9K+ profit through pricing, negotiation, logistics",
-        "Built 200+ member community; 80K+ views on content"
+        "Founded ventures in collectibles and merchandise resale across Japan, Thailand, and China.",
+        "Generated $27K+ revenue & $9K+ profit through pricing, negotiation, logistics & market analysis.",
+        "Built 200+ member TikTok & WeChat community; posted content (80K+ views) to drive engagement & sales.",
+        "Led 3-member team to design and sell custom mystery sports card packs at school fair, raised $200."
       ]
     }
   ];
 
   const awards = [
-    { name: "Honor Roll", level: "School Level", year: "G9 - Present" },
-    { name: "American Mathematics Olympiad Bronze Award", level: "International Level", year: "G10" },
-    { name: "Singapore Math Global Finals Honorable Award", level: "International Level", year: "G10" },
-    { name: "11th HIPPO International English Language Olympiad Bronze", level: "International Level", year: "G10" },
-    { name: "Trinity Drum Grade 7", level: "International Level", year: "G11" },
-    { name: "AMC 12A top 5% (Thailand #4)", level: "International Level", year: "G11" },
-    { name: "American Invitational Mathematics Examination (AIME) 10 points", level: "International Level", year: "G11" },
-    { name: "MIT Global AI Hackathon Certificate of Participation", level: "International Level", year: "G11" },
-    { name: "USACO Gold Division", level: "International Level", year: "G11" },
-    { name: "International Cybersecurity Olympiad 2025 Bronze", level: "International Level", year: "G11" },
-    { name: "Vanda National Junior Science Olympiad Gold (Global #25; Thailand #2)", level: "International Level", year: "G11" },
-    { name: "John Locke Essay Competition High Commendation", level: "International Level", year: "G11" },
-    { name: "AP Scholar with Distinction (twice)", level: "International Level", year: "G10 - 11" },
-    { name: "AP International Diploma", level: "International Level", year: "G11" },
+    { name: "American Mathematics Competitions 12A top 5% (Thailand #4)", level: "International Level", year: "2025" },
+    { name: "American Invitational Mathematics Examination (AIME) 10 points", level: "International Level", year: "2025" },
+    { name: "MIT Global AI Hackathon Certificate of Participation", level: "International Level", year: "2025" },
+    { name: "USACO Gold Division", level: "International Level", year: "2025" },
+    { name: "International Cybersecurity Olympiad 2025 Bronze", level: "International Level", year: "2025" },
+    { name: "2025 Vanda National Junior Science Olympiad Gold Medal (Global #25; Thailand #2)", level: "International Level", year: "2025" },
+    { name: "John Locke Essay Competition High Commendation", level: "International Level", year: "2025" },
+    { name: "AP Scholar with Distinction (twice)", level: "International Level", year: "2024 - 2025" },
+    { name: "AP International Diploma", level: "International Level", year: "2025" },
+  ];
+
+  const computationalSkills = [
+    {
+      category: "AI tools applications",
+      skills: "MCP tools, AI Agents, ChatGPT, Gemini; Machine Learning, Deep Learning, LLM Fine-tuning; Cursor AI, Copilot, Claude Code"
+    },
+    {
+      category: "Full-stack development",
+      skills: "Frontend (React, Next), backend (Flask, FastAPI, Django, Node.js), database management (MongoDB, MySQL, Clickhouse, PostgreSQL), website deployment (nginx, Docker), API testing (Postman)"
+    },
+    {
+      category: "Programming Languages",
+      skills: "Proficient in Python, Java, C++; Intermediate in Javascript and Typescript"
+    },
+    {
+      category: "Cybersecurity Skills",
+      skills: "Proficient in Kali Linux System, Cryptography, Steganography, Web Penetration & Exploitation, Binary Exploit, Digital Forensics, Cracking"
+    },
+    {
+      category: "Computer skills",
+      skills: "Proficient in using Google Docs, Sheets, Slides, Forms, Microsoft Docs, Excel, PPT, Canva, Github, Linux systems (Ubuntu and Fedora), Pandas, n8n workflows"
+    }
   ];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-950 dark:via-teal-950 dark:to-cyan-950 overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(148_163_184/0.05)_1px,transparent_0)] [background-size:24px_24px] pointer-events-none" />
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-200/20 dark:bg-emerald-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '5s' }} />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-teal-200/20 dark:bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '7s', animationDelay: '1s' }} />
+    <div className="relative min-h-screen bg-[#0a0e1a] overflow-hidden">
+      {/* Dynamic gradient background with tech feel */}
+      <div className="absolute inset-0">
+        {/* Animated gradient mesh background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#161823] via-[#0a1628] to-[#000811]" />
+        
+        {/* Floating orbs with modern glow effects */}
+        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#3EEDE7] rounded-full mix-blend-normal filter blur-[120px] opacity-20 animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-[#053154] rounded-full mix-blend-normal filter blur-[100px] opacity-30 animate-pulse" style={{ animationDuration: '10s', animationDelay: '2s' }} />
+        <div className="absolute top-1/2 right-1/3 w-[400px] h-[400px] bg-[#3EEDE7] rounded-full mix-blend-normal filter blur-[90px] opacity-15 animate-pulse" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+        
+        {/* Futuristic geometric shapes */}
+        <div className="absolute top-20 left-10 w-32 h-32 border border-[#3EEDE7]/10 rotate-45 rounded-lg animate-spin" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-40 right-20 w-24 h-24 border-2 border-[#3EEDE7]/20 rounded-full animate-ping" style={{ animationDuration: '15s' }} />
+        <div className="absolute top-1/3 right-1/4 w-20 h-20 border border-[#053154]/30 rotate-12 animate-pulse" style={{ animationDuration: '6s' }} />
+        
+        {/* Scanning line effect for tech feel */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute h-px w-full bg-gradient-to-r from-transparent via-[#3EEDE7] to-transparent animate-scan" />
+        </div>
+        
+        {/* Particle dots for depth */}
+        <div className="absolute inset-0 opacity-30">
+          {[...Array(30)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-1 h-1 bg-[#3EEDE7] rounded-full"
+              style={{
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animation: `twinkle ${3 + Math.random() * 5}s infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Subtle noise texture overlay for depth */}
+      <div className="absolute inset-0 opacity-[0.015] mix-blend-overlay pointer-events-none">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]" />
       </div>
 
       {/* Top Navigation Bar */}
       <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
         <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-white/40 dark:border-slate-700/40 shadow-lg">
+          <Dock className="bg-[#0a0e1a]/80 backdrop-blur-2xl border border-[#3EEDE7]/30 shadow-xl shadow-[#3EEDE7]/20">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
               return (
@@ -215,8 +274,8 @@ const CVPage = () => {
                   key={item.id}
                   className={
                     item.id === 'cv'
-                    ? 'bg-emerald-500/50 hover:bg-emerald-600/60 text-white'
-                    : 'bg-gray-200/30 dark:bg-gray-900/30 hover:bg-gray-300/40 dark:hover:bg-gray-800/40 text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
+                    ? 'bg-gradient-to-br from-[#3EEDE7] to-[#2dd4ce] hover:from-[#2dd4ce] hover:to-[#3EEDE7] text-[#0a0e1a] shadow-lg shadow-[#3EEDE7]/40 font-bold'
+                    : 'bg-[#053154]/60 hover:bg-[#053154]/80 text-[#3EEDE7]/80 hover:text-[#3EEDE7] border border-[#3EEDE7]/10 hover:border-[#3EEDE7]/30'
                   }
                   onClick={() => handleNavClick(item.path)}
                 >
@@ -229,25 +288,32 @@ const CVPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="px-2 sm:px-4 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
+      <div className="relative px-2 sm:px-4 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
         <div className="w-full max-w-7xl mx-auto px-2 sm:px-4">
           {/* Header Section */}
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <div className="relative inline-block mb-6 rounded-3xl overflow-hidden">
-              <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md p-6 sm:p-8 md:p-10 border border-white/40 dark:border-slate-700/40">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3">
-                  <span className="bg-gradient-to-r from-emerald-900 via-teal-800 to-cyan-900 dark:from-emerald-200 dark:via-teal-200 dark:to-cyan-200 bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
+            <div className="relative inline-block mb-6 rounded-3xl overflow-hidden group">
+              {/* Animated border glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#3EEDE7] via-[#053154] to-[#3EEDE7] rounded-3xl blur-sm opacity-75 group-hover:opacity-100 transition duration-1000 animate-pulse" style={{ animationDuration: '3s' }} />
+              
+              <div className="relative bg-gradient-to-br from-[#0a1628]/95 to-[#000811]/95 backdrop-blur-xl p-8 sm:p-10 md:p-12 border border-[#3EEDE7]/30 rounded-3xl">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight">
+                  <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent animate-pulse" style={{ animationDuration: '4s' }}>
                     Junxi (Duke) Hu
                   </span>
                 </h1>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <Phone size={18} className="text-emerald-600 dark:text-emerald-400" />
-                    <span>+66 0642157590</span>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-sm sm:text-base md:text-lg flex-wrap">
+                  <div className="flex items-center gap-2 group/item">
+                    <div className="p-2 rounded-lg bg-[#3EEDE7]/10 border border-[#3EEDE7]/30 group-hover/item:bg-[#3EEDE7]/20 transition-all duration-300">
+                      <Phone size={18} className="text-[#3EEDE7]" />
+                    </div>
+                    <span className="text-white/80 group-hover/item:text-[#3EEDE7] transition-colors duration-200">+66 0642157590</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Mail size={18} className="text-emerald-600 dark:text-emerald-400" />
-                    <a href="mailto:hjxduke080111@gmail.com" className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                  <div className="flex items-center gap-2 group/item">
+                    <div className="p-2 rounded-lg bg-[#3EEDE7]/10 border border-[#3EEDE7]/30 group-hover/item:bg-[#3EEDE7]/20 transition-all duration-300">
+                      <Mail size={18} className="text-[#3EEDE7]" />
+                    </div>
+                    <a href="mailto:hjxduke080111@gmail.com" className="text-white/80 hover:text-[#3EEDE7] transition-colors duration-200">
                       hjxduke080111@gmail.com
                     </a>
                   </div>
@@ -257,41 +323,47 @@ const CVPage = () => {
           </div>
 
           {/* Education Background Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <GraduationCap size={32} className="text-emerald-600 dark:text-emerald-400" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-r from-slate-900 to-emerald-800 dark:from-white dark:to-emerald-200 bg-clip-text text-transparent">
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="flex items-center gap-3 mb-8 sm:mb-10 group">
+              <div className="relative p-3 rounded-xl bg-gradient-to-br from-[#3EEDE7]/20 to-[#053154]/20 border border-[#3EEDE7]/40 group-hover:border-[#3EEDE7]/60 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3EEDE7]/0 via-[#3EEDE7]/20 to-[#3EEDE7]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <GraduationCap size={28} className="relative text-[#3EEDE7]" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent">
                   Education Background
                 </span>
               </h2>
             </div>
             
-            <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-emerald-300/50 dark:border-emerald-700/50">
+            {/* International Community School Bangkok */}
+            <div className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-[#3EEDE7]/30 hover:border-[#3EEDE7]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#3EEDE7]/20 mb-6 group">
+              {/* Corner accents */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#3EEDE7]/30 rounded-tl-3xl group-hover:border-[#3EEDE7]/60 transition-all duration-300" />
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#3EEDE7]/30 rounded-br-3xl group-hover:border-[#3EEDE7]/60 transition-all duration-300" />
               <div className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-gray-200 pb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{education.school}</h3>
-                  <span className="text-base sm:text-lg text-gray-600 font-medium">{education.period}</span>
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#3EEDE7]/20 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#3EEDE7]">{education.school}</h3>
+                  <span className="text-base sm:text-lg text-white/80 font-medium">{education.period}</span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-emerald-50/50 dark:bg-emerald-900/20 rounded-xl p-4">
-                    <p className="text-sm font-semibold text-gray-700 mb-2">GPA</p>
-                    <p className="text-lg font-bold text-slate-900 dark:text-white">Unweighted: {education.gpa.unweighted}</p>
-                    <p className="text-lg font-bold text-slate-900 dark:text-white">Weighted: {education.gpa.weighted}</p>
+                  <div className="bg-[#161823]/40 rounded-xl p-4 border border-[#3EEDE7]/20">
+                    <p className="text-sm font-semibold text-[#3EEDE7]/70 mb-2">GPA</p>
+                    <p className="text-lg font-bold text-white">Unweighted: {education.gpa.unweighted}</p>
+                    <p className="text-lg font-bold text-white">Weighted: {education.gpa.weighted}</p>
                   </div>
-                  <div className="bg-green-50/50 rounded-xl p-4">
-                    <p className="text-sm font-semibold text-gray-700 mb-2">Standardized Tests</p>
-                    <p className="text-base font-medium text-slate-900 dark:text-white">SAT: {education.standardizedTests.sat}</p>
-                    <p className="text-base font-medium text-slate-900 dark:text-white">Duolingo: {education.standardizedTests.duolingo}</p>
+                  <div className="bg-[#161823]/40 rounded-xl p-4 border border-[#3EEDE7]/20">
+                    <p className="text-sm font-semibold text-[#3EEDE7]/70 mb-2">Standardized Tests</p>
+                    <p className="text-base font-medium text-white">SAT: {education.standardizedTests.sat}</p>
                   </div>
                 </div>
 
                 <div>
-                  <p className="text-lg font-semibold text-slate-900 dark:text-white mb-3">AP Courses</p>
+                  <p className="text-lg font-semibold text-white mb-3">AP Courses</p>
                   <div className="flex flex-wrap gap-2">
                     {education.apCourses.map((course, index) => (
-                      <div key={index} className="inline-flex items-center gap-2 px-3 py-2 bg-purple-100 text-purple-800 rounded-full text-sm font-medium">
+                      <div key={index} className="inline-flex items-center gap-2 px-3 py-2 bg-[#3EEDE7]/10 border border-[#3EEDE7]/30 text-[#3EEDE7] rounded-full text-sm font-medium hover:bg-[#3EEDE7]/20 transition-all duration-200">
                         <span>{course.name}</span>
                         <span className="font-bold">({course.score})</span>
                         {course.note && <span className="text-xs opacity-75">• {course.note}</span>}
@@ -301,10 +373,10 @@ const CVPage = () => {
                 </div>
 
                 <div>
-                  <p className="text-lg font-semibold text-slate-900 dark:text-white mb-3">Current AP Courses</p>
+                  <p className="text-lg font-semibold text-white mb-3">Current AP Courses</p>
                   <div className="flex flex-wrap gap-2">
                     {education.currentAP.map((course, index) => (
-                      <span key={index} className="px-3 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
+                      <span key={index} className="px-3 py-2 bg-[#053154]/50 border border-[#3EEDE7]/30 text-white rounded-full text-sm font-medium hover:bg-[#053154]/70 transition-all duration-200">
                         {course}
                       </span>
                     ))}
@@ -312,14 +384,38 @@ const CVPage = () => {
                 </div>
               </div>
             </div>
+
+            {/* Northwestern University */}
+            <div className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-[#3EEDE7]/30 hover:border-[#3EEDE7]/50 transition-all duration-300 hover:shadow-2xl hover:shadow-[#3EEDE7]/20 group">
+              {/* Corner accents */}
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#3EEDE7]/30 rounded-tl-3xl group-hover:border-[#3EEDE7]/60 transition-all duration-300" />
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#3EEDE7]/30 rounded-br-3xl group-hover:border-[#3EEDE7]/60 transition-all duration-300" />
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#3EEDE7]/20 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#3EEDE7]">{futureEducation.school}</h3>
+                  <span className="text-base sm:text-lg text-white/80 font-medium">{futureEducation.period}</span>
+                </div>
+                <div className="space-y-2">
+                  <p className="text-base text-white">
+                    <span className="font-semibold text-[#3EEDE7]/70">Degree:</span> {futureEducation.degree}
+                  </p>
+                  <p className="text-base text-white">
+                    <span className="font-semibold text-[#3EEDE7]/70">Certificate:</span> {futureEducation.certificate}
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Community & Leadership Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <Users size={32} className="text-teal-600 dark:text-teal-400" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-r from-slate-900 to-teal-800 dark:from-white dark:to-teal-200 bg-clip-text text-transparent">
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="flex items-center gap-3 mb-8 sm:mb-10 group">
+              <div className="relative p-3 rounded-xl bg-gradient-to-br from-[#3EEDE7]/20 to-[#053154]/20 border border-[#3EEDE7]/40 group-hover:border-[#3EEDE7]/60 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3EEDE7]/0 via-[#3EEDE7]/20 to-[#3EEDE7]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <Users size={28} className="relative text-[#3EEDE7]" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent">
                   Community & Leadership
                 </span>
               </h2>
@@ -327,18 +423,18 @@ const CVPage = () => {
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {leadership.map((item, index) => (
-                <div key={index} className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border-2 border-teal-300/50 dark:border-teal-700/50 hover:shadow-xl transition-all duration-300">
+                <div key={index} className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-2xl p-6 border border-[#3EEDE7]/30 hover:border-[#3EEDE7]/50 hover:shadow-xl hover:shadow-[#3EEDE7]/20 transition-all duration-300">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
-                      <p className="text-base text-emerald-600 dark:text-emerald-400 font-medium mb-1">{item.role}</p>
-                      <p className="text-sm text-gray-600">{item.period}</p>
+                      <h3 className="text-xl font-bold text-[#3EEDE7] mb-1">{item.title}</h3>
+                      <p className="text-base text-white/80 font-medium mb-1">{item.role}</p>
+                      <p className="text-sm text-white/60">{item.period}</p>
                     </div>
                     
                     <ul className="space-y-2">
                       {item.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className="flex items-start gap-2 text-sm text-gray-700">
-                          <Target size={16} className="text-green-600 mt-0.5 flex-shrink-0" />
+                        <li key={hIndex} className="flex items-start gap-2 text-sm text-white/90">
+                          <Target size={16} className="text-[#3EEDE7] mt-0.5 flex-shrink-0" />
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -350,53 +446,63 @@ const CVPage = () => {
           </div>
 
           {/* Academics & Internship Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <BookOpen size={32} className="text-purple-600" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                Academics & Internship
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="flex items-center gap-3 mb-8 sm:mb-10 group">
+              <div className="relative p-3 rounded-xl bg-gradient-to-br from-[#3EEDE7]/20 to-[#053154]/20 border border-[#3EEDE7]/40 group-hover:border-[#3EEDE7]/60 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3EEDE7]/0 via-[#3EEDE7]/20 to-[#3EEDE7]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <BookOpen size={28} className="relative text-[#3EEDE7]" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent">
+                  Academics & Internship
+                </span>
               </h2>
             </div>
             
             <div className="space-y-4">
               {academics.map((item, index) => (
-                <div key={index} className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-xl p-6 border-2 border-emerald-300/50 dark:border-emerald-700/50 hover:shadow-lg transition-all duration-300">
+                <div key={index} className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-xl p-6 border border-[#3EEDE7]/30 hover:border-[#3EEDE7]/50 hover:shadow-lg hover:shadow-[#3EEDE7]/20 transition-all duration-300">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
                     <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">{item.title}</h3>
-                      {item.role && <p className="text-base text-purple-600 font-medium">{item.role}</p>}
+                      <h3 className="text-lg sm:text-xl font-bold text-[#3EEDE7]">{item.title}</h3>
+                      {item.role && <p className="text-base text-white/80 font-medium">{item.role}</p>}
                     </div>
-                    <span className="text-sm text-gray-600 font-medium">{item.period}</span>
+                    <span className="text-sm text-white/60 font-medium">{item.period}</span>
                   </div>
-                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{item.description}</p>
+                  <p className="text-sm sm:text-base text-white/90 leading-relaxed">{item.description}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Interests Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <Heart size={32} className="text-pink-600" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-                Interests
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="flex items-center gap-3 mb-8 sm:mb-10 group">
+              <div className="relative p-3 rounded-xl bg-gradient-to-br from-[#3EEDE7]/20 to-[#053154]/20 border border-[#3EEDE7]/40 group-hover:border-[#3EEDE7]/60 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3EEDE7]/0 via-[#3EEDE7]/20 to-[#3EEDE7]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <Heart size={28} className="relative text-[#3EEDE7]" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent">
+                  Interests
+                </span>
               </h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {interests.map((item, index) => (
-                <div key={index} className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 border-2 border-cyan-300/50 dark:border-cyan-700/50 hover:shadow-xl transition-all duration-300">
+                <div key={index} className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-2xl p-6 border border-[#3EEDE7]/30 hover:border-[#3EEDE7]/50 hover:shadow-xl hover:shadow-[#3EEDE7]/20 transition-all duration-300">
                   <div className="space-y-4">
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{item.title}</h3>
-                      <p className="text-base text-pink-600 font-medium mb-1">{item.role}</p>
-                      <p className="text-sm text-gray-600">{item.period}</p>
+                      <h3 className="text-xl font-bold text-[#3EEDE7] mb-1">{item.title}</h3>
+                      <p className="text-base text-white/80 font-medium mb-1">{item.role}</p>
+                      <p className="text-sm text-white/60">{item.period}</p>
                     </div>
                     
                     <ul className="space-y-2">
                       {item.highlights.map((highlight, hIndex) => (
-                        <li key={hIndex} className="flex items-start gap-2 text-sm text-gray-700">
-                          <Target size={16} className="text-pink-600 mt-0.5 flex-shrink-0" />
+                        <li key={hIndex} className="flex items-start gap-2 text-sm text-white/90">
+                          <Target size={16} className="text-[#3EEDE7] mt-0.5 flex-shrink-0" />
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -408,26 +514,29 @@ const CVPage = () => {
           </div>
 
           {/* Awards & Honors Section */}
-          <div className="mb-8 sm:mb-12 md:mb-16">
-            <div className="flex items-center gap-3 mb-6 sm:mb-8">
-              <Trophy size={32} className="text-amber-600 dark:text-amber-400" />
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-                <span className="bg-gradient-to-r from-slate-900 to-amber-800 dark:from-white dark:to-amber-200 bg-clip-text text-transparent">
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="flex items-center gap-3 mb-8 sm:mb-10 group">
+              <div className="relative p-3 rounded-xl bg-gradient-to-br from-[#3EEDE7]/20 to-[#053154]/20 border border-[#3EEDE7]/40 group-hover:border-[#3EEDE7]/60 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3EEDE7]/0 via-[#3EEDE7]/20 to-[#3EEDE7]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <Trophy size={28} className="relative text-[#3EEDE7]" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent">
                   Awards & Honors
                 </span>
               </h2>
             </div>
             
-            <div className="relative bg-white/70 dark:bg-slate-800/70 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-amber-300/50 dark:border-amber-700/50">
+            <div className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-[#3EEDE7]/30">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {awards.map((award, index) => (
-                  <div key={index} className="bg-gradient-to-br from-yellow-50/80 to-orange-50/80 rounded-xl p-4 border border-yellow-200/50 hover:shadow-md transition-shadow duration-300">
+                  <div key={index} className="bg-[#161823]/40 rounded-xl p-4 border border-[#3EEDE7]/30 hover:border-[#3EEDE7]/50 hover:shadow-md hover:shadow-[#3EEDE7]/10 transition-all duration-300">
                     <div className="flex items-start gap-3">
-                      <Award size={20} className="text-yellow-600 mt-1 flex-shrink-0" />
+                      <Award size={20} className="text-[#3EEDE7] mt-1 flex-shrink-0" />
                       <div className="flex-1">
-                        <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-1 leading-tight">{award.name}</h3>
-                        <p className="text-xs text-gray-600 mb-1">{award.level}</p>
-                        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">{award.year}</p>
+                        <h3 className="text-sm font-bold text-white mb-1 leading-tight">{award.name}</h3>
+                        <p className="text-xs text-white/60 mb-1">{award.level}</p>
+                        <p className="text-xs text-[#3EEDE7]/80 font-medium">{award.year}</p>
                       </div>
                     </div>
                   </div>
@@ -436,8 +545,34 @@ const CVPage = () => {
             </div>
           </div>
 
+          {/* Computational Skills Section */}
+          <div className="mb-12 sm:mb-16 md:mb-20">
+            <div className="flex items-center gap-3 mb-8 sm:mb-10 group">
+              <div className="relative p-3 rounded-xl bg-gradient-to-br from-[#3EEDE7]/20 to-[#053154]/20 border border-[#3EEDE7]/40 group-hover:border-[#3EEDE7]/60 transition-all duration-300 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3EEDE7]/0 via-[#3EEDE7]/20 to-[#3EEDE7]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+                <Code size={28} className="relative text-[#3EEDE7]" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+                <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-white bg-clip-text text-transparent">
+                  Computational Skills
+                </span>
+              </h2>
+            </div>
+            
+            <div className="relative bg-gradient-to-br from-[#0a1628]/80 to-[#000811]/80 backdrop-blur-xl rounded-2xl p-6 sm:p-8 border border-[#3EEDE7]/30">
+              <div className="space-y-6">
+                {computationalSkills.map((skill, index) => (
+                  <div key={index} className="bg-[#161823]/40 rounded-xl p-5 border border-[#3EEDE7]/20 hover:border-[#3EEDE7]/40 transition-all duration-300">
+                    <h3 className="text-lg font-bold text-[#3EEDE7] mb-3">{skill.category}</h3>
+                    <p className="text-base text-white/90 leading-relaxed">{skill.skills}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Footer */}
-          <div className="mt-16 sm:mt-20 md:mt-24 border-t border-gray-200/50">
+          <div className="mt-16 sm:mt-20 md:mt-24 border-t border-[#3EEDE7]/20">
             <div className="pt-8 sm:pt-12 pb-8">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
                 {/* Left side - Social Links */}
@@ -446,7 +581,7 @@ const CVPage = () => {
                     href="https://github.com/Dukehjx" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#161823]/50 hover:bg-[#161823]/70 text-[#3EEDE7] border border-[#3EEDE7]/30 rounded-lg transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -463,7 +598,7 @@ const CVPage = () => {
                     href="https://www.linkedin.com/in/junxi-hu" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#0077B5] hover:bg-[#006399] text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-4 py-2 bg-[#161823]/50 hover:bg-[#161823]/70 text-[#3EEDE7] border border-[#3EEDE7]/30 rounded-lg transition-all duration-200 group"
                   >
                     <svg 
                       className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" 
@@ -481,7 +616,7 @@ const CVPage = () => {
                 <div className="flex items-center gap-3">
                   <a 
                     href="mailto:hjxduke080111@gmail.com" 
-                    className="inline-flex items-center gap-3 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 px-6 py-3 bg-[#3EEDE7] hover:bg-[#3EEDE7]/80 text-[#161823] rounded-lg transition-all duration-200 group shadow-lg shadow-[#3EEDE7]/20 hover:shadow-xl hover:shadow-[#3EEDE7]/30"
                   >
                     <Mail className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />
                     <span className="font-medium">Get in Touch</span>
@@ -490,8 +625,8 @@ const CVPage = () => {
               </div>
 
               {/* Copyright */}
-              <div className="mt-8 pt-6 border-t border-gray-200/30 text-center">
-                <p className="text-sm text-gray-500">
+              <div className="mt-8 pt-6 border-t border-[#3EEDE7]/10 text-center">
+                <p className="text-sm text-white/60">
                   © 2025 Duke Hu. Built with React & Tailwind CSS.
                 </p>
               </div>
