@@ -45,15 +45,6 @@ const BentoCard = ({
       <p className="max-w-lg text-sm sm:text-base text-[#D7D7D7]/70 leading-relaxed">{description}</p>
     </div>
 
-    <div
-      className={cn(
-        "pointer-events-none absolute bottom-0 flex w-full translate-y-10 transform-gpu flex-row items-center p-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
-      )}
-    >
-      <button className="pointer-events-auto bg-gradient-to-r from-[#D00252] to-[#174DE3] text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:from-[#e00262] hover:to-[#275de8] shadow-lg shadow-[#D00252]/30 transition-all">
-        {cta}
-      </button>
-    </div>
     <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300 group-hover:bg-black/[.03] group-hover:dark:bg-neutral-800/10" />
   </div>
 );

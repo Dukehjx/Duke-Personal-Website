@@ -658,11 +658,6 @@ const ComputerPage = () => {
                       </p>
                     </div>
 
-                    <div className="mt-4">
-                      <button className="pointer-events-auto bg-neutral-800 dark:bg-neutral-100 text-white dark:text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-medium hover:bg-neutral-700 dark:hover:bg-neutral-200 transition-colors">
-                        View Achievement
-                      </button>
-                    </div>
                   </div>
 
                   {/* Right side - Photo Marquee */}
