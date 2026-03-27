@@ -67,7 +67,10 @@ const CVPage = () => {
     school: "Northwestern University",
     period: "2026 - 2030",
     degree: "B.S. Computer Science",
-    certificate: "Kellogg Certificate in Managerial Analytics (Expected)"
+    certificate: [
+      "Kellogg Certificate in Managerial Analytics (Expected)", 
+      "Medill Certificate in Integrated Marketing Communications (Expected)"
+    ]
   };
 
   const leadership = [
@@ -399,9 +402,16 @@ const CVPage = () => {
                   <p className="text-base text-white">
                     <span className="font-semibold text-[#3EEDE7]/70">Degree:</span> {futureEducation.degree}
                   </p>
-                  <p className="text-base text-white">
-                    <span className="font-semibold text-[#3EEDE7]/70">Certificate:</span> {futureEducation.certificate}
-                  </p>
+                  <div className="text-base text-white">
+                    <span className="font-semibold text-[#3EEDE7]/70">Certificate:</span>
+                    <div className="mt-1 space-y-1.5 pl-0">
+                      {futureEducation.certificate.map((cert, index) => (
+                        <p key={index} className="text-base text-white leading-snug">
+                          {cert}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
