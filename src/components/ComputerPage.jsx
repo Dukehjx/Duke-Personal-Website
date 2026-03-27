@@ -344,7 +344,7 @@ const ComputerPage = () => {
                         loading="lazy"
                       />
                       <img 
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Qwen_logo.svg/300px-Qwen_logo.svg.png?20250327025131" 
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Qwen_logo.svg/330px-Qwen_logo.svg.png?_=20250327025131" 
                         alt="Qwen"
                         className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded"
                         loading="lazy"
@@ -543,7 +543,7 @@ const ComputerPage = () => {
                     <div className="absolute top-2 right-2 sm:top-3 sm:right-3 md:top-4 md:right-4 flex flex-wrap gap-1 opacity-70 max-w-[120px] sm:max-w-[140px] md:max-w-[160px]">
                       {/* Kali Linux */}
                       <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/768px-Kali-dragon-icon.svg.png?20211125065834" alt="Kali" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" loading="lazy" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Kali-dragon-icon.svg/1280px-Kali-dragon-icon.svg.png?_=20211125065834" alt="Kali" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" loading="lazy" />
                       </div>
                       {/* Metasploit */}
                       <div>
@@ -555,7 +555,7 @@ const ComputerPage = () => {
                       </div>
                       {/* Burp Suite */}
                       <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/BurpSuite_Comunity_Edition.svg/825px-BurpSuite_Comunity_Edition.svg.png" alt="Burp Suite" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" loading="lazy" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/BurpSuite_Comunity_Edition.svg/640px-BurpSuite_Comunity_Edition.svg.png" alt="Burp Suite" className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8" loading="lazy" />
                       </div>
                     </div>
                   </div>
@@ -573,10 +573,6 @@ const ComputerPage = () => {
                   <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#174DE3]/20 to-[#174DE3]/10" />
                     <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
-                      {/* GnuPG */}
-                      <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/GnuPG-Logo.svg/105px-GnuPG-Logo.svg.png?20070325143120" alt="GnuPG" className="w-8 h-8" loading="lazy" />
-                      </div>
                       {/* Autopsy */}
                       <div>
                         <img src="https://avatars.githubusercontent.com/u/856501?v=4" alt="Autopsy" className="w-8 h-8" loading="lazy" />
@@ -608,17 +604,9 @@ const ComputerPage = () => {
                   <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#D00252]/20 to-[#D00252]/10" />
                     <div className="absolute top-4 right-4 flex flex-wrap gap-1 opacity-70">
-                      {/* OWASP ZAP */}
-                      <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/OWASP_ZAP_logo.svg/877px-OWASP_ZAP_logo.svg.png?20250207171655" alt="ZAP" className="w-8 h-8" loading="lazy" />
-                      </div>
                       {/* sqlmap */}
                       <div>
                         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Sqlmap_logo.png?20180709082002" alt="sqlmap" className="w-8 h-8" loading="lazy" />
-                      </div>
-                      {/* Ghidra */}
-                      <div>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ghidra_logo.svg/768px-Ghidra_logo.svg.png?20220727174502" alt="Ghidra" className="w-8 h-8" loading="lazy" />
                       </div>
                       {/* John the Ripper */}
                       <div>
