@@ -1,14 +1,10 @@
 import React, { useMemo } from "react";
-import { useNavigate } from "react-router-dom";
-import { Dock, DockIcon } from "./magicui/dock";
 import { BentoGrid, BentoCard } from "./magicui/bento-grid";
 import Marquee from "./magicui/marquee";
 import { IconCloud } from "./magicui/icon-cloud";
+import Navbar from "./Navbar";
 import { 
-  Home, 
   Computer, 
-  Music, 
-  FileText, 
   Cpu,
   Database,
   Bot,
@@ -24,8 +20,6 @@ import {
 } from "lucide-react";
 
 const ComputerPage = () => {
-  const navigate = useNavigate();
-
   const neuralLines = useMemo(() => 
     Array.from({ length: 4 }, () => ({
       x1: `${Math.random() * 100}%`,
@@ -56,19 +50,6 @@ const ComputerPage = () => {
     }));
   }, []);
   
-  const navigationItems = [
-    { icon: Home, label: "Home", id: "home", path: "/" },
-    { icon: Computer, label: "Computer & I", id: "computer", path: "/computer" },
-    { icon: Music, label: "Music & I", id: "music", path: "/music" },
-    // { icon: Heart, label: "Hobbies & I", id: "hobbies", path: "/hobbies" },
-    { icon: FileText, label: "CV", id: "cv", path: "/cv" },
-    // { icon: User, label: "My Life", id: "life", path: "/life" },
-  ];
-
-  const handleNavClick = (path) => {
-    navigate(path);
-  };
-
   const techStackRow1 = [
     { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
     { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
@@ -189,29 +170,7 @@ const ComputerPage = () => {
       {/* Noise texture overlay — static, no animation needed */}
       <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none" style={{ contain: 'strict', backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')" }} />
       
-      {/* Top Navigation Bar */}
-      <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2">
-        <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-[#1a1a1a]/90 backdrop-blur-2xl border border-[#D00252]/30 shadow-2xl shadow-[#D00252]/20">
-            {navigationItems.map((item) => {
-              const IconComponent = item.icon;
-              return (
-                <DockIcon
-                  key={item.id}
-                  className={
-                    item.id === 'computer'
-                    ? 'bg-gradient-to-br from-[#D00252] to-[#174DE3] hover:from-[#e00262] hover:to-[#275de8] text-white shadow-lg shadow-[#D00252]/40 font-bold'
-                    : 'bg-[#1a1a1a]/80 hover:bg-[#2a2a2a]/90 text-[#D7D7D7] hover:text-white border border-[#D7D7D7]/20 hover:border-[#D7D7D7]/40'
-                  }
-                  onClick={() => handleNavClick(item.path)}
-                >
-                  <IconComponent size={16} className="sm:w-5 sm:h-5" />
-                </DockIcon>
-              );
-            })}
-          </Dock>
-        </div>
-      </div>
+      <Navbar />
 
       {/* Main Content */}
       <div className="relative px-2 sm:px-4 pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">

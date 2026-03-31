@@ -229,3 +229,37 @@ html.dark { color-scheme: dark; }
     display: none;
   }
 }
+
+/* === Homepage Design System === */
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-display {
+  font-family: 'Instrument Serif', serif;
+}
+
+.accent-gradient {
+  background: linear-gradient(90deg, #89AACC 0%, #4E85BF 100%);
+}
+
+@keyframes scroll-down {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 6s ease infinite;
+  background-size: 200% 100%;
+}

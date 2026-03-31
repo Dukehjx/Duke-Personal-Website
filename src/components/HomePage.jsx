@@ -1,302 +1,775 @@
-import React from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Dock, DockIcon } from "./magicui/dock";
-import { 
-  Home, 
-  Computer, 
-  Music, 
-  Heart, 
-  FileText, 
-  User,
-  Sparkles,
-  Code,
-  Brain,
-  Keyboard
-} from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Hls from "hls.js";
+import LoadingScreen from "./LoadingScreen";
+import Navbar from "./Navbar";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const HLS_SRC =
+  "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
+
+const ROLES = ["Developer", "AI Enthusiast", "Security Researcher", "Musician"];
+
+const PROJECTS = [
+  {
+    title: "NeuroAegis",
+    subtitle: "AI Healthcare",
+    image: "/projects/neuroaegis.png",
+    href: "https://www.neuroaegis.com/",
+    tag: "AI / Health",
+  },
+  {
+    title: "ShanghaiWalk",
+    subtitle: "Cultural Heritage",
+    image: "/projects/shanghaiwalk.png",
+    href: "https://shanghaiwalk.vercel.app/",
+    tag: "Culture",
+  },
+  {
+    title: "SoiMenu",
+    subtitle: "Digital Menu",
+    image: "/projects/soimenu.png",
+    href: "https://online-ordering-website.vercel.app/",
+    tag: "E-commerce",
+  },
+  {
+    title: "Public Matters",
+    subtitle: "Governance",
+    image: "/projects/public-matters.png",
+    href: "https://public-matters.vercel.app/",
+    tag: "Civic Tech",
+  },
+  {
+    title: "AP Researcher",
+    subtitle: "Academic Platform",
+    image: "/projects/ap-researcher.png",
+    href: "https://ap-researcher.vercel.app/",
+    tag: "Education",
+  },
+];
+
+const GALLERY_COL1 = [
+  { image: "/ICO-2025/ICO2025-1.jpg", title: "ICO 2025 — Award Ceremony" },
+  { image: "/Banquet%202025/Banquet%201.jpeg", title: "Annual Banquet 2025" },
+  { image: "/Med%20Art%20Show/Med%20Art%201.jpg", title: "Med Art Show" },
+];
+
+const GALLERY_COL2 = [
+  { image: "/ICS%20Got%20Talent/Got%20Talent%201.jpg", title: "ICS Got Talent" },
+  { image: "/K-village%20Kids%20Show/Kids%20Show%201.jpg", title: "K-Village Kids Show" },
+  { image: "/ICO-2025/ICO2025-3.jpg", title: "ICO 2025 — Competition" },
+];
+
+const STATS = [
+  { value: "5+", label: "Projects Shipped" },
+  { value: "15+", label: "Technologies" },
+  { value: "ICO '25", label: "Bronze Medalist" },
+];
+
+const SOCIALS = [
+  { name: "GitHub", href: "https://github.com/Dukehjx" },
+  { name: "X", href: "https://x.com/DukeHu0111" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/junxi-hu" },
+  { name: "Facebook", href: "https://www.facebook.com/duke.hu.2025/" },
+];
+
+const TRAVEL_ENTRIES = [
+  { title: "First Adventure", desc: "The journey of a thousand miles begins with a single step.", date: "Coming Soon" },
+  { title: "City Explorations", desc: "Discovering urban landscapes and hidden gems around the world.", date: "Coming Soon" },
+  { title: "Cultural Encounters", desc: "Meeting new perspectives, traditions, and cuisines.", date: "Coming Soon" },
+  { title: "Nature & Beyond", desc: "Exploring the great outdoors and finding peace in nature.", date: "Coming Soon" },
+];
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-100px" },
+  transition: { duration: 1, ease: [0.25, 0.1, 0.25, 1] },
+};
+
+function initHls(videoEl) {
+  if (!videoEl) return null;
+  if (Hls.isSupported()) {
+    const hls = new Hls({ enableWorker: false });
+    hls.loadSource(HLS_SRC);
+    hls.attachMedia(videoEl);
+    return hls;
+  }
+  if (videoEl.canPlayType("application/vnd.apple.mpegurl")) {
+    videoEl.src = HLS_SRC;
+  }
+  return null;
+}
+
+const GradientRing = ({ className = "" }) => (
+  <span
+    className={`absolute inset-[-2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${className}`}
+    style={{ background: "linear-gradient(90deg, #89AACC, #4E85BF)" }}
+  />
+);
+
+const ProjectCard = ({ project, index }) => (
+  <motion.a
+    href={project.href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="relative overflow-hidden rounded-2xl border group cursor-pointer block"
+    style={{
+      borderColor: "#1f1f1f",
+      backgroundColor: "#141414",
+      aspectRatio: "16/10",
+    }}
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-80px" }}
+    transition={{
+      duration: 0.7,
+      delay: index * 0.07,
+      ease: [0.25, 0.1, 0.25, 1],
+    }}
+  >
+    <img
+      src={project.image}
+      alt={project.title}
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+      loading="lazy"
+    />
+    {/* always-visible bottom label */}
+    <div
+      className="absolute bottom-0 left-0 right-0 px-4 py-3 flex items-center justify-between"
+      style={{
+        background: "linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 100%)",
+      }}
+    >
+      <div>
+        <p className="text-sm font-medium leading-tight" style={{ color: "#f5f5f5" }}>
+          {project.title}
+        </p>
+        <p className="text-xs" style={{ color: "#878787" }}>
+          {project.subtitle}
+        </p>
+      </div>
+      <span
+        className="text-[10px] px-2 py-0.5 rounded-full border"
+        style={{ borderColor: "rgba(137,170,204,0.3)", color: "#89AACC" }}
+      >
+        {project.tag}
+      </span>
+    </div>
+    {/* hover overlay */}
+    <div className="absolute inset-0 bg-[#0a0a0a]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="relative">
+        <span
+          className="absolute inset-[-2px] rounded-full"
+          style={{ background: "linear-gradient(90deg, #89AACC, #4E85BF)" }}
+        />
+        <span className="relative block px-5 py-2.5 rounded-full bg-white text-[#0a0a0a] text-sm font-medium">
+          View — <span className="font-display italic">{project.title}</span>
+        </span>
+      </div>
+    </div>
+  </motion.a>
+);
 
 const HomePage = () => {
+  const [isLoading, setIsLoading] = useState(
+    () => !sessionStorage.getItem("hasVisited")
+  );
+  const [scrollY, setScrollY] = useState(0);
+  const [roleIndex, setRoleIndex] = useState(0);
   const navigate = useNavigate();
-  
-  const navigationItems = [
-    { icon: Home, label: "Home", id: "home", path: "/" },
-    { icon: Computer, label: "Computer & I", id: "computer", path: "/computer" },
-    { icon: Music, label: "Music & I", id: "music", path: "/music" },
-    // { icon: Heart, label: "Hobbies & I", id: "hobbies", path: "/hobbies" },
-    { icon: FileText, label: "CV", id: "cv", path: "/cv" },
-    // { icon: User, label: "My Life", id: "life", path: "/life" },
-  ];
 
-  const highlights = [
-    {
-      icon: Code,
-      title: "Full Stack Developer",
-      description: "Building modern web applications with React, Next.js, and cutting-edge technologies",
-      color: "from-[#174DE3] to-[#3EEDE7]"
-    },
-    {
-      icon: Brain,
-      title: "AI Enthusiast",
-      description: "Exploring machine learning, LLMs, and intelligent automation systems",
-      color: "from-[#D00252] to-[#174DE3]"
-    },
-    {
-      icon: Keyboard,
-      title: "Cybersecurity",
-      description: "International Cybersecurity Olympiad 2025 Bronze Medalist",
-      color: "from-[#3EEDE7] to-[#174DE3]"
-    },
-    {
-      icon: Music,
-      title: "Musician",
-      description: "Performing at various shows and sharing music across platforms",
-      color: "from-[#174DE3] to-[#D00252]"
-    }
-  ];
+  const heroRef = useRef(null);
+  const heroVideoRef = useRef(null);
+  const footerVideoRef = useRef(null);
+  const marqueeRef = useRef(null);
+  const galleryRef = useRef(null);
 
-  const handleNavClick = (path) => {
-    navigate(path);
-  };
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setRoleIndex((i) => (i + 1) % ROLES.length),
+      2000
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  useEffect(() => {
+    if (isLoading) return;
+    const h1 = initHls(heroVideoRef.current);
+    const h2 = initHls(footerVideoRef.current);
+    return () => {
+      h1?.destroy();
+      h2?.destroy();
+    };
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.fromTo(
+        ".name-reveal",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 1.2, delay: 0.1 }
+      );
+      tl.fromTo(
+        ".blur-in",
+        { opacity: 0, filter: "blur(10px)", y: 20 },
+        { opacity: 1, filter: "blur(0px)", y: 0, duration: 1, stagger: 0.1 },
+        0.3
+      );
+
+      if (marqueeRef.current) {
+        gsap.to(marqueeRef.current, {
+          xPercent: -50,
+          duration: 40,
+          ease: "none",
+          repeat: -1,
+        });
+      }
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, [isLoading]);
+
+  const { scrollYProgress: galleryProgress } = useScroll({
+    target: galleryRef,
+    offset: ["start end", "end start"],
+  });
+  const col1Y = useTransform(galleryProgress, [0, 1], [100, -150]);
+  const col2Y = useTransform(galleryProgress, [0, 1], [-100, 150]);
+
+  const scrollTo = useCallback((href) => {
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#030712]">
-      {/* Advanced Animated SVG Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Radial gradient glow for depth */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[100vw] bg-[#174DE3]/10 rounded-full blur-[120px] mix-blend-screen" />
-        <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#D00252]/10 rounded-full blur-[100px] mix-blend-screen animate-pulse" style={{ animationDuration: '8s' }} />
-        
-        <svg className="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="grid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3EEDE7" stopOpacity="0.1" />
-              <stop offset="50%" stopColor="#174DE3" stopOpacity="0.2" />
-              <stop offset="100%" stopColor="#D00252" stopOpacity="0.1" />
-            </linearGradient>
+    <>
+      {isLoading && (
+        <LoadingScreen onComplete={() => {
+          sessionStorage.setItem("hasVisited", "1");
+          setIsLoading(false);
+        }} />
+      )}
 
-            <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="transparent" />
-              <stop offset="50%" stopColor="#3EEDE7" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
-            
-            <linearGradient id="line-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="transparent" />
-              <stop offset="50%" stopColor="#D00252" />
-              <stop offset="100%" stopColor="transparent" />
-            </linearGradient>
+      <div className="font-body" style={{ backgroundColor: "#0a0a0a", color: "#f5f5f5" }}>
+        <Navbar />
 
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-            
-            <pattern id="hex-pattern" width="60" height="103.923" patternUnits="userSpaceOnUse" patternTransform="scale(0.8)">
-               <path d="M30 0L60 17.32v34.64L30 69.28L0 51.96V17.32z" fill="none" stroke="url(#grid-grad)" strokeWidth="0.5"/>
-               <path d="M30 103.923L60 86.602" fill="none" stroke="url(#grid-grad)" strokeWidth="0.5"/>
-               <path d="M30 103.923L0 86.602" fill="none" stroke="url(#grid-grad)" strokeWidth="0.5"/>
-            </pattern>
-          </defs>
-
-          {/* Hexagonal Background Pattern */}
-          <rect width="100%" height="100%" fill="url(#hex-pattern)" />
-
-          {/* Animated Data Paths */}
-          <g filter="url(#glow)">
-            <path 
-              d="M -100,200 C 300,300 400,100 800,400 S 1200,300 1600,500" 
-              fill="none" 
-              stroke="url(#line-grad)" 
-              strokeWidth="2" 
-              className="animate-[dash_8s_linear_infinite]"
-              strokeDasharray="200 800"
+        {/* ═══════════════ HERO ═══════════════ */}
+        <section
+          id="hero"
+          ref={heroRef}
+          className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        >
+          <div className="absolute inset-0 overflow-hidden">
+            <video
+              ref={heroVideoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
             />
-            <path 
-              d="M -100,600 C 400,500 500,800 900,600 S 1300,800 1800,500" 
-              fill="none" 
-              stroke="url(#line-grad-2)" 
-              strokeWidth="1.5" 
-              className="animate-[dash_12s_linear_infinite_reverse]"
-              strokeDasharray="150 900"
+            <div className="absolute inset-0 bg-black/20" />
+            <div
+              className="absolute bottom-0 left-0 right-0 h-48"
+              style={{ background: "linear-gradient(to top, #0a0a0a, transparent)" }}
             />
-            <path 
-              d="M 200,-100 C 300,300 100,500 400,900 S 600,1200 800,1600" 
-              fill="none" 
-              stroke="url(#line-grad)" 
-              strokeWidth="2" 
-              className="animate-[dash_10s_linear_infinite]"
-              strokeDasharray="300 1000"
-            />
-          </g>
-
-          {/* Floating abstract tech shapes */}
-          <g className="animate-[spin_40s_linear_infinite]" style={{ transformOrigin: '50% 50%' }}>
-            <circle cx="50%" cy="50%" r="20%" fill="none" stroke="#174DE3" strokeWidth="0.5" strokeDasharray="4 8" opacity="0.5" />
-            <circle cx="50%" cy="50%" r="28%" fill="none" stroke="#3EEDE7" strokeWidth="1" strokeDasharray="2 12" opacity="0.3" className="animate-[spin_30s_linear_infinite_reverse]" style={{ transformOrigin: '50% 50%' }} />
-            <path d="M 50% 10% L 65% 30% L 65% 70% L 50% 90% L 35% 70% L 35% 30% Z" fill="none" stroke="#D00252" strokeWidth="0.5" opacity="0.2" className="animate-[pulse_4s_ease-in-out_infinite]" />
-          </g>
-        </svg>
-
-        {/* Subtle gradient overlay to fade edges */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,#030712_80%)]" />
-      </div>
-
-      {/* Top Navigation Bar */}
-      <div className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2 animate-in slide-in-from-top duration-500">
-        <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-center">
-          <Dock className="bg-[#030712]/80 backdrop-blur-2xl border border-[#3EEDE7]/20 shadow-2xl shadow-[#174DE3]/20 ring-1 ring-white/5">
-            {navigationItems.map((item) => {
-              const IconComponent = item.icon;
-              return (
-                <DockIcon
-                  key={item.id}
-                  className={
-                    item.id === 'home'
-                      ? 'bg-gradient-to-br from-[#174DE3] to-[#3EEDE7] text-white shadow-lg shadow-[#174DE3]/40'
-                      : 'bg-[#0d1117]/60 hover:bg-[#174DE3]/20 text-[#D7D7D7]/70 hover:text-[#3EEDE7] border border-[#3EEDE7]/10 hover:border-[#3EEDE7]/40'
-                  }
-                  onClick={() => handleNavClick(item.path)}
-                >
-                  <IconComponent size={16} className="sm:w-5 sm:h-5" />
-                </DockIcon>
-              );
-            })}
-          </Dock>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="relative flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 md:px-8 pt-20 sm:pt-24 pb-12">
-        {/* Hero Section */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 w-full max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom duration-700">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#030712]/80 backdrop-blur-md rounded-full border border-[#3EEDE7]/30 mb-6 animate-in fade-in slide-in-from-top duration-700 delay-200 shadow-[0_0_20px_rgba(62,237,231,0.15)]">
-            <Sparkles className="w-4 h-4 text-[#3EEDE7] animate-pulse" />
-            <span className="text-sm font-semibold tracking-widest uppercase text-[#3EEDE7]/80">Welcome to my digital space</span>
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white via-[#3EEDE7] to-[#174DE3] bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom duration-700 delay-300 inline-block drop-shadow-sm">
+
+          <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <p
+              className="blur-in text-xs uppercase tracking-[0.3em] mb-8"
+              style={{ color: "#878787" }}
+            >
+              Portfolio &rsquo;26
+            </p>
+
+            <h1
+              className="name-reveal text-6xl md:text-8xl lg:text-9xl font-display italic leading-[0.9] tracking-tight mb-6"
+            >
               Duke Hu
-            </span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-[#D7D7D7]/80 max-w-3xl mx-auto px-2 leading-relaxed mb-8 animate-in fade-in slide-in-from-bottom duration-700 delay-500 font-medium">
-            Developer • AI Enthusiast • Cybersecurity Practitioner • Musician
-          </p>
+            </h1>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom duration-700 delay-700">
-            <button
-              onClick={() => navigate('/computer')}
-              className="group px-6 py-3 bg-gradient-to-r from-[#D00252] to-[#174DE3] hover:from-[#e00262] hover:to-[#275de8] text-white rounded-xl font-medium shadow-lg shadow-[#D00252]/30 hover:shadow-xl hover:shadow-[#D00252]/50 transition-all duration-300 hover:-translate-y-1"
-            >
-              <span className="flex items-center gap-2">
-                Explore My Work
-                <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform duration-200" />
-              </span>
-            </button>
-            <button
-              onClick={() => navigate('/cv')}
-              className="px-6 py-3 bg-[#1a1a1a]/80 hover:bg-[#2a2a2a] text-[#D7D7D7] hover:text-white rounded-xl font-medium border-2 border-[#D7D7D7]/20 hover:border-[#3EEDE7]/50 backdrop-blur-sm shadow-md hover:shadow-[0_0_20px_rgba(62,237,231,0.2)] transition-all duration-300 hover:-translate-y-1"
-            >
-              View Resume
-            </button>
-          </div>
-        </div>
+            <p className="blur-in text-lg md:text-xl mb-4" style={{ color: "#878787" }}>
+              A{" "}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={roleIndex}
+                  className="inline-block font-display italic"
+                  style={{ color: "#f5f5f5" }}
+                  initial={{ y: 8, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -8, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                >
+                  {ROLES[roleIndex]}
+                </motion.span>
+              </AnimatePresence>{" "}
+              based in Shanghai.
+            </p>
 
-        {/* Highlights Grid */}
-        <div className="w-full max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {highlights.map((item, index) => {
-            const IconComponent = item.icon;
-            return (
-              <div
-                key={index}
-                className="group relative bg-[#030712]/70 backdrop-blur-xl rounded-2xl p-6 border border-[#3EEDE7]/10 hover:border-[#3EEDE7]/40 shadow-lg hover:shadow-[0_0_30px_rgba(62,237,231,0.15)] transition-all duration-500 hover:-translate-y-2 cursor-pointer animate-in fade-in slide-in-from-bottom duration-700"
-                style={{ animationDelay: `${800 + index * 100}ms` }}
+            <p
+              className="blur-in text-sm md:text-base max-w-md mx-auto mb-12"
+              style={{ color: "#878787" }}
+            >
+              Building digital experiences at the intersection of development,
+              artificial intelligence, and cybersecurity.
+            </p>
+
+            <div className="blur-in inline-flex flex-wrap justify-center gap-4">
+              <button
+                onClick={() => scrollTo("#works")}
+                className="group relative rounded-full hover:scale-105 transition-transform duration-300"
               >
-                {/* Subtle corner glow */}
-                <div className="absolute top-0 right-0 w-24 h-24 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-tr-2xl" style={{ background: 'radial-gradient(circle at top right, rgba(62,237,231,0.1), transparent 70%)' }} />
-                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${item.color} mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md`}>
-                  <IconComponent className="w-6 h-6 text-white" />
+                <GradientRing />
+                <span
+                  className="relative block rounded-full text-sm px-7 py-3.5 transition-colors duration-300 bg-[#f5f5f5] text-[#0a0a0a] group-hover:bg-[#0a0a0a] group-hover:text-[#f5f5f5]"
+                >
+                  See Works
+                </span>
+              </button>
+
+              <a
+                href="mailto:hjxduke080111@gmail.com"
+                className="group relative rounded-full hover:scale-105 transition-transform duration-300 inline-flex"
+              >
+                <GradientRing />
+                <span className="relative block rounded-full text-sm px-7 py-3.5 bg-[#0a0a0a] text-[#f5f5f5] border-2 border-[#1f1f1f] group-hover:border-transparent transition-colors duration-300">
+                  Reach out...
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div
+            className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 transition-opacity duration-500 ${
+              scrollY > 100 ? "opacity-0" : "opacity-100"
+            }`}
+          >
+            <span
+              className="text-xs uppercase tracking-[0.2em]"
+              style={{ color: "#878787" }}
+            >
+              Scroll
+            </span>
+            <div
+              className="relative w-px h-10 overflow-hidden"
+              style={{ backgroundColor: "#1f1f1f" }}
+            >
+              <div
+                className="absolute inset-x-0 w-full h-3 animate-scroll-down"
+                style={{
+                  background:
+                    "linear-gradient(to bottom, transparent, #89AACC, transparent)",
+                }}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════ SELECTED WORKS ═══════════════ */}
+        <section id="works" className="py-12 md:py-16" style={{ backgroundColor: "#0a0a0a" }}>
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div
+              {...fadeInUp}
+              className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-px" style={{ backgroundColor: "#1f1f1f" }} />
+                  <span
+                    className="text-xs uppercase tracking-[0.3em]"
+                    style={{ color: "#878787" }}
+                  >
+                    Selected Work
+                  </span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[#D7D7D7]/60 leading-relaxed">
-                  {item.description}
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
+                  Featured{" "}
+                  <span className="font-display italic">projects</span>
+                </h2>
+                <p
+                  className="mt-3 text-sm md:text-base max-w-md"
+                  style={{ color: "#878787" }}
+                >
+                  A selection of projects I&rsquo;ve built, from concept to launch.
                 </p>
               </div>
-            );
-          })}
-        </div>
+
+              <button
+                onClick={() => navigate("/computer")}
+                className="group relative hidden md:inline-flex items-center gap-2 rounded-full text-sm shrink-0 hover:scale-105 transition-transform duration-300"
+              >
+                <GradientRing />
+                <span
+                  className="relative flex items-center gap-2 rounded-full px-5 py-2.5 border transition-colors duration-300"
+                  style={{
+                    borderColor: "#1f1f1f",
+                    backgroundColor: "#0a0a0a",
+                    color: "#f5f5f5",
+                  }}
+                >
+                  View all work{" "}
+                  <span className="group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </span>
+              </button>
+            </motion.div>
+
+            {/* Row 1: 3 equal cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-3">
+              {PROJECTS.slice(0, 3).map((project, i) => (
+                <ProjectCard key={project.title} project={project} index={i} />
+              ))}
+            </div>
+            {/* Row 2: 2 wider cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {PROJECTS.slice(3).map((project, i) => (
+                <ProjectCard key={project.title} project={project} index={i + 3} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════ TRAVEL JOURNAL (Placeholder) ═══════════════ */}
+        <section
+          id="travel"
+          className="py-16 md:py-24"
+          style={{ backgroundColor: "#0a0a0a" }}
+        >
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div
+              {...fadeInUp}
+              className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-8 h-px" style={{ backgroundColor: "#1f1f1f" }} />
+                  <span
+                    className="text-xs uppercase tracking-[0.3em]"
+                    style={{ color: "#878787" }}
+                  >
+                    Travel Journal
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
+                  World{" "}
+                  <span className="font-display italic">wanderings</span>
+                </h2>
+                <p
+                  className="mt-3 text-sm md:text-base max-w-md"
+                  style={{ color: "#878787" }}
+                >
+                  Adventures and stories from around the globe. Stay tuned.
+                </p>
+              </div>
+
+              <span
+                className="hidden md:inline-flex items-center gap-2 rounded-full text-sm px-5 py-2.5 border"
+                style={{ borderColor: "#1f1f1f", color: "#878787" }}
+              >
+                Coming Soon
+              </span>
+            </motion.div>
+
+            <div className="space-y-4">
+              {TRAVEL_ENTRIES.map((entry, i) => (
+                <motion.div
+                  key={entry.title}
+                  className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-4 rounded-[20px] sm:rounded-full border transition-colors duration-300"
+                  style={{
+                    borderColor: "#1f1f1f",
+                    backgroundColor: "rgba(20,20,20,0.3)",
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.6,
+                    delay: i * 0.08,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
+                >
+                  <div
+                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full shrink-0"
+                    style={{
+                      background: `linear-gradient(135deg, ${
+                        ["#89AACC", "#4E85BF", "#89AACC", "#4E85BF"][i]
+                      }22, ${
+                        ["#4E85BF", "#89AACC", "#4E85BF", "#89AACC"][i]
+                      }22)`,
+                      border: "1px solid rgba(137,170,204,0.15)",
+                    }}
+                  />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm sm:text-base font-medium truncate">
+                      {entry.title}
+                    </h3>
+                    <p
+                      className="text-xs sm:text-sm truncate"
+                      style={{ color: "#878787" }}
+                    >
+                      {entry.desc}
+                    </p>
+                  </div>
+                  <span
+                    className="text-xs shrink-0 px-3 py-1 rounded-full border"
+                    style={{ borderColor: "#1f1f1f", color: "#878787" }}
+                  >
+                    {entry.date}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════ MOMENTS — Parallax Gallery ═══════════════ */}
+        <section
+          id="moments"
+          ref={galleryRef}
+          className="py-16 md:py-24 overflow-hidden"
+          style={{ backgroundColor: "#0a0a0a" }}
+        >
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <motion.div {...fadeInUp} className="text-center mb-12 md:mb-16">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-8 h-px" style={{ backgroundColor: "#1f1f1f" }} />
+                <span
+                  className="text-xs uppercase tracking-[0.3em]"
+                  style={{ color: "#878787" }}
+                >
+                  Moments
+                </span>
+                <div className="w-8 h-px" style={{ backgroundColor: "#1f1f1f" }} />
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight mb-3">
+                Visual{" "}
+                <span className="font-display italic">memories</span>
+              </h2>
+              <p
+                className="text-sm md:text-base max-w-md mx-auto"
+                style={{ color: "#878787" }}
+              >
+                Highlights from events, competitions, and performances.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 max-w-[900px] mx-auto">
+              <motion.div className="flex flex-col gap-6" style={{ y: col1Y }}>
+                {GALLERY_COL1.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    className="group relative aspect-square max-w-[400px] w-full mx-auto overflow-hidden rounded-2xl border"
+                    style={{ borderColor: "#1f1f1f", backgroundColor: "#141414" }}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <span className="text-sm font-medium">{item.title}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                className="flex flex-col gap-6 md:mt-20"
+                style={{ y: col2Y }}
+              >
+                {GALLERY_COL2.map((item) => (
+                  <motion.div
+                    key={item.title}
+                    className="group relative aspect-square max-w-[400px] w-full mx-auto overflow-hidden rounded-2xl border"
+                    style={{ borderColor: "#1f1f1f", backgroundColor: "#141414" }}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <span className="text-sm font-medium">{item.title}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════ STATS ═══════════════ */}
+        <section className="py-16 md:py-24" style={{ backgroundColor: "#0a0a0a" }}>
+          <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              {STATS.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  className="text-center py-8 md:py-12 border-t"
+                  style={{ borderColor: "#1f1f1f" }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{
+                    duration: 0.8,
+                    delay: i * 0.15,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
+                >
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-display italic mb-3">
+                    {stat.value}
+                  </div>
+                  <div
+                    className="text-sm uppercase tracking-[0.2em]"
+                    style={{ color: "#878787" }}
+                  >
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══════════════ CONTACT / FOOTER ═══════════════ */}
+        <footer
+          id="contact"
+          className="relative pt-16 md:pt-20 pb-8 md:pb-12 overflow-hidden"
+          style={{ backgroundColor: "#0a0a0a" }}
+        >
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div style={{ transform: "scaleY(-1)" }} className="absolute inset-0">
+              <video
+                ref={footerVideoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
+              />
+            </div>
+            <div className="absolute inset-0 bg-black/60" />
+          </div>
+
+          <div className="relative z-10">
+            {/* Marquee */}
+            <div className="overflow-hidden mb-12 md:mb-16">
+              <div
+                ref={marqueeRef}
+                className="flex whitespace-nowrap"
+              >
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className="text-5xl md:text-7xl lg:text-[9rem] font-display italic uppercase tracking-tight mx-4 shrink-0 select-none"
+                    style={{ color: "rgba(245,245,245,0.05)" }}
+                  >
+                    Building the Future • Duke Hu •{" "}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="text-center mb-12 md:mb-16">
+              <motion.div {...fadeInUp}>
+                <a
+                  href="mailto:hjxduke080111@gmail.com"
+                  className="group relative inline-flex rounded-full hover:scale-105 transition-transform duration-300"
+                >
+                  <span
+                    className="absolute inset-[-2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: "linear-gradient(90deg, #89AACC, #4E85BF)",
+                    }}
+                  />
+                  <span
+                    className="relative flex items-center gap-3 rounded-full px-8 py-4 text-base md:text-lg border transition-colors duration-300"
+                    style={{
+                      borderColor: "#1f1f1f",
+                      backgroundColor: "#0a0a0a",
+                      color: "#f5f5f5",
+                    }}
+                  >
+                    hjxduke080111@gmail.com
+                    <span className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                      ↗
+                    </span>
+                  </span>
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Footer bar */}
+            <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
+              <div
+                className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t"
+                style={{ borderColor: "#1f1f1f" }}
+              >
+                <div className="flex items-center gap-6">
+                  {SOCIALS.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm transition-colors duration-200 hover:text-[#f5f5f5]"
+                      style={{ color: "#878787" }}
+                    >
+                      {social.name}
+                    </a>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                  </span>
+                  <span className="text-sm" style={{ color: "#878787" }}>
+                    Available for projects
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+                <p className="text-xs" style={{ color: "rgba(135,135,135,0.5)" }}>
+                  © 2025 Duke Hu. Built with React, GSAP & Framer Motion.
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-
-      <style>{`
-        @keyframes slideInScale {
-          from {
-            opacity: 0;
-            transform: translateY(-20px) scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-
-        .animate-in {
-          animation-fill-mode: both;
-        }
-
-        .fade-in {
-          animation-name: fadeIn;
-        }
-
-        .slide-in-from-top {
-          animation-name: slideInFromTop;
-        }
-
-        .slide-in-from-bottom {
-          animation-name: slideInFromBottom;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes slideInFromTop {
-          from {
-            opacity: 0;
-            transform: translateY(-20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes slideInFromBottom {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        .duration-200 { animation-duration: 200ms; }
-        .duration-300 { animation-duration: 300ms; }
-        .duration-500 { animation-duration: 500ms; }
-        .duration-700 { animation-duration: 700ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-        .delay-500 { animation-delay: 500ms; }
-        .delay-700 { animation-delay: 700ms; }
-      `}</style>
-    </div>
+    </>
   );
 };
 
