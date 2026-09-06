@@ -14,38 +14,11 @@ import {
 } from "lucide-react";
 
 const CVPage = () => {
-  const education = {
-    school: "International Community School Bangkok",
-    period: "2022 - Present",
-    gpa: { unweighted: "3.92", weighted: "4.34" },
-    apCourses: [
-      { name: "Microeconomics", score: "5", note: "Self-study" },
-      { name: "Macroeconomics", score: "5", note: "Self-study" },
-      { name: "Pre-Calculus", score: "5", note: "Self-study" },
-      { name: "Mandarin", score: "5", note: "Self-study" },
-      { name: "Computer Science Principles", score: "4" },
-      { name: "World History", score: "4" },
-      { name: "Statistics", score: "4" },
-      { name: "Calculus BC", score: "5" },
-      { name: "Physics 1", score: "5" },
-      { name: "Computer Science A", score: "5" },
-      { name: "English Lang", score: "5" },
-      { name: "Environmental Science", score: "5" },
-      { name: "Comparative Government", score: "4" },
-    ],
-    currentAP: ["Chemistry", "Biology", "Physics 2", "English Lit", "Music Theory", "Psychology"],
-    standardizedTests: {
-      sat: "1550 (RW: 760, Math: 790)",
-      duolingo: "N/A"
-    }
-  };
-
   const futureEducation = {
     school: "Northwestern University",
     period: "2026 - 2030",
-    degree: "B.S. Computer Science",
+    degree: "B.S. Computer Science (Expected)",
     certificate: [
-      "Kellogg Certificate in Managerial Analytics (Expected)", 
       "Medill Certificate in Integrated Marketing Communications (Expected)"
     ]
   };
@@ -59,15 +32,6 @@ const CVPage = () => {
         "Developed full-stack NeuroAegis website using Whisper AI & GPT-5 for dementia detection and rehabilitation.",
         "Led 4-member team; Integrated 7+ cognitive games, quiz assessments, and research hub; Implemented 13 language support, real-time feedback, and accessibility features.",
         "Raised ~$5K; reached 3K+ users; partnered with local nursing and elderly centers; open-sourced on GitHub."
-      ]
-    },
-    {
-      title: "Capstone Project",
-      role: "Project Founder",
-      period: "2025 - Present",
-      highlights: [
-        "Surveyed local restaurants and customers to identify language and cultural barriers in menu ordering.",
-        "Developed multilingual menu platform (SoiMenu) supporting 5 languages (TH/EN/ZH/KR/JP) with optimized UI for accessibility and clarity."
       ]
     },
     {
@@ -87,24 +51,6 @@ const CVPage = () => {
         "Created a '90 Days to USACO Gold' online program with tutorials, code examples, and algorithm guides; 5K+ views on Rednote and GitHub resource sharing.",
         "Led development of AP Researcher website for AP Seminar/Research students",
         "Independently developed Public Matters website for sharing public events and insights"
-      ]
-    },
-    {
-      title: "AI Club",
-      role: "Founder & President",
-      period: "2025 - Present",
-      highlights: [
-        "Founded school's first AI club to teach middle and high school students to apply tools (LLM's, ML/DL, MCP's)",
-        "Recruited 30+ members, organized workshops, mentored researches; Instagram account (100+ followers) to share AI news and student-authored content."
-      ]
-    },
-    {
-      title: "ICS Carnival Point System Design",
-      role: "Committee leader",
-      period: "2025",
-      highlights: [
-        "Led design of a probability-based points system for school carnival games to boost engagement and sales.",
-        "Created data-collection form and prize model using math and psychology principles; managed booth check-ins and prize exchanges for 100+ students"
       ]
     }
   ];
@@ -126,11 +72,6 @@ const CVPage = () => {
       title: "Carnegie Mellon University Summer Session",
       period: "2024 Summer",
       description: "15-112 Fundamentals of Programming (4 college credits) • 82-183 AI for humanities (3 college credits)"
-    },
-    {
-      title: "Johns Hopkins University Pre-college Program",
-      period: "2023 Summer",
-      description: "AS.020.120 Intro to Laboratory Research Course (1 college credit)"
     },
     {
       title: "Stanford ULO Fall 2025 term",
@@ -167,12 +108,10 @@ const CVPage = () => {
   const awards = [
     { name: "American Mathematics Competitions 12A top 5% (Thailand #4)", level: "International Level", year: "2025" },
     { name: "American Invitational Mathematics Examination (AIME) 10 points", level: "International Level", year: "2025" },
-    { name: "MIT Global AI Hackathon Certificate of Participation", level: "International Level", year: "2025" },
     { name: "USACO Gold Division", level: "International Level", year: "2025" },
     { name: "International Cybersecurity Olympiad 2025 Bronze", level: "International Level", year: "2025" },
     { name: "2025 Vanda National Junior Science Olympiad Gold Medal (Global #25; Thailand #2)", level: "International Level", year: "2025" },
     { name: "John Locke Essay Competition High Commendation", level: "International Level", year: "2025" },
-    { name: "AP Scholar with Distinction (twice)", level: "International Level", year: "2024 - 2025" },
     { name: "AP International Diploma", level: "International Level", year: "2025" },
   ];
 
@@ -224,7 +163,7 @@ const CVPage = () => {
                     <div className="p-2 rounded-lg border" style={{ backgroundColor: "rgba(137,170,204,0.1)", borderColor: "rgba(137,170,204,0.2)" }}>
                       <Phone size={18} style={{ color: "#89AACC" }} />
                     </div>
-                    <span style={{ color: "rgba(245,245,245,0.8)" }}>+66 0642157590</span>
+                    <span style={{ color: "rgba(245,245,245,0.8)" }}>+86 15900709598</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="p-2 rounded-lg border" style={{ backgroundColor: "rgba(137,170,204,0.1)", borderColor: "rgba(137,170,204,0.2)" }}>
@@ -248,54 +187,6 @@ const CVPage = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-display italic">
                 Education Background
               </h2>
-            </div>
-            
-            {/* International Community School Bangkok */}
-            <div className="relative backdrop-blur-xl rounded-3xl p-6 sm:p-8 border transition-all duration-300 hover:shadow-2xl mb-6 group" style={{ backgroundColor: "rgba(20,20,20,0.8)", borderColor: "rgba(137,170,204,0.2)" }}>
-              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 rounded-tl-3xl transition-all duration-300" style={{ borderColor: "rgba(137,170,204,0.2)" }} />
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 rounded-br-3xl transition-all duration-300" style={{ borderColor: "rgba(137,170,204,0.2)" }} />
-              <div className="space-y-6">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-[#89AACC]/20 pb-4">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#89AACC]">{education.school}</h3>
-                  <span className="text-base sm:text-lg text-white/80 font-medium">{education.period}</span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-[#1a1a1a]/40 rounded-xl p-4 border border-[#89AACC]/20">
-                    <p className="text-sm font-semibold text-[#89AACC]/70 mb-2">GPA</p>
-                    <p className="text-lg font-bold text-white">Unweighted: {education.gpa.unweighted}</p>
-                    <p className="text-lg font-bold text-white">Weighted: {education.gpa.weighted}</p>
-                  </div>
-                  <div className="bg-[#1a1a1a]/40 rounded-xl p-4 border border-[#89AACC]/20">
-                    <p className="text-sm font-semibold text-[#89AACC]/70 mb-2">Standardized Tests</p>
-                    <p className="text-base font-medium text-white">SAT: {education.standardizedTests.sat}</p>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-lg font-semibold text-white mb-3">AP Courses</p>
-                  <div className="flex flex-wrap gap-2">
-                    {education.apCourses.map((course, index) => (
-                      <div key={index} className="inline-flex items-center gap-2 px-3 py-2 bg-[#89AACC]/10 border border-[#89AACC]/30 text-[#89AACC] rounded-full text-sm font-medium hover:bg-[#89AACC]/20 transition-all duration-200">
-                        <span>{course.name}</span>
-                        <span className="font-bold">({course.score})</span>
-                        {course.note && <span className="text-xs opacity-75">• {course.note}</span>}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-lg font-semibold text-white mb-3">Current AP Courses</p>
-                  <div className="flex flex-wrap gap-2">
-                    {education.currentAP.map((course, index) => (
-                      <span key={index} className="px-3 py-2 bg-[#1f1f1f]/50 border border-[#89AACC]/30 text-white rounded-full text-sm font-medium hover:bg-[#1f1f1f]/70 transition-all duration-200">
-                        {course}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* Northwestern University */}
