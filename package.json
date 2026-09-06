@@ -8,7 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "vite preview",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "eslint src --max-warnings 0",
+    "test": "playwright test",
+    "test:ui": "npm run build && playwright test",
+    "format": "prettier --write src tests *.js index.html"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -22,10 +25,19 @@
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.0.0-beta.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.12.0",
+    "lighthouse": "^12.8.2",
+    "prettier": "^3.9.6",
     "tailwindcss": "^4.0.0-beta.2",
     "vite": "^6.0.1"
   }

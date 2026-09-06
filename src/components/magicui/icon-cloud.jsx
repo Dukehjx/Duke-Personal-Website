@@ -10,7 +10,7 @@ function easeOutCubic(t) {
 export function IconCloud({ icons, images }) {
   const canvasRef = useRef(null);
   const [iconPositions, setIconPositions] = useState([]);
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const [rotation] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

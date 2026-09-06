@@ -79,8 +79,9 @@ export const DockIcon = ({
     damping: 12,
   });
 
+  const fixedWidth = useMotionValue(size);
   if (disableMagnification) {
-    width = useMotionValue(size);
+    width = fixedWidth;
   }
 
   return (

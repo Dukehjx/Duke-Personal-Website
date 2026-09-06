@@ -1,31 +1,23 @@
 <!doctype html>
 <html lang="en">
-<!-- index.html -->
   <head>
     <meta charset="UTF-8" />
-    <!-- ADD THIS: -->
-    <script>
-      (function(){
-        try {
-          var t = localStorage.getItem('theme');
-          if (t !== 'light' && t !== 'dark') {
-            t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-          }
-          document.documentElement.classList.toggle('dark', t === 'dark');
-          document.documentElement.style.colorScheme = (t === 'dark') ? 'dark' : 'light';
-        } catch (e) {}
-      })();
-    </script>
-    <!-- rest of head -->
     <link rel="icon" type="image/svg+xml" href="/duke_d_logo_preview.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>Duke's Personal Website</title>
+    <meta name="theme-color" content="#101215" />
+    <meta
+      name="description"
+      content="Duke Hu's portfolio: software development, artificial intelligence, cybersecurity research, and music. Explore selected projects and curriculum vitae."
+    />
+    <title>Duke Hu — Developer, Researcher & Musician</title>
   </head>
   <body>
     <div id="root"></div>
+    <noscript
+      >This portfolio requires JavaScript. Contact Duke at
+      <a href="mailto:hjxduke080111@gmail.com">hjxduke080111@gmail.com</a> or
+      visit <a href="https://github.com/Dukehjx">GitHub</a>.</noscript
+    >
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
