@@ -96,5 +96,6 @@ temp/
 
 # Claude AI and agent files
 AGENTS.md
+Duke_Cursor_Agent_System_Implementation_Spec.md
 .claude/
 
